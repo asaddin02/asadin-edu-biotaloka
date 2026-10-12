@@ -87,10 +87,10 @@ function renderGame() {
         .filter(r => r.picked !== r.answer)
         .map(
           r =>
-            `<li><a href="#/species/${esc(r.answer.id)}">${esc(pick(r.answer.name))}</a> <em>${esc(r.answer.sci)}</em></li>`
+            `<li><a href="/species/${esc(r.answer.id)}">${esc(pick(r.answer.name))}</a> <em>${esc(r.answer.sci)}</em></li>`
         )
         .join('')}</ul>
-      <div class="actions"><button type="button" class="btn" data-game-new>${s.again}</button><a class="btn secondary" href="#/quiz">${s.back}</a></div></div>`;
+      <div class="actions"><button type="button" class="btn" data-game-new>${s.again}</button><a class="btn secondary" href="/quiz">${s.back}</a></div></div>`;
     return;
   }
   const round = game.rounds[game.index];
@@ -107,7 +107,7 @@ function renderGame() {
     ${
       answered
         ? `<div class="game-feedback" role="status"><p><strong>${round.picked === round.answer ? `🎉 ${s.right}` : `${s.wrong} ${esc(pick(round.answer.name))}.`}</strong></p><p><strong>${s.fact}</strong> ${rich(pick(round.answer.fun), { cls: 'inline' })}</p>
-      <div class="actions"><button type="button" class="btn" data-game-next>${game.index + 1 === game.rounds.length ? s.finish : s.next} →</button><a class="btn ghost" href="#/species/${esc(round.answer.id)}">${s.open} ↗</a></div></div>`
+      <div class="actions"><button type="button" class="btn" data-game-next>${game.index + 1 === game.rounds.length ? s.finish : s.next} →</button><a class="btn ghost" href="/species/${esc(round.answer.id)}">${s.open} ↗</a></div></div>`
         : ''
     }`;
   refresh(box);
@@ -144,12 +144,12 @@ export async function render(ctx) {
     if (!ctx.isCurrent()) return;
     main.innerHTML = `${pageHead(pick(topic.title), pick(topic.summary), `${s.title.toUpperCase()} / ${topic.icon}`)}
       ${quizMarkup(`topic-${topic.id}`, questionsForLevel(topic.quiz), { seed: TOPICS.findIndex(t => t.id === topic.id) + 7 })}
-      <p class="actions"><a class="btn secondary" href="#/learn/${topic.id}">${s.lesson}</a><a class="btn ghost" href="#/quiz">${s.back}</a></p>`;
+      <p class="actions"><a class="btn secondary" href="/learn/${topic.id}">${s.lesson}</a><a class="btn ghost" href="/quiz">${s.back}</a></p>`;
     bindQuiz(ctx.on);
     return;
   }
   if (id) {
-    main.innerHTML = notice(s.back) + `<a class="btn" href="#/quiz">${s.back}</a>`;
+    main.innerHTML = notice(s.back) + `<a class="btn" href="/quiz">${s.back}</a>`;
     return;
   }
   const progress = getProgress();
@@ -157,12 +157,12 @@ export async function render(ctx) {
   const topics = await loadTopics(TOPICS.filter(t => t.levels.includes(level)));
   if (!ctx.isCurrent()) return;
   main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTAXA / QUIZ')}
-    <div class="quiz-workspace"><a class="feature-card" href="#/quiz/foto"><span class="feature-emoji" aria-hidden="true">📸</span><span><strong>${s.photoTitle}</strong><small>${s.photoText}</small>${progress.quizzes.photo ? `<span class="done">⭐ ${s.best}: ${fmt(Math.round(progress.quizzes.photo.best * 100))}%</span>` : ''}</span><span class="btn">${s.start} →</span></a>
+    <div class="quiz-workspace"><a class="feature-card" href="/quiz/foto"><span class="feature-emoji" aria-hidden="true">📸</span><span><strong>${s.photoTitle}</strong><small>${s.photoText}</small>${progress.quizzes.photo ? `<span class="done">⭐ ${s.best}: ${fmt(Math.round(progress.quizzes.photo.best * 100))}%</span>` : ''}</span><span class="btn">${s.start} →</span></a>
     <section class="section lesson-catalog"><h2>${s.topicQuizzes}</h2>${catalogTools()}${catalogGroups(
       topics,
       t => {
         const best = progress.quizzes[`topic-${t.id}`]?.best;
-        return `<a class="topic-card" data-topic="${t.id}" href="#/quiz/${t.id}"><span class="topic-icon" aria-hidden="true">${t.icon}</span><span class="topic-text"><strong>${esc(pick(t.title))}</strong><small>${fmt(questionsForLevel(t.quiz).length)} ${s.questions}</small>${best != null ? `<span class="done">⭐ ${fmt(Math.round(best * 100))}%</span>` : ''}</span></a>`;
+        return `<a class="topic-card" data-topic="${t.id}" href="/quiz/${t.id}"><span class="topic-icon" aria-hidden="true">${t.icon}</span><span class="topic-text"><strong>${esc(pick(t.title))}</strong><small>${fmt(questionsForLevel(t.quiz).length)} ${s.questions}</small>${best != null ? `<span class="done">⭐ ${fmt(Math.round(best * 100))}%</span>` : ''}</span></a>`;
       }
     )}</section></div>`;
   bindCatalog(ctx, topics);

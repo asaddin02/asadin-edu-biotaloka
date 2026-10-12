@@ -231,7 +231,7 @@ export async function render(ctx) {
         )
           .map(
             t =>
-              `<a class="topic-card" href="#/learn/${t.id}"><span class="topic-icon" aria-hidden="true">${t.icon}</span><span class="topic-text"><strong>${esc(pick(t.title))}</strong><small>${t.levels.map(l => esc(pick(PHASES[l]).split('·')[0].trim())).join(' · ')}</small></span></a>`
+              `<a class="topic-card" href="/learn/${t.id}"><span class="topic-icon" aria-hidden="true">${t.icon}</span><span class="topic-text"><strong>${esc(pick(t.title))}</strong><small>${t.levels.map(l => esc(pick(PHASES[l]).split('·')[0].trim())).join(' · ')}</small></span></a>`
           )
           .join('')}</div></section>`
     ).join('')}</section>
@@ -302,7 +302,7 @@ export async function render(ctx) {
       s: chosen,
       q: questions,
     };
-    const url = `${location.origin}${location.pathname}#/tugas?d=${encodeData(payload)}`;
+    const url = `${location.origin}/tugas?d=${encodeData(payload)}`;
     $('#assignment-output').innerHTML =
       `<label class="field"><span>${s.link}</span><input readonly value="${esc(url)}" id="assignment-url"></label>
       <div class="actions"><button type="button" class="btn" data-copy-link>${icon('link')} ${s.copy}</button><a class="btn secondary" href="${esc(url)}" target="_blank" rel="noopener">${s.open} ↗</a></div>${url.length > 4000 ? notice(s.tooLong) : ''}`;

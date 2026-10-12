@@ -98,7 +98,7 @@ export async function openTerm(button) {
   pop.setAttribute('aria-label', title);
   pop.innerHTML = `<div class="term-pop-head"><strong>${esc(title)}</strong><button type="button" class="icon-button" data-term-close aria-label="${ui.close}">×</button></div>${
     body
-      ? `<p>${esc(body)}</p>${advanced}<a href="#/kamus?q=${encodeURIComponent(entry.id)}">${ui.seeGlossary} →</a>`
+      ? `<p>${esc(body)}</p>${advanced}<a href="/kamus?q=${encodeURIComponent(entry.id)}">${ui.seeGlossary} →</a>`
       : `<p>${ui.unknown}</p>`
   }`;
   pop.hidden = false;

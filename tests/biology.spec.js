@@ -8,7 +8,7 @@ test('the biology map links levels of organisation, fields and branches, and cou
   page,
 }) => {
   await setPrefs(page);
-  await page.goto('/#/peta');
+  await page.goto('/peta');
   await expect(page.locator('h1')).toHaveText('Peta Biologi');
   await expect(page.locator('.org-step')).toHaveCount(ORGANIZATION.length);
   await expect(page.locator('#tingkat-sel .topic-chip').first()).toBeVisible();
@@ -20,16 +20,16 @@ test('the biology map links levels of organisation, fields and branches, and cou
   await expect(page.locator('.stat-list')).toContainText(String(glossary.length));
   await expect(page.locator('#cakupan')).toContainText('bukan daftar lengkap');
   await page.locator('#tingkat-organ .topic-chip').first().click();
-  await expect(page).toHaveURL(/#\/learn\//);
+  await expect(page).toHaveURL(/\/learn\//);
 });
 
 test('the Learn hub groups lessons by field and every lesson opens', async ({ page }) => {
   test.setTimeout(120000);
   await setPrefs(page, { level: 'kuliah' });
-  await page.goto('/#/learn?all=1');
+  await page.goto('/learn?all=1');
   await expect(page.locator('.field-group')).toHaveCount(FIELDS.length);
   for (const t of TOPICS) {
-    await page.goto(`/#/learn/${t.id}`);
+    await page.goto(`/learn/${t.id}`);
     await expect(page.locator('#topic-text p').first()).toBeVisible();
     await expect(page.locator('.key-points')).toBeVisible();
     await expect(page.locator('.quiz .quiz-q').first()).toBeVisible();
@@ -41,7 +41,7 @@ test('lessons are written in four layers with key ideas, and teachers get goals,
 }) => {
   await setPrefs(page, { level: 'sd', role: 'teacher' });
   await mockAPIs(page);
-  await page.goto('/#/learn/pencernaan');
+  await page.goto('/learn/pencernaan');
   const layers = page.locator('.version-switch a');
   await expect(layers).toHaveCount(4);
   await expect(layers.first()).toContainText('Sederhana');
@@ -61,11 +61,11 @@ test('lesson lists keep their lead-in line and numbered steps instead of running
 }) => {
   await setPrefs(page, { level: 'smp' });
   await mockAPIs(page);
-  await page.goto('/#/learn/evolusi');
+  await page.goto('/learn/evolusi');
   const text = page.locator('#topic-text');
   await expect(text.locator('ol li')).toHaveCount(4);
   await expect(text.locator('ol li').first()).toHaveText('Individu dalam satu populasi bervariasi.');
-  await page.goto('/#/learn/sel');
+  await page.goto('/learn/sel');
   await expect(text.locator('p', { hasText: 'Ada dua tipe utama sel:' })).toHaveText(
     'Ada dua tipe utama sel:'
   );
@@ -92,7 +92,7 @@ test('a curated card photo is shown when the sources have no openly licensed pho
   await page.route('https://upload.wikimedia.org/**', route =>
     route.fulfill({ contentType: 'image/jpeg', body: pixel })
   );
-  await page.goto('/#/species/inat-366905');
+  await page.goto('/species/inat-366905');
   await expect(page.locator('h1')).toContainText('Toxoplasma gondii');
   const stage = page.locator('.species-visual .gallery-stage').first();
   await expect(stage.locator('img')).toHaveAttribute('src', /upload\.wikimedia\.org/);
@@ -114,11 +114,11 @@ test('the new lessons cover protists, arthropods, vertebrates, development, beha
     ['laut', 'Kehidupan laut', 'Arus Lintas Indonesia'],
     ['bioinformatika', 'Bioinformatika', 'BLAST'],
   ]) {
-    await page.goto(`/#/learn/${id}`);
+    await page.goto(`/learn/${id}`);
     await expect(page.locator('h1')).toContainText(heading);
     await expect(page.locator('#topic-text')).toContainText(phrase);
   }
-  await page.goto('/#/peta');
+  await page.goto('/peta');
   await expect(page.locator('#cabang-entomologi')).not.toContainText('Baru dasar-dasarnya');
   await expect(page.locator('#cabang-neurosains')).toContainText('Baru dasar-dasarnya');
 });
@@ -126,20 +126,20 @@ test('the new lessons cover protists, arthropods, vertebrates, development, beha
 test('search finds lessons and glossary concepts, not only organisms', async ({ page }) => {
   await setPrefs(page);
   await mockAPIs(page);
-  await page.goto('/#/search?q=mitokondria');
+  await page.goto('/search?q=mitokondria');
   const knowledge = page.locator('.knowledge-results');
   await expect(knowledge).toBeVisible();
   await expect(knowledge.locator('.knowledge-card').first()).toContainText('Mitokondria');
   await expect(knowledge.locator('.mention-line')).toContainText('Sel: unit kehidupan');
 
-  await page.goto('/#/home');
+  await page.goto('/');
   const input = page.locator('#hero-q');
   await input.fill('fotosintesis');
   const first = page.getByRole('option').first();
   await expect(first).toContainText('Materi');
   await input.press('ArrowDown');
   await input.press('Enter');
-  await expect(page).toHaveURL(/#\/learn\/fotosintesis/);
+  await expect(page).toHaveURL(/\/learn\/fotosintesis$/);
 });
 
 test('lesson and term suggestions still appear when the organism API is unreachable', async ({ page }) => {
@@ -147,14 +147,14 @@ test('lesson and term suggestions still appear when the organism API is unreacha
   await mockAPIs(page);
   // Registered last, so it wins over the mocked autocomplete.
   await page.route('**/taxa/autocomplete**', route => route.abort());
-  await page.goto('/#/home');
+  await page.goto('/');
   await page.locator('#hero-q').fill('mitokondria');
   await expect(page.getByRole('option').first()).toContainText('Istilah');
 });
 
 test('the genetic code lab translates real β-globin variants', async ({ page }) => {
   await setPrefs(page, { level: 'sma' });
-  await page.goto('/#/lab/genetic');
+  await page.goto('/lab/genetic');
   await expect(page.locator('.genetic-output')).toContainText('30 asam amino');
   await page.locator('[data-lab-select="preset"]').selectOption('sickle');
   await expect(page.locator('.genetic-output')).toContainText('7 (Glu → Val)');
@@ -169,7 +169,7 @@ test('the genetic code lab translates real β-globin variants', async ({ page })
 
 test('the enzyme lab shows an optimum and denaturation', async ({ page }) => {
   await setPrefs(page, { level: 'sma' });
-  await page.goto('/#/lab/enzyme');
+  await page.goto('/lab/enzyme');
   await expect(page.locator('.mini-chart')).toHaveCount(2);
   await page.locator('#temp').fill('90');
   await expect(page.locator('#lab-output')).toContainText('denaturasi');

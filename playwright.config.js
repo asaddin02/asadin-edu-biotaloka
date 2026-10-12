@@ -24,7 +24,8 @@ export default defineConfig({
     launchOptions: { executablePath: chrome, args: ['--no-sandbox'] },
   },
   webServer: {
-    command: 'python3 -m http.server 18765 --bind 127.0.0.1',
+    // The app server without its proxy: static files plus the shell for every page path.
+    command: 'PORT=18765 HOST=127.0.0.1 PROXY=0 node server/server.mjs',
     url: 'http://127.0.0.1:18765',
     reuseExistingServer: !process.env.CI,
   },

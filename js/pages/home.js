@@ -1,4 +1,5 @@
 import { esc, dayNumber } from '../core/dom.js';
+import { navigate } from '../core/router.js';
 import { S, pick, levelChosen, level, role } from '../core/prefs.js';
 import { ui } from '../i18n/ui.js';
 import { TOPICS, FIELDS } from '../data/topics/index.js';
@@ -108,12 +109,12 @@ export const title = () => s.title;
 
 function heroTile(item, cls) {
   const photo = { large: item.image, medium: item.image, attribution: item.credit };
-  return `<a class="hero-photo ${cls}" href="#/species/${esc(item.id)}"><img src="${esc(item.image)}" alt="${esc(pick(item.name))}" width="${item.width}" height="${item.height}"${cls === 'hero-primary' ? ' fetchpriority="high"' : ' loading="lazy"'}>
+  return `<a class="hero-photo ${cls}" href="/species/${esc(item.id)}"><img src="${esc(item.image)}" alt="${esc(pick(item.name))}" width="${item.width}" height="${item.height}"${cls === 'hero-primary' ? ' fetchpriority="high"' : ' loading="lazy"'}>
     <span class="hero-photo-caption"><strong>${esc(pick(item.name))}</strong><em>${esc(item.sci)}</em></span><span class="photo-credit">${esc(photo.attribution)}</span></a>`;
 }
 
 function featuredCard(item) {
-  return `<article class="discovery-card"><a href="#/species/${esc(item.id)}" class="discovery-link">
+  return `<article class="discovery-card"><a href="/species/${esc(item.id)}" class="discovery-link">
     <div class="media-frame"><img src="${esc(item.image)}" alt="${esc(pick(item.name))}" loading="lazy" width="${item.width}" height="${item.height}"><span class="photo-credit">${esc(item.credit)}</span></div>
     <div class="discovery-body"><h3>${esc(pick(item.name))}</h3><p class="latin">${esc(item.sci)}</p></div></a>
     <a class="image-license" href="${esc(item.source)}" target="_blank" rel="noopener noreferrer">${esc(item.license.toUpperCase())} ↗</a></article>`;
@@ -133,7 +134,7 @@ export function domainCards(labelOpen = ui.open) {
     (
       d,
       i
-    ) => `<a href="#/tree/${d.id}" class="card domain-card"><span class="eyebrow">0${i + 1} / ${s.domain.toUpperCase()}</span>
+    ) => `<a href="/tree/${d.id}" class="card domain-card"><span class="eyebrow">0${i + 1} / ${s.domain.toUpperCase()}</span>
       <div class="domain-art domain-art-${d.art}" aria-hidden="true"><i></i><i></i><i></i><span data-n="0${i + 1}"></span></div>
       <h3>${d.id}</h3><p>${s[d.id]}</p><div class="card-link">${esc(labelOpen)} ${d.id}${icon('arrow')}</div></a>`
   ).join('')}</div>`;
@@ -151,8 +152,8 @@ export async function render(ctx) {
         ${suggestField({ id: 'hero-q', placeholder: s.searchQuick, label: ui.search })}
         <button type="submit" class="btn accent">${s.searchGo}</button>
       </form>
-      <div class="search-examples"><span>${s.examples}</span><a href="#/search?q=orangutan">Orangutan</a><a href="#/search?q=Rafflesia">Rafflesia</a><a href="#/search?q=jamur">${pick(['Jamur', 'Fungi'])}</a></div>
-      <div class="hero-links"><a class="btn" href="#/search">${s.exploreBtn} ${icon('arrow')}</a><a class="text-link" href="#/tree">${ui.tree} →</a><a class="text-link" href="#/peta">${s.biomap} →</a></div>
+      <div class="search-examples"><span>${s.examples}</span><a href="/search?q=orangutan">Orangutan</a><a href="/search?q=Rafflesia">Rafflesia</a><a href="/search?q=jamur">${pick(['Jamur', 'Fungi'])}</a></div>
+      <div class="hero-links"><a class="btn" href="/search">${s.exploreBtn} ${icon('arrow')}</a><a class="text-link" href="/tree">${ui.tree} →</a><a class="text-link" href="/peta">${s.biomap} →</a></div>
       <p class="hero-footnote">${s.heroNote}</p>
     </div>
     <div class="hero-mosaic"><div class="atlas-grid" aria-hidden="true"></div>${heroTile(main1, 'hero-primary')}${heroTile(bird, 'hero-secondary')}${heroTile(moth, 'hero-tertiary')}
@@ -160,22 +161,22 @@ export async function render(ctx) {
   </section>`;
 
   const modeStrip = levelChosen
-    ? `<section class="learning-welcome"><div><span class="eyebrow">${s.ready}</span><h2>${role === 'teacher' ? ui.teacher + ' · ' : ''}${ui[`${level}Long`]}</h2><p>${ui[`${level}Hint`]}</p></div><div class="actions"><button type="button" class="btn secondary" data-open-mode>${s.change}</button><a class="btn" href="${role === 'teacher' ? '#/guru' : '#/learn'}">${s.continue} ${icon('arrow')}</a></div></section>`
+    ? `<section class="learning-welcome"><div><span class="eyebrow">${s.ready}</span><h2>${role === 'teacher' ? ui.teacher + ' · ' : ''}${ui[`${level}Long`]}</h2><p>${ui[`${level}Hint`]}</p></div><div class="actions"><button type="button" class="btn secondary" data-open-mode>${s.change}</button><a class="btn" href="${role === 'teacher' ? '/guru' : '/learn'}">${s.continue} ${icon('arrow')}</a></div></section>`
     : `<section class="mode-strip" aria-labelledby="mode-strip-title"><div><span class="eyebrow">${s.modeTop}</span><h2 id="mode-strip-title">${s.modeTitle}</h2><p>${s.modeText}</p></div>${modeOptions({ compact: true })}</section>`;
 
   const today = `<section class="today-card" id="today" aria-live="polite"><div class="status inline"><span class="spinner" aria-hidden="true"></span> ${s.todayLoading}</div></section>`;
 
   const actions = `<section class="section"><div class="section-head"><div><span class="eyebrow">${s.doTop}</span><h2>${s.doTitle}</h2></div></div>
     <div class="action-grid">
-      ${actionCard('#/learn', 'book', s.lessons, s.lessonsText.replace('{n}', TOPICS.length).replace('{fields}', FIELDS.length), 'mint')}
-      ${actionCard('#/quiz', 'quiz', s.quiz, s.quizText, 'lime')}
-      ${actionCard('#/compare', 'compare', s.compare, s.compareText, 'lilac')}
-      ${actionCard('#/nearby', 'nearby', s.nearby, s.nearbyText, 'sky')}
-      ${actionCard('#/purba', 'fossil', s.purba, s.purbaText, 'apricot')}
-      ${actionCard('#/lab', 'lab', s.lab, s.labText, 'blue')}
+      ${actionCard('/learn', 'book', s.lessons, s.lessonsText.replace('{n}', TOPICS.length).replace('{fields}', FIELDS.length), 'mint')}
+      ${actionCard('/quiz', 'quiz', s.quiz, s.quizText, 'lime')}
+      ${actionCard('/compare', 'compare', s.compare, s.compareText, 'lilac')}
+      ${actionCard('/nearby', 'nearby', s.nearby, s.nearbyText, 'sky')}
+      ${actionCard('/purba', 'fossil', s.purba, s.purbaText, 'apricot')}
+      ${actionCard('/lab', 'lab', s.lab, s.labText, 'blue')}
     </div></section>`;
 
-  const featuredSection = `<section class="section"><div class="section-head"><div><span class="eyebrow">${s.featuredTop}</span><h2>${s.featuredTitle}</h2><p>${s.featuredSub}</p></div><a class="text-link" href="#/search">${s.viewAll} →</a></div>
+  const featuredSection = `<section class="section"><div class="section-head"><div><span class="eyebrow">${s.featuredTop}</span><h2>${s.featuredTitle}</h2><p>${s.featuredSub}</p></div><a class="text-link" href="/search">${s.viewAll} →</a></div>
     <div class="discovery-grid featured-grid">${rest.map(featuredCard).join('')}</div></section>`;
 
   const domains = `<section class="section domains-section"><div class="section-head"><div><span class="eyebrow">${s.journey}</span><h2>${s.journeyTitle}</h2></div><p>${s.journeyText}</p></div>${domainCards()}</section>`;
@@ -183,19 +184,19 @@ export async function render(ctx) {
   const teacher =
     role === 'teacher' || level === 'kuliah'
       ? ''
-      : `<section class="teacher-banner"><div><span class="eyebrow">${s.teacherTop}</span><h2>${s.teacherTitle}</h2><p>${s.teacherText}</p><a class="btn dark" href="#/guru">${s.teacherBtn} →</a></div><div class="teacher-art" aria-hidden="true">${icon('teacher')}</div></section>`;
+      : `<section class="teacher-banner"><div><span class="eyebrow">${s.teacherTop}</span><h2>${s.teacherTitle}</h2><p>${s.teacherText}</p><a class="btn dark" href="/guru">${s.teacherBtn} →</a></div><div class="teacher-art" aria-hidden="true">${icon('teacher')}</div></section>`;
 
   const about = `<section class="section learning-section"><div class="section-head"><h2>${s.what}</h2><p>${s.whatText}</p></div>
-    <div class="discovery-strip"><span>${s.sourcesLine}</span><strong>GBIF</strong><strong>iNaturalist</strong><strong>Wikipedia</strong><strong>PBDB</strong><a href="#/about">${ui.about} →</a></div></section>`;
+    <div class="discovery-strip"><span>${s.sourcesLine}</span><strong>GBIF</strong><strong>iNaturalist</strong><strong>Wikipedia</strong><strong>PBDB</strong><a href="/about">${ui.about} →</a></div></section>`;
 
-  const support = `<section class="support-banner"><div><h2>${s.support}</h2><p>${s.supportText}</p></div><a class="btn secondary" href="#/dukung">${ui.donate} →</a></section>`;
+  const support = `<section class="support-banner"><div><h2>${s.support}</h2><p>${s.supportText}</p></div><a class="btn secondary" href="/dukung">${ui.donate} →</a></section>`;
   ctx.main.innerHTML =
     hero + modeStrip + actions + today + featuredSection + domains + teacher + about + support;
 
   ctx.on('submit', '#hero-search', event => {
     event.preventDefault();
     const q = String(new FormData(event.target).get('q') || '').trim();
-    location.hash = q ? `#/search?q=${encodeURIComponent(q)}` : '#/search';
+    navigate(q ? `/search?q=${encodeURIComponent(q)}` : '/search');
   });
 
   // The curated list is loaded after the page is visible.
@@ -208,6 +209,6 @@ export async function render(ctx) {
   node.innerHTML = `<div class="today-photo media-frame">${photoMarkup(photo, pick(sp.name))}</div>
     <div class="today-body" id="today-body"><span class="eyebrow">☀️ ${s.today}</span><h2>${esc(pick(sp.name))}</h2><p class="latin">${esc(sp.sci)}</p>
       <div class="today-text">${rich(pick(sp.about))}<p class="fun-fact"><strong>${s.funFact}:</strong> ${rich(pick(sp.fun), { cls: 'inline' }).replace(/^<p class="inline">|<\/p>$/g, '')}</p></div>
-      <div class="actions"><a class="btn" href="#/species/${esc(sp.id)}">${s.todayMore} →</a>${listenButton('#today-body', 'today')}</div></div>`;
+      <div class="actions"><a class="btn" href="/species/${esc(sp.id)}">${s.todayMore} →</a>${listenButton('#today-body', 'today')}</div></div>`;
   refresh(node);
 }

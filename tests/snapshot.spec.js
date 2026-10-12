@@ -32,7 +32,7 @@ test.beforeEach(async ({ page }) => setPrefs(page));
 test('recorded responses come from the snapshot instead of the API', async ({ page }) => {
   const requests = await mockAPIs(page);
   await serveSnapshot(page, [[GALLERY, recorded]]);
-  await page.goto('/#/search');
+  await page.goto('/search');
   await expect(page.locator('.discovery-card')).toHaveCount(1);
   await expect(page.locator('.discovery-card')).toContainText('Dari snapshot');
   expect(requests.filter(u => u.includes('/observations/species_counts'))).toEqual([]);
@@ -41,7 +41,7 @@ test('recorded responses come from the snapshot instead of the API', async ({ pa
 test('a snapshot file that names another URL is ignored', async ({ page }) => {
   const requests = await mockAPIs(page);
   await serveSnapshot(page, [[GALLERY, recorded, `${GALLERY}&page=2`]]);
-  await page.goto('/#/search');
+  await page.goto('/search');
   await expect(page.locator('.discovery-card')).toHaveCount(24);
   expect(requests.filter(u => u.includes('/observations/species_counts'))).toHaveLength(1);
 });
@@ -60,15 +60,15 @@ test('a busy proxy hands requests to the sources directly for a while', async ({
       return route.fulfill({ status: 429, contentType: 'application/json', body: '{"error":"busy"}' });
     }
   );
-  await page.goto('/#/search');
+  await page.goto('/search');
   await expect(page.locator('.discovery-card')).toHaveCount(24);
   expect(proxied.length).toBeGreaterThan(0);
   expect(requests.some(u => u.startsWith('https://api.inaturalist.org/v1/observations/species_counts'))).toBe(
     true
   );
-  // While the proxy rests, new pages go straight to the sources.
+  // While the proxy rests, new pages go straight to the sources (in-app navigation keeps the session).
   const before = proxied.length;
-  await page.goto('/#/species/inat-39449');
+  await page.evaluate(() => import('/js/core/router.js').then(m => m.navigate('/species/inat-39449')));
   await expect(page.locator('h1')).toHaveText('Varanus komodoensis');
   await expect(page.locator('#dossier-status')).toHaveCount(0, { timeout: 20000 });
   expect(proxied).toHaveLength(before);

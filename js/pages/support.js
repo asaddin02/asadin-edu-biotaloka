@@ -88,12 +88,12 @@ export async function render(ctx) {
       <section class="card support-donation">${brandImage('support-mark')}<h2>${s.donate}</h2><p>${s.purpose}</p>
         ${channels.length ? `<h3>${s.choose}</h3><p class="muted small">${s.channelHint}</p><div class="support-channels">${channels.map(channel => `<article class="support-channel"><h4>${channel.provider || channel.label}</h4><p>${channel.label}</p><a class="btn" data-donate href="${esc(channel.url)}" target="_blank" rel="noopener noreferrer">${s.action} ↗<span class="sr-only"> — ${channel.label}</span></a><p class="source-meta">${esc(new URL(channel.url).hostname)}</p></article>`).join('')}</div><p class="muted small">${s.external}</p>` : `<div class="notice"><strong>${s.pending}</strong><p>${s.pendingText}</p></div>`}
       </section>
-      <aside class="card support-promise"><span class="eyebrow">BIOTAXA · ASADIN EDU</span><h2>${s.free}</h2><p>${s.freeText}</p><a class="btn secondary" href="#/learn">${s.back} →</a></aside>
+      <aside class="card support-promise"><span class="eyebrow">BIOTAXA · ASADIN EDU</span><h2>${s.free}</h2><p>${s.freeText}</p><a class="btn secondary" href="/learn">${s.back} →</a></aside>
     </div>
     <section class="section"><div class="section-head"><h2>${s.other}</h2></div><div class="grid support-ways">
-      <article class="card"><h3>${s.share}</h3><p>${s.shareText}</p><a class="text-link" href="#/home">BioTaxa →</a></article>
+      <article class="card"><h3>${s.share}</h3><p>${s.shareText}</p><a class="text-link" href="/">BioTaxa →</a></article>
       <article class="card"><h3>${s.feedback}</h3><p>${s.feedbackText}</p>${config.feedbackURL ? link(config.feedbackURL, s.send, { cls: 'text-link' }) : ''}</article>
-      <article class="card"><h3>${s.classroom}</h3><p>${s.classroomText}</p><a class="text-link" href="#/learn">${s.classroomAction} →</a></article>
+      <article class="card"><h3>${s.classroom}</h3><p>${s.classroomText}</p><a class="text-link" href="/learn">${s.classroomAction} →</a></article>
     </div></section>
     <section class="section support-help"><h2>${s.help}</h2><details class="card"><summary>${s.receipt}</summary><p>${s.receiptText}</p></details></section>`;
 }

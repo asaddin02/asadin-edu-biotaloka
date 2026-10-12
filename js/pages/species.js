@@ -1,4 +1,5 @@
 import { $, $$, esc, link, plain, toast, download, copyText, seeded, shuffle } from '../core/dom.js';
+import { currentURL, navigate } from '../core/router.js';
 import { S, pick, lang, atLeast, atMost, fmt, fmtDate, byLevel } from '../core/prefs.js';
 import { isSaved, toggleSaved, trackSpecies } from '../core/userdata.js';
 import { ui, rankLabel } from '../i18n/ui.js';
@@ -461,7 +462,7 @@ function renderPage(data, complete) {
     const value =
       rank === 'domain'
         ? domain
-          ? `<a href="#/tree/${domain}">${domain}</a>`
+          ? `<a href="/tree/${domain}">${domain}</a>`
           : ui.unknown
         : node
           ? `<a href="${nodeURL(node)}">${esc(nameOf(node))}</a>${local ? `<small>${esc(local)}</small>` : ''}`
@@ -491,7 +492,7 @@ function renderPage(data, complete) {
     ? `<span class="tag status-tag tone-${status.tone}" title="${esc(status.kid)}">${status.icon} ${esc(status.name)}${atLeast('sma') ? ` · ${esc(status.code)}` : ''}</span>`
     : '';
   const main = $('#main');
-  main.innerHTML = `<div class="detail-topbar"><a href="#/search">← ${s.back}</a><span>${esc([domain, x.kingdom].filter(Boolean).join(' / '))}</span><span class="live-label"><i class="live-dot"></i>${esc(x.source || 'GBIF')}</span></div>
+  main.innerHTML = `<div class="detail-topbar"><a href="/search">← ${s.back}</a><span>${esc([domain, x.kingdom].filter(Boolean).join(' / '))}</span><span class="live-label"><i class="live-dot"></i>${esc(x.source || 'GBIF')}</span></div>
   <section class="species-hero">
     <div class="species-visual">${galleryStage(photos[0], primary || name)}${
       photos.length > 1
@@ -512,11 +513,11 @@ function renderPage(data, complete) {
       ${sp?.end ? `<p class="endemic-badge">🇮🇩 ${s.endemic}</p>` : ''}
       ${x.nameType === 'INFORMAL' ? notice(`${ui.informal}: ${esc(x.scientificName)}`) : ''}
       ${atLeast('smp') ? `<dl class="names"><div><dt>${s.indonesian}</dt><dd>${esc(names.id.join(' · ') || (lang === 'id' && sp ? pick(sp.name) : '') || s.namesMissing)}</dd></div><div><dt>${s.english}</dt><dd>${esc(names.en.join(' · ') || (sp ? sp.name[1] : '') || s.namesMissing)}</dd></div></dl>` : ''}
-      <div class="specimen-tags">${domain ? `<a class="tag" href="#/tree/${domain}">${domain}</a>` : ''}${atLeast('smp') ? `<span class="tag">${esc(x.taxonomicStatus === 'ACCEPTED' ? s.accepted : x.taxonomicStatus || ui.species)}</span>` : ''}${conservationTag}</div>
+      <div class="specimen-tags">${domain ? `<a class="tag" href="/tree/${domain}">${domain}</a>` : ''}${atLeast('smp') ? `<span class="tag">${esc(x.taxonomicStatus === 'ACCEPTED' ? s.accepted : x.taxonomicStatus || ui.species)}</span>` : ''}${conservationTag}</div>
       ${status && atMost('smp') ? `<p class="status-explain tone-${status.tone}">${status.icon} <strong>${esc(status.name)}</strong> — ${esc(status.kid)}</p>` : ''}
       <div class="actions">
         <button class="btn" type="button" data-save aria-pressed="${isSaved(x.key)}">${isSaved(x.key) ? `✓ ${ui.unsave}` : `＋ ${ui.save}`}</button>
-        ${inatId ? `<a class="btn secondary" href="#/compare?a=${Number(inatId)}">${icon('compare')} ${ui.compare}</a>` : ''}
+        ${inatId ? `<a class="btn secondary" href="/compare?a=${Number(inatId)}">${icon('compare')} ${ui.compare}</a>` : ''}
         <button class="btn secondary" type="button" data-panel-button="map">${icon('map')} ${pick(s.tabMap)}</button>
       </div>
       <p class="source-meta">${s.accessed}: ${fmtDate(data.accessed)} · ${esc(x.authorship || x.source || 'GBIF Backbone')}</p>
@@ -589,9 +590,9 @@ function renderPage(data, complete) {
 }
 
 function nodeURL(node) {
-  if (node.inat) return `#/search?taxon=${Number(node.inat)}&tname=${encodeURIComponent(nameOf(node))}`;
+  if (node.inat) return `/search?taxon=${Number(node.inat)}&tname=${encodeURIComponent(nameOf(node))}`;
   const key = Number(node.key);
-  return SPECIES_RANKS.includes(node.rank) ? `#/species/${key}` : `#/tree/${key}`;
+  return SPECIES_RANKS.includes(node.rank) ? `/species/${key}` : `/tree/${key}`;
 }
 
 /* ---------- University data panel ---------- */
@@ -813,13 +814,13 @@ function exportCitations(kind) {
 export async function render(ctx) {
   const { id, params, main } = ctx;
   if (!/^(inat-)?\d+$/.test(id || '')) {
-    location.hash = '#/search';
+    navigate('/search', { replace: true });
     return;
   }
   // Re-rendering the same route (e.g. after a language change) keeps the open tab.
-  const sameRoute = state.hash === location.hash;
+  const sameRoute = state.url === currentURL();
   state = {
-    hash: location.hash,
+    url: currentURL(),
     data: null,
     panel: (sameRoute && state.panel) || params.get('tab') || 'overview',
     mapView: null,
@@ -890,10 +891,11 @@ export async function render(ctx) {
   const seed = await API.seed(id);
   if (!ctx.isCurrent()) return;
   if (!SPECIES_RANKS.includes(seed.taxon.rank)) {
-    location.replace(
+    navigate(
       String(id).startsWith('inat-')
         ? routeURL('search', { taxon: id.slice(5), tname: nameOf(seed.taxon) })
-        : `#/tree/${seed.taxon.acceptedKey || seed.taxon.key}`
+        : `/tree/${seed.taxon.acceptedKey || seed.taxon.key}`,
+      { replace: true }
     );
     return;
   }

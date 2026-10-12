@@ -31,7 +31,7 @@ for (const level of ['sd', 'smp']) {
     await mockAPIs(page);
     const problems = [];
     for (const route of PAGES) {
-      await page.goto(`/#/${route}`);
+      await page.goto(`/${route}`);
       await expect(page.locator('#main h1')).toBeVisible();
       await page.waitForTimeout(400);
       const result = await new AxeBuilder({ page })
@@ -71,7 +71,7 @@ test('no horizontal overflow from 320px to 1440px in SD and SMP modes', async ({
         'saved?tab=passport',
         'about',
       ]) {
-        await page.goto(`/#/${route}`);
+        await page.goto(`/${route}`);
         await expect(page.locator('#main')).toHaveAttribute('data-page', route.split(/[/?]/)[0]);
         await expect(page.locator('#main h1')).toBeVisible();
         expect(await noOverflow(page), `${level} ${width}px ${route}`).toBe(true);
@@ -83,7 +83,7 @@ test('no horizontal overflow from 320px to 1440px in SD and SMP modes', async ({
 test('bottom navigation on phones does not cover the header', async ({ page }) => {
   await setPrefs(page, { level: 'sd' });
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/#/learn');
+  await page.goto('/learn');
   const nav = await page.locator('.nav').boundingBox();
   const brand = await page.locator('.header-inner .brand').boundingBox();
   expect(nav.y).toBeGreaterThan(700);
@@ -117,7 +117,7 @@ test.describe('with the Content Security Policy enforced', () => {
       'purba',
       'guru',
     ]) {
-      await page.goto(`/#/${route}`);
+      await page.goto(`/${route}`);
       await expect(page.locator('#main h1')).toBeVisible();
       violations.push(
         ...((await page.evaluate(() => window.__csp)) || []).filter(v => !v.includes('images.test'))
@@ -130,14 +130,14 @@ test.describe('with the Content Security Policy enforced', () => {
 test('keyboard users can skip to content, use dialogs and reduced motion is respected', async ({ page }) => {
   await setPrefs(page);
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/#/learn');
+  await page.goto('/learn');
   const heading = await page.locator('#main h1').innerText();
   await page.keyboard.press('Tab');
   await expect(page.locator('.skip')).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.locator('#main')).toBeFocused();
   // Skipping moves focus only; it must not route to a page called "main".
-  expect(new URL(page.url()).hash).toBe('#/learn');
+  expect(new URL(page.url()).pathname).toBe('/learn');
   await expect(page.locator('#main h1')).toHaveText(heading);
   await page.locator('.mode-chip').focus();
   await page.keyboard.press('Enter');
@@ -163,7 +163,7 @@ test('both languages render every main page', async ({ page }) => {
     ['purba', 'Explore 3.5 billion years of life.'],
     ['guru', 'BioTaxa teacher space'],
   ]) {
-    await page.goto(`/#/${route}`);
+    await page.goto(`/${route}`);
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
     await expect(page.locator('#main h1')).toContainText(heading);
   }
@@ -175,7 +175,7 @@ for (const width of [390, 768, 1440]) {
     await mockAPIs(page);
     await page.setViewportSize({ width, height: 844 });
     for (const route of ['tree/1', 'learn', 'learn/ekosistem', 'lab/mendel', 'saved?tab=passport']) {
-      await page.goto(`/#/${route}`);
+      await page.goto(`/${route}`);
       await expect(page.locator('#main')).toHaveAttribute('data-page', route.split(/[/?]/)[0]);
       const heading = page.locator('#main .page-head');
       await expect(heading).toBeVisible();

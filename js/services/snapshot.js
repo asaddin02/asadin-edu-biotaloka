@@ -3,7 +3,7 @@
 // rate-limited APIs. Pure functions only: the build script imports this module in Node as well.
 import { config } from '../config.js';
 
-export const SNAPSHOT_DIR = 'data/snapshot/';
+export const SNAPSHOT_DIR = '/data/snapshot/';
 
 /** Proxy URLs (api/inat/v1/...) and direct URLs share one key: the upstream URL. */
 export function canonicalURL(url) {

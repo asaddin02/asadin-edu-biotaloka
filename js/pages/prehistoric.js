@@ -92,7 +92,7 @@ function card(x) {
     ? ''
     : x.id === 'stegodon'
       ? routeURL('search', { taxon: x.inat, tname: pick(x.name) })
-      : `#/species/inat-${x.inat}`;
+      : `/species/inat-${x.inat}`;
   const wikiHost = lang === 'id' ? 'id' : 'en';
   return `<article class="fossil-card card" id="fosil-${x.id}"><div class="fossil-top"><span class="fossil-icon" aria-hidden="true">${x.icon}</span><div><h3>${esc(pick(x.name))}</h3><p class="card-sub strong">${esc(pick(x.group))}</p></div>${x.indo ? `<span class="badge indo">🇮🇩 ${s.indonesia}</span>` : ''}</div>
     <p>${esc(pick(x.desc))}</p>
@@ -115,7 +115,7 @@ export async function render(ctx) {
   })).filter(g => g.list.length);
 
   ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTAXA / PURBA')}
-    <div class="segmented" role="group"><a href="#/purba" class="${onlyIndo ? '' : 'selected'}">${s.all}</a><a href="#/purba?indo=1" class="${onlyIndo ? 'selected' : ''}">🇮🇩 ${s.onlyIndo}</a></div>
+    <div class="segmented" role="group"><a href="/purba" class="${onlyIndo ? '' : 'selected'}">${s.all}</a><a href="/purba?indo=1" class="${onlyIndo ? 'selected' : ''}">🇮🇩 ${s.onlyIndo}</a></div>
     ${timeline(ancient)}
     ${byPeriod
       .map(

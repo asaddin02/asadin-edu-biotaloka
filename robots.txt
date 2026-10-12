@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-# API proxy and data files are for the app, not for search engines (and count against quotas).
+# The API proxy is for the app only (it counts against quotas). The data snapshot stays open: search
+# engines that render JavaScript need it to show pages the way visitors see them.
 Disallow: /api/
-Disallow: /data/

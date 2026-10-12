@@ -6,7 +6,7 @@ async function leaflet() {
     library = import('../../assets/vendor/leaflet/leaflet.js').then(() => {
       const css = document.createElement('link');
       css.rel = 'stylesheet';
-      css.href = 'assets/vendor/leaflet/leaflet.css';
+      css.href = '/assets/vendor/leaflet/leaflet.css';
       document.head.append(css);
       return globalThis.L || globalThis.leaflet;
     });
@@ -72,7 +72,7 @@ export async function createOccurrenceMap(host, lang = 'id') {
   host.querySelector('.map-fit').onclick = () => {
     if (bounds?.isValid()) map.fitBounds(bounds, { padding: [30, 30], maxZoom: 5, animate: false });
   };
-  getJSON('assets/maps/world.geojson')
+  getJSON('/assets/maps/world.geojson')
     .then(world => {
       if (destroyed) return;
       L.geoJSON(world, {

@@ -137,10 +137,11 @@ async function visit(page, hash) {
   page.lastActivity = Date.now();
   await page.evaluate(h => {
     document.querySelector('#main')?.replaceChildren();
-    location.hash = h;
+    history.pushState(null, '', h);
+    dispatchEvent(new PopStateEvent('popstate'));
   }, hash);
   await page.locator('#main h1').first().waitFor({ timeout: 30000 });
-  if (hash.startsWith('#/species/'))
+  if (hash.startsWith('/species/'))
     await page.locator('#dossier-status').waitFor({ state: 'detached', timeout: 90000 });
   if (!(await settled(page))) throw new Error('requests did not settle');
 }
@@ -154,7 +155,7 @@ async function runBatch(browser, prefs, hashes) {
     Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
       const page = await context.newPage();
       page.setDefaultTimeout(30000);
-      await page.goto(`${BASE}/#/about`);
+      await page.goto(`${BASE}/about`);
       await page.locator('#main h1').waitFor();
       while (queue.length) {
         const hash = queue.shift();
@@ -177,11 +178,11 @@ async function runBatch(browser, prefs, hashes) {
 async function groupIds(browser) {
   const context = await newContext(browser, { lang: 'id', level: 'smp' });
   const page = await context.newPage();
-  await page.goto(`${BASE}/#/search`);
+  await page.goto(`${BASE}/search`);
   await page.locator('#main h1').waitFor();
   const ids = await page
     .locator('a[href*="group="]')
-    .evaluateAll(links => links.map(a => new URLSearchParams(a.hash.split('?')[1]).get('group')));
+    .evaluateAll(links => links.map(a => new URLSearchParams(a.search).get('group')));
   await context.close();
   return [...new Set(ids.filter(Boolean))];
 }
@@ -222,17 +223,17 @@ try {
   for (const group of take(groups))
     for (const scope of ['id', 'world'])
       for (const page of QUICK ? [1] : [1, 2])
-        gallery.push(`#/search?group=${group}&scope=${scope}&page=${page}`);
-  const species = take(SPECIES).map(s => `#/species/${s.id}`);
-  const tree = take(TREE).map(k => `#/tree${k ? `/${k}` : ''}`);
+        gallery.push(`/search?group=${group}&scope=${scope}&page=${page}`);
+  const species = take(SPECIES).map(s => `/species/${s.id}`);
+  const tree = take(TREE).map(k => `/tree${k ? `/${k}` : ''}`);
   const searches = lang =>
     take(unique([...SPECIES.map(s => s.name[lang === 'id' ? 0 : 1]), ...EXTRA[lang].split(' ')])).map(
-      q => `#/search?q=${encodeURIComponent(q)}`
+      q => `/search?q=${encodeURIComponent(q)}`
     );
 
   const batches = [
-    [{ lang: 'id', level: 'smp' }, [...gallery, ...species, ...tree, '#/purba', ...searches('id')]],
-    [{ lang: 'en', level: 'smp' }, [...gallery, ...species, ...tree, '#/purba', ...searches('en')]],
+    [{ lang: 'id', level: 'smp' }, [...gallery, ...species, ...tree, '/purba', ...searches('id')]],
+    [{ lang: 'en', level: 'smp' }, [...gallery, ...species, ...tree, '/purba', ...searches('en')]],
     [{ lang: 'id', level: 'sd' }, tree],
     [{ lang: 'en', level: 'sd' }, tree],
   ];

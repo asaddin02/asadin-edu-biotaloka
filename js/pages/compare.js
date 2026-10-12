@@ -1,4 +1,5 @@
 import { $, esc } from '../core/dom.js';
+import { navigate } from '../core/router.js';
 import { S, pick, fmt } from '../core/prefs.js';
 import { trackVisit } from '../core/userdata.js';
 import { rankLabel } from '../i18n/ui.js';
@@ -67,7 +68,7 @@ function pickerMarkup(a, b, taxa) {
   const slot = (id, label, value) =>
     `<div class="compare-slot"><label for="${id}">${label}</label>${suggestField({ id, name: id, value, placeholder: s.pick, label, mode: 'pick', rank: 'species' })}</div>`;
   return `<form class="compare-pickers" id="compare-form">${slot('pick-a', s.first, taxa.a?.preferred_common_name || taxa.a?.name || '')}<span class="versus" aria-hidden="true">VS</span>${slot('pick-b', s.second, taxa.b?.preferred_common_name || taxa.b?.name || '')}</form>
-    ${a && b ? `<div class="actions center"><a class="btn ghost small" href="${routeURL('compare', { a: b, b: a })}">⇄ ${s.swap}</a><a class="btn ghost small" href="#/compare">${s.reset}</a></div>` : ''}`;
+    ${a && b ? `<div class="actions center"><a class="btn ghost small" href="${routeURL('compare', { a: b, b: a })}">⇄ ${s.swap}</a><a class="btn ghost small" href="/compare">${s.reset}</a></div>` : ''}`;
 }
 
 function ideas() {
@@ -153,7 +154,7 @@ function comparison(a, b) {
       <p class="shared-line">${shared && a.id !== b.id ? `${s.shared} <strong>${esc(rankLabel(shared.rank))}: ${esc(groupName(shared))}</strong>` : a.id === b.id ? s.sameSpecies : ''}</p>
       <div class="compare-lists"><div><h3>✅ ${s.similarities}</h3><ul>${similarities.map(x => `<li>${esc(x)}</li>`).join('') || '<li>—</li>'}</ul></div><div><h3>↔️ ${s.differences}</h3><ul>${differences.map(x => `<li>${esc(x)}</li>`).join('') || '<li>—</li>'}</ul></div></div>
     </section>
-    <div class="table-wrap"><table class="compare-table"><thead><tr><th></th><th>${photo(a)}<a href="#/species/inat-${Number(a.id)}">${esc(nameA)}</a></th><th>${photo(b)}<a href="#/species/inat-${Number(b.id)}">${esc(nameB)}</a></th></tr></thead><tbody>
+    <div class="table-wrap"><table class="compare-table"><thead><tr><th></th><th>${photo(a)}<a href="/species/inat-${Number(a.id)}">${esc(nameA)}</a></th><th>${photo(b)}<a href="/species/inat-${Number(b.id)}">${esc(nameB)}</a></th></tr></thead><tbody>
       ${row(s.scientific, `<em>${esc(a.name)}</em>`, `<em>${esc(b.name)}</em>`)}
       ${row(s.group, esc(iconicLabel(a.iconic_taxon_name)), esc(iconicLabel(b.iconic_taxon_name)))}
       ${row(s.diet, ca ? esc(pick(DIETS[ca.diet]?.name || '')) : `<span class="muted">${s.unknownCurated}</span>`, cb ? esc(pick(DIETS[cb.diet]?.name || '')) : `<span class="muted">${s.unknownCurated}</span>`)}
@@ -176,7 +177,7 @@ export async function render(ctx) {
   ctx.on('suggest-pick', '[data-suggest="pick"]', (event, input) => {
     const next = { a, b };
     next[input.id === 'pick-a' ? 'a' : 'b'] = event.detail.id;
-    if (next.a && next.b) location.hash = routeURL('compare', next);
+    if (next.a && next.b) navigate(routeURL('compare', next));
     else history.replaceState(null, '', routeURL('compare', next));
     if (input.id === 'pick-a' && !next.b) $('#pick-b')?.focus();
   });

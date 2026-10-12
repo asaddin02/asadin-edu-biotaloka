@@ -7,7 +7,7 @@ for (const width of [390, 1440]) {
     await setPrefs(page);
     await mockAPIs(page);
     await page.setViewportSize({ width, height: 900 });
-    await page.goto('/#/home');
+    await page.goto('/');
     await page.locator('.mode-chip').click();
     const dialog = page.locator('#mode-dialog');
     await dialog.locator('[data-set-mode="teacher"]').click();
@@ -37,7 +37,7 @@ for (const width of [390, 1440]) {
 
 test('first-time teacher selection opens the target level picker', async ({ page }) => {
   await mockAPIs(page);
-  await page.goto('/#/home');
+  await page.goto('/');
   await page.locator('.mode-strip [data-set-mode="teacher"]').click();
   await expect(page.locator('#mode-dialog [data-teacher-level]').first()).toBeVisible();
   await page.locator('#mode-dialog [data-teacher-level][value=sd]').check();
@@ -55,7 +55,7 @@ for (const dismiss of ['clear', 'Escape', 'Tab']) {
       await response;
       await route.fulfill({ json: { results: [taxon(777)] } });
     });
-    await page.goto('/#/home');
+    await page.goto('/');
     const input = page.locator('#hero-q');
     const requested = page.waitForRequest('**/v1/taxa/autocomplete*');
     await input.fill('orangutan');
@@ -74,12 +74,12 @@ for (const dismiss of ['clear', 'Escape', 'Tab']) {
 test('teacher draft survives section jumps and changes to teaching level', async ({ page }) => {
   await setPrefs(page, { role: 'teacher' });
   await mockAPIs(page);
-  await page.goto('/#/guru');
+  await page.goto('/guru');
   const title = page.locator('#assignment-form [name=t]');
   await title.fill('Pengamatan halaman sekolah');
   await page.locator('#assignment-form [name=i]').fill('Amati tiga tumbuhan.');
   await page.locator('[data-jump="teacher-plans"]').click();
-  await expect(page).toHaveURL(/#\/guru$/);
+  await expect(page).toHaveURL(/\/guru$/);
   await page.locator('[data-jump="builder"]').click();
   await expect(title).toHaveValue('Pengamatan halaman sekolah');
   await page.locator('.mode-chip').click();
@@ -93,16 +93,16 @@ test('phone layouts keep filters, experiments and lesson navigation usable', asy
   await setPrefs(page, { level: 'sd' });
   await mockAPIs(page);
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/#/search');
+  await page.goto('/search');
   await page.locator('.explore-sidebar .group-pill').last().click();
   await expect(page.locator('.explore-sidebar .group-pill').last()).toHaveClass(/selected/);
   expect(await noOverflow(page)).toBe(true);
-  await page.goto('/#/lab/mendel');
+  await page.goto('/lab/mendel');
   await page.locator('[data-lab="osmosis"]').click();
   await expect(page.locator('[data-lab="osmosis"]')).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('#lab-output')).toBeVisible();
   expect(await noOverflow(page)).toBe(true);
-  await page.goto('/#/learn/ekosistem');
+  await page.goto('/learn/ekosistem');
   await page.locator('[data-jump="topic-notes"]').click();
   await expect(page.locator('#topic-notes')).toBeFocused();
   await page.locator('#topic-notes').fill('Padi dimakan belalang.');

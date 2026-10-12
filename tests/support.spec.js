@@ -8,7 +8,7 @@ test('support is reachable, optional, responsive and honest when no destination 
   await wideFont(page);
   await setPrefs(page, { level: 'sd' });
   await mockAPIs(page);
-  await page.goto('/#/home');
+  await page.goto('/');
   await page.evaluate(async () => {
     const { config } = await import('/js/config.js');
     config.donateURL = '';
@@ -31,7 +31,7 @@ test('support is reachable, optional, responsive and honest when no destination 
   await expect(page.locator('.support-donation')).toContainText('Monetary donations are not available yet.');
   await page.locator('.support-promise a').click();
   await expect(page.locator('#main')).toHaveAttribute('data-page', 'learn');
-  await page.locator('#footer a[href="#/dukung"]').click();
+  await page.locator('#footer a[href="/dukung"]').click();
   await expect(page.locator('#main')).toHaveAttribute('data-page', 'dukung');
 });
 
@@ -39,14 +39,14 @@ test('configured donations link to the exact HTTPS destination without embedding
   page,
 }) => {
   await mockAPIs(page);
-  await page.goto('/#/home');
+  await page.goto('/');
   await page.evaluate(async () => {
     const { config } = await import('/js/config.js');
     config.donateLocalURL = '';
     config.donateInternationalURL = '';
     config.donateURL = 'https://example.org/biotaxa?ref=support';
   });
-  await page.locator('#footer a[href="#/dukung"]').click();
+  await page.locator('#footer a[href="/dukung"]').click();
   const link = page.locator('[data-donate]');
   await expect(link).toHaveAttribute('href', 'https://example.org/biotaxa?ref=support');
   await expect(link).toHaveAttribute('target', '_blank');
@@ -56,7 +56,7 @@ test('configured donations link to the exact HTTPS destination without embedding
 });
 
 test('invalid payment destinations never produce a donation button', async ({ page }) => {
-  await page.goto('/#/home');
+  await page.goto('/');
   for (const value of [
     'javascript:alert(1)',
     'http://example.org',
@@ -69,7 +69,7 @@ test('invalid payment destinations never produce a donation button', async ({ pa
       config.donateLocalURL = '';
       config.donateInternationalURL = '';
       config.donateURL = url;
-      location.hash = '#/dukung';
+      history.replaceState(null, '', '/dukung');
       await render();
     }, value);
     await expect(page.locator('.support-donation')).toBeVisible();
@@ -81,8 +81,8 @@ test('local and international channels remain explicit, accessible and independe
   await wideFont(page);
   await setPrefs(page, { level: 'sd' });
   await mockAPIs(page);
-  await page.goto('/#/home');
-  await page.locator('#footer a[href="#/dukung"]').click();
+  await page.goto('/');
+  await page.locator('#footer a[href="/dukung"]').click();
   const local = page.getByRole('link', { name: /halaman donasi.*Indonesia/ });
   const global = page.getByRole('link', { name: /halaman donasi.*internasional/ });
   await expect(local).toHaveAttribute('href', 'https://saweria.co/asadin02');

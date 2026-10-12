@@ -8,7 +8,7 @@ test('an iNaturalist record stays accessible without a GBIF match; photos, light
   const requests = await mockAPIs(page, { mismatch: true });
   const strayRequests = [];
   page.on('request', r => /\/(undefined|null)$/.test(r.url()) && strayRequests.push(r.url()));
-  await page.goto('/#/species/inat-777');
+  await page.goto('/species/inat-777');
   await expect(page.locator('h1')).toHaveText('Example species777');
   await expect(page.locator('#dossier-status')).toHaveCount(0, { timeout: 20000 });
   // The default photo has no large_url, so the hero derives the large size (which the fixture then fails,
@@ -41,7 +41,7 @@ test('an iNaturalist record stays accessible without a GBIF match; photos, light
 test('a species without coordinates still shows the atlas and invents no locations', async ({ page }) => {
   await setPrefs(page);
   await mockAPIs(page, { noGeo: true });
-  await page.goto('/#/species/inat-777?tab=map');
+  await page.goto('/species/inat-777?tab=map');
   await expect(page.locator('#occurrence-map')).toHaveAttribute('data-basemap', 'ready');
   await expect(page.locator('#occurrence-map')).toHaveAttribute('data-points', '0', { timeout: 20000 });
   await expect(page.locator('.map-status')).toContainText('lokasi tidak direkayasa');
@@ -50,7 +50,7 @@ test('a species without coordinates still shows the atlas and invents no locatio
 test('broken photos show a fallback and dossier tabs support the keyboard', async ({ page }) => {
   await setPrefs(page);
   await mockAPIs(page, { broken: true });
-  await page.goto('/#/species/inat-777');
+  await page.goto('/species/inat-777');
   await expect(page.locator('.species-visual .gallery-stage')).toHaveClass(/image-unavailable/);
   await expect(page.locator('.species-visual .image-error-text')).toBeVisible();
   await page.getByRole('tab', { name: 'Ringkasan', exact: true }).focus();
@@ -62,7 +62,7 @@ test('broken photos show a fallback and dossier tabs support the keyboard', asyn
 test('curated card, endemic badge and conservation status in plain words', async ({ page }) => {
   await setPrefs(page);
   await mockAPIs(page);
-  await page.goto('/#/species/inat-39449');
+  await page.goto('/species/inat-39449');
   await expect(page.locator('h1')).toHaveText('Varanus komodoensis');
   await expect(page.locator('.curated-block')).toContainText('Kadal terbesar di dunia');
   await expect(page.locator('.endemic-badge')).toContainText('Hanya ada di Indonesia');
@@ -77,7 +77,7 @@ test('curated card, endemic badge and conservation status in plain words', async
 test('source descriptions are grouped once, without duplicates or fragments', async ({ page }) => {
   await setPrefs(page, { level: 'sma' });
   await mockAPIs(page);
-  await page.goto('/#/species/5219416?tab=facts');
+  await page.goto('/species/5219416?tab=facts');
   const facts = page.locator('#panel-facts');
   await expect(facts.locator('.trait-grid .card')).toHaveCount(2);
   await expect(facts).toContainText('Habitat & cara hidup');
@@ -91,7 +91,7 @@ test('source descriptions are grouped once, without duplicates or fragments', as
 test('SD mode leads with the common name and child-friendly tabs', async ({ page }) => {
   await setPrefs(page, { level: 'sd' });
   await mockAPIs(page);
-  await page.goto('/#/species/inat-39449');
+  await page.goto('/species/inat-39449');
   await expect(page.locator('h1')).toHaveText('Komodo');
   await expect(page.locator('.sci-title')).toHaveText('Varanus komodoensis');
   await expect(page.getByRole('tab')).toHaveText(['Kenalan', 'Di mana?', 'Foto', 'Aktivitas']);
@@ -105,20 +105,20 @@ test('SD mode leads with the common name and child-friendly tabs', async ({ page
 test('worksheet notes persist after a reload', async ({ page }) => {
   await setPrefs(page);
   await mockAPIs(page);
-  await page.goto('/#/species/inat-777?tab=study');
+  await page.goto('/species/inat-777?tab=study');
   await page.locator('#study-notes').fill('Catatan pengamatanku');
   // Reload immediately: pending notes must be flushed when the page is left.
   await page.reload();
   await page.getByRole('tab', { name: 'Belajar' }).click();
   await expect(page.locator('#study-notes')).toHaveValue('Catatan pengamatanku');
-  await page.goto('/#/saved?tab=notes');
+  await page.goto('/saved?tab=notes');
   await expect(page.locator('.note-item')).toContainText('Catatan pengamatanku');
 });
 
 test('university mode adds synonyms, citations and data downloads', async ({ page }) => {
   await setPrefs(page, { level: 'kuliah' });
   await mockAPIs(page);
-  await page.goto('/#/species/5219416');
+  await page.goto('/species/5219416');
   await page.getByRole('tab', { name: 'Data & rujukan' }).click();
   await expect(page.locator('#synonyms')).toContainText('Felis tigris');
   await expect(page.locator('.citations')).toContainText('doi.org/10.15468/39omei');

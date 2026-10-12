@@ -20,7 +20,7 @@ export function emptyState(message = ui.empty, hint = ui.emptyHint) {
   return `<div class="status">${brandImage('empty-brand')}<h3>${esc(message)}</h3>${hint ? `<p>${esc(hint)}</p>` : ''}</div>`;
 }
 
-export function crumbs(items = [], label = ui.tree, root = { name: ui.tree, url: '#/tree' }) {
+export function crumbs(items = [], label = ui.tree, root = { name: ui.tree, url: '/tree' }) {
   return `<nav class="breadcrumbs" aria-label="${esc(label)}"><a href="${root.url}">${esc(root.name)}</a>${items
     .map(x => `<span aria-hidden="true">›</span><a href="${esc(x.url)}">${esc(x.name)}</a>`)
     .join('')}</nav>`;
@@ -50,7 +50,7 @@ export const routeURL = (path, params = {}) => {
     Object.entries(params).filter(([, v]) => v !== '' && v !== undefined && v !== null)
   );
   const q = new URLSearchParams(clean).toString();
-  return `#/${path}${q ? `?${q}` : ''}`;
+  return `/${path}${q ? `?${q}` : ''}`;
 };
 
 export function validPage(value, max = 4167) {
@@ -60,5 +60,5 @@ export function validPage(value, max = 4167) {
 
 /** In-page navigation never reloads the route or discards unfinished answers. */
 export function sectionNav(items) {
-  return `<nav class="section-nav" aria-label="${pick(['Di halaman ini', 'On this page'])}"><span class="eyebrow">${pick(['Di halaman ini', 'On this page'])}</span>${items.map(([id, label], i) => `<a href="${esc(location.hash.split('#').slice(0, 2).join('#'))}#${esc(id)}" data-jump="${esc(id)}"><span aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>${esc(label)}</a>`).join('')}</nav>`;
+  return `<nav class="section-nav" aria-label="${pick(['Di halaman ini', 'On this page'])}"><span class="eyebrow">${pick(['Di halaman ini', 'On this page'])}</span>${items.map(([id, label], i) => `<a href="${esc(location.pathname + location.search)}#${esc(id)}" data-jump="${esc(id)}"><span aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>${esc(label)}</a>`).join('')}</nav>`;
 }

@@ -113,7 +113,7 @@ const layerLabel = l => `${ui[l]} · ${pick(LAYERS[l])}`;
 
 function topicCard(topic, progress) {
   const best = progress.quizzes[`topic-${topic.id}`]?.best;
-  return `<a class="topic-card" data-topic="${topic.id}" href="#/learn/${topic.id}"><span class="topic-icon" aria-hidden="true">${topic.icon}</span>
+  return `<a class="topic-card" data-topic="${topic.id}" href="/learn/${topic.id}"><span class="topic-icon" aria-hidden="true">${topic.icon}</span>
     <span class="topic-text"><strong>${esc(pick(topic.title))}</strong><small>${esc(pick(topic.summary))}</small>
     <span class="topic-meta">${topic.levels.map(l => `<span class="level-dot${l === level ? ' current' : ''}">${esc(ui[l])}</span>`).join('')}${progress.topics[topic.id] ? `<span class="done">✓ ${s.read}</span>` : ''}${best != null ? `<span class="done">⭐ ${fmt(Math.round(best * 100))}%</span>` : ''}</span></span></a>`;
 }
@@ -133,15 +133,15 @@ function hub(ctx) {
     <div class="learn-workspace"><section class="section lesson-catalog"><div class="section-head"><h2>${showAll ? s.allTopics : s.forYou}</h2><a class="text-link" data-catalog-scope="${showAll ? '' : '1'}" href="${routeURL('learn', showAll ? {} : { all: 1 })}">${showAll ? s.showMine : s.showAll} →</a></div>
       ${catalogTools()}${catalogGroups(topics, t => topicCard(t, progress))}</section>
     <section class="section learning-tools" id="learning-tools"><div class="section-head"><h2>${s.activities}</h2></div><div class="action-grid">
-      ${activityCard('#/peta', 'tree', s.biomap, s.biomapText, 'mint')}
-      ${activityCard('#/quiz', 'quiz', s.quiz, s.quizText, 'lime')}
-      ${activityCard('#/compare', 'compare', s.compare, s.compareText, 'lilac')}
-      ${activityCard('#/nearby', 'nearby', s.nearby, s.nearbyText, 'sky')}
-      ${activityCard('#/purba', 'fossil', s.purba, s.purbaText, 'apricot')}
-      ${activityCard('#/kamus', 'book', s.glossary, s.glossaryText, 'mint')}
-      ${activityCard('#/lab', 'lab', s.lab, s.labText, 'blue')}
-      ${activityCard('#/guru', 'teacher', s.teacher, s.teacherText, role === 'teacher' ? 'lime' : 'grey')}
-      ${activityCard('#/saved?tab=passport', 'star', s.passport, s.passportText.replace('{n}', fmt(earned)).replace('{t}', fmt(BADGES.length)), 'apricot')}
+      ${activityCard('/peta', 'tree', s.biomap, s.biomapText, 'mint')}
+      ${activityCard('/quiz', 'quiz', s.quiz, s.quizText, 'lime')}
+      ${activityCard('/compare', 'compare', s.compare, s.compareText, 'lilac')}
+      ${activityCard('/nearby', 'nearby', s.nearby, s.nearbyText, 'sky')}
+      ${activityCard('/purba', 'fossil', s.purba, s.purbaText, 'apricot')}
+      ${activityCard('/kamus', 'book', s.glossary, s.glossaryText, 'mint')}
+      ${activityCard('/lab', 'lab', s.lab, s.labText, 'blue')}
+      ${activityCard('/guru', 'teacher', s.teacher, s.teacherText, role === 'teacher' ? 'lime' : 'grey')}
+      ${activityCard('/saved?tab=passport', 'star', s.passport, s.passportText.replace('{n}', fmt(earned)).replace('{t}', fmt(BADGES.length)), 'apricot')}
     </div></section></div>`;
   bindCatalog(ctx, topics);
 }
@@ -203,7 +203,7 @@ function topicPage(ctx, topic) {
   const teacherOpen = role === 'teacher';
   const misconceptions = topic.teacher?.misconceptions || [];
 
-  ctx.main.innerHTML = `<nav class="breadcrumbs" aria-label="${s.title}"><a href="#/learn">${s.title}</a><span aria-hidden="true">›</span>${field ? `<a href="#/learn?all=1#bidang-${field.id}">${esc(pick(field.name))}</a><span aria-hidden="true">›</span>` : ''}<a href="#/learn/${topic.id}" aria-current="page">${esc(pick(topic.title))}</a></nav>
+  ctx.main.innerHTML = `<nav class="breadcrumbs" aria-label="${s.title}"><a href="/learn">${s.title}</a><span aria-hidden="true">›</span>${field ? `<a href="/learn?all=1#bidang-${field.id}">${esc(pick(field.name))}</a><span aria-hidden="true">›</span>` : ''}<a href="/learn/${topic.id}" aria-current="page">${esc(pick(topic.title))}</a></nav>
     <header class="page-head topic-head"><span class="topic-hero-icon" aria-hidden="true">${topic.icon}</span><span class="eyebrow">${esc(pick(PHASES[version]))}</span><h1>${esc(pick(topic.title))}</h1><p>${esc(pick(topic.summary))}</p></header>
     <div class="version-switch" role="group" aria-label="${s.version}"><span>${s.version}:</span>${LEVELS.filter(
       l => topic.body[l]
@@ -223,8 +223,8 @@ function topicPage(ctx, topic) {
         ${key ? `<aside class="key-points" aria-labelledby="key-title"><h2 id="key-title">📌 ${s.keyPoints}</h2>${rich(pick(key))}</aside>` : ''}</article>
       <aside class="topic-side">
         ${activity ? `<section class="card activity-card"><h2>🔎 ${s.activity}</h2>${rich(pick(activity))}</section>` : ''}
-        ${topic.lab ? `<a class="action-card tone-blue" href="#/lab/${topic.lab}"><span class="action-icon">${icon('lab')}</span><span><strong>${s.tryLab}</strong><small>${esc(pick(LAB_NAMES[topic.lab]))}</small></span></a>` : ''}
-        ${related.length ? `<section class="card related-card"><h2>${s.related}</h2><ul class="related-list">${related.map(t => `<li><a href="#/learn/${t.id}"><span aria-hidden="true">${t.icon}</span> ${esc(pick(t.title))}</a></li>`).join('')}</ul></section>` : ''}
+        ${topic.lab ? `<a class="action-card tone-blue" href="/lab/${topic.lab}"><span class="action-icon">${icon('lab')}</span><span><strong>${s.tryLab}</strong><small>${esc(pick(LAB_NAMES[topic.lab]))}</small></span></a>` : ''}
+        ${related.length ? `<section class="card related-card"><h2>${s.related}</h2><ul class="related-list">${related.map(t => `<li><a href="/learn/${t.id}"><span aria-hidden="true">${t.icon}</span> ${esc(pick(t.title))}</a></li>`).join('')}</ul></section>` : ''}
       </aside>
     </div>
     ${species.length ? `<section class="section"><div class="section-head"><h2>${s.keySpecies}</h2></div><div class="discovery-grid">${species.map(sp => curatedCard(sp, { showFact: version === 'sd' })).join('')}</div></section>` : ''}
@@ -241,10 +241,10 @@ function topicPage(ctx, topic) {
         <section class="wide"><h3>${s.ladder}</h3><p class="muted small">${s.ladderNote}</p>${layerTable(topic)}</section>
         <section class="wide"><h3>${s.answerKey}</h3><ol class="answer-key">${questions.map(q => `<li>${esc(pick(q.q))} <strong>→ ${esc(pick(q.a[q.c]))}</strong></li>`).join('')}</ol></section>
       </div>
-      <div class="actions"><button type="button" class="btn secondary" data-print>${icon('print')} ${s.printPlan}</button><a class="btn ghost" href="#/guru?topic=${topic.id}">${icon('teacher')} ${ui.teacherLong}</a></div>
+      <div class="actions"><button type="button" class="btn secondary" data-print>${icon('print')} ${s.printPlan}</button><a class="btn ghost" href="/guru?topic=${topic.id}">${icon('teacher')} ${ui.teacherLong}</a></div>
     </details>
     ${reads.length ? `<section class="section"><h2>${s.readMore}</h2><ul class="source-list">${reads.map(r => `<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.label)} ↗</a></li>`).join('')}</ul></section>` : ''}
-    <nav class="topic-nav" aria-label="${s.title}">${prev ? `<a class="btn secondary" href="#/learn/${prev.id}">← ${esc(pick(prev.title))}</a>` : '<span></span>'}${next ? `<a class="btn secondary" href="#/learn/${next.id}">${esc(pick(next.title))} →</a>` : ''}</nav>`;
+    <nav class="topic-nav" aria-label="${s.title}">${prev ? `<a class="btn secondary" href="/learn/${prev.id}">← ${esc(pick(prev.title))}</a>` : '<span></span>'}${next ? `<a class="btn secondary" href="/learn/${next.id}">${esc(pick(next.title))} →</a>` : ''}</nav>`;
   bindQuiz(ctx.on);
   trackTopic(topic.id);
 }
@@ -252,7 +252,7 @@ function topicPage(ctx, topic) {
 export async function render(ctx) {
   if (!ctx.id) return hub(ctx);
   if (!findTopic(ctx.id)) {
-    ctx.main.innerHTML = notice(s.notFound) + `<p><a class="btn" href="#/learn">← ${s.title}</a></p>`;
+    ctx.main.innerHTML = notice(s.notFound) + `<p><a class="btn" href="/learn">← ${s.title}</a></p>`;
     return;
   }
   ctx.main.innerHTML = loading();

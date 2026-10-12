@@ -4875,4 +4875,4 @@ export function findSpecies({ sci, id, inat, gbif } = {}) {
     null
   );
 }
-export const speciesURL = s => `#/species/${s.id}`;
+export const speciesURL = s => `/species/${s.id}`;

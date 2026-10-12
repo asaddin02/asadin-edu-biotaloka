@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-// Assembles dist/: the files a static host (Cloudflare Pages) should publish, plus the API snapshot
-// and a _headers file with the same security policy as server/server.mjs.
+// Assembles dist/: the files a static host (Cloudflare Pages) should publish, plus the API snapshot,
+// one prerendered HTML file per public page (scripts/prerender.mjs), sitemap.xml, 404.html and a
+// _headers file with the same security policy as server/server.mjs.
 //   npm run build:site                                   (also refreshes the sw.js precache list)
 //   SITE_URL=https://biotaxa.example npm run build:site  absolute link-preview URLs for that address
 // The Pages Function in functions/ is deployed from the project root by `wrangler pages deploy dist`.
@@ -9,6 +10,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SECURITY_HEADERS } from '../server/policy.mjs';
+import { prerender } from './prerender.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const dist = join(root, 'dist');
@@ -34,7 +36,7 @@ else console.warn('No data/snapshot/ yet (run `npm run snapshot`); the site will
 if (siteURL) {
   const path = join(dist, 'index.html');
   let html = await readFile(path, 'utf8');
-  const image = '<meta property="og:image" content="assets/brand/og-image.jpg" />';
+  const image = '<meta property="og:image" content="/assets/brand/og-image.jpg" />';
   const type = '<meta property="og:type" content="website" />';
   if (!html.includes(image) || !html.includes(type))
     throw new Error('index.html Open Graph tags changed; update scripts/build-site.mjs');
@@ -48,8 +50,8 @@ if (siteURL) {
 }
 
 // Search engines. GOOGLE_SITE_VERIFICATION (the content of Search Console's meta tag, or the whole tag)
-// proves ownership; the sitemap needs SITE_URL; 404.html makes unknown paths answer 404 instead of the
-// app, which Cloudflare Pages would otherwise serve for every path.
+// proves ownership; the sitemap needs SITE_URL. Both are added to index.html before it becomes the
+// shell of every prerendered page.
 const verification = (process.env.GOOGLE_SITE_VERIFICATION || '').match(
   /(?:content="([^"]*)"|^\s*(\S+)\s*$)/
 );
@@ -67,41 +69,20 @@ if (verificationCode) {
     )
   );
 }
+// One static HTML file per page (dist/species/inat-41967.html → /species/inat-41967), the sitemap of
+// every indexable page, and 404.html: the app shell marked noindex, so unknown paths answer 404 while
+// visitors still get the app (Cloudflare Pages serves 404.html for paths without a file).
+const { pages, urls } = await prerender({ dist, siteURL });
 if (siteURL) {
-  const today = new Date().toISOString().slice(0, 10);
   await writeFile(
     join(dist, 'sitemap.xml'),
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${siteURL}/</loc><lastmod>${today}</lastmod></url>\n</urlset>\n`
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
+      .map(u => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod></url>`)
+      .join('\n')}\n</urlset>\n`
   );
   const robots = await readFile(join(dist, 'robots.txt'), 'utf8');
   await writeFile(join(dist, 'robots.txt'), `${robots.trimEnd()}\n\nSitemap: ${siteURL}/sitemap.xml\n`);
 }
-await writeFile(
-  join(dist, '404.html'),
-  `<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex" />
-    <title>Halaman tidak ditemukan · BioTaxa</title>
-    <link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon-48.png" />
-    <style>
-      body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px;
-        font: 16px/1.5 system-ui, sans-serif; color: #17302a; background: #f4faf7; text-align: center; }
-      a { color: #087f68; font-weight: 600; }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>Halaman tidak ditemukan</h1>
-      <p>Alamat ini tidak ada di BioTaxa.</p>
-      <p><a href="/">Kembali ke beranda BioTaxa</a></p>
-    </main>
-  </body>
-</html>
-`
-);
 
 // Cloudflare Pages reads _headers for static files; the Function sets its own headers.
 const headers = { ...SECURITY_HEADERS, 'Strict-Transport-Security': 'max-age=31536000' };
@@ -130,5 +111,7 @@ async function size(dir) {
 }
 const { files, bytes } = await size(dist);
 console.log(
-  `dist/: ${files} files, ${(bytes / 1048576).toFixed(1)} MB${siteURL ? `, link previews for ${siteURL}` : ''}.`
+  `dist/: ${files} files, ${(bytes / 1048576).toFixed(1)} MB, ${pages} prerendered pages${
+    siteURL ? `, ${urls.length} sitemap URLs for ${siteURL}` : ''
+  }.`
 );

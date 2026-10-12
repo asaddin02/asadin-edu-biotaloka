@@ -1,4 +1,5 @@
 import { $, esc } from '../core/dom.js';
+import { navigate } from '../core/router.js';
 import { S, pick, atMost, atLeast, fmt } from '../core/prefs.js';
 import { ui, rankLabel } from '../i18n/ui.js';
 import { API, scientificName, KINGDOM_KEYS } from '../services/api.js';
@@ -102,7 +103,7 @@ function childCard(x) {
   const name = scientificName(x);
   const info = GROUPS[name];
   const species = ['SPECIES', 'SUBSPECIES'].includes(x.rank);
-  const href = species ? `#/species/${Number(x.key)}` : `#/tree/${Number(x.key)}`;
+  const href = species ? `/species/${Number(x.key)}` : `/tree/${Number(x.key)}`;
   const local = info ? pick(info.name) : '';
   const titleText = local && friendlyFirst() ? local : name;
   const second = local && friendlyFirst() ? name : local;
@@ -126,7 +127,7 @@ export async function render(ctx) {
   }
   if (DOMAINS[id]) {
     main.innerHTML =
-      crumbs([{ name: id, url: `#/tree/${id}` }]) +
+      crumbs([{ name: id, url: `/tree/${id}` }]) +
       pageHead(
         id,
         pick(
@@ -150,7 +151,7 @@ export async function render(ctx) {
     return;
   }
   if (!/^\d+$/.test(id)) {
-    location.hash = '#/tree';
+    navigate('/tree', { replace: true });
     return;
   }
   const page = validPage(params.get('page'), 1000);
@@ -162,22 +163,22 @@ export async function render(ctx) {
   ]);
   if (!ctx.isCurrent()) return;
   if (['SPECIES', 'SUBSPECIES'].includes(node.rank)) {
-    location.replace(`#/species/${node.key}`);
+    navigate(`/species/${node.key}`, { replace: true });
     return;
   }
   const name = scientificName(node);
   const info = GROUPS[name];
   const domain = domainOf(node);
   const path = [
-    ...(domain ? [{ name: domain, url: `#/tree/${domain}` }] : []),
+    ...(domain ? [{ name: domain, url: `/tree/${domain}` }] : []),
     ...parents.map(p => ({
       name:
         pick(GROUPS[scientificName(p)]?.name) && friendlyFirst()
           ? pick(GROUPS[scientificName(p)].name)
           : scientificName(p),
-      url: `#/tree/${p.key}`,
+      url: `/tree/${p.key}`,
     })),
-    { name: info && friendlyFirst() ? pick(info.name) : name, url: `#/tree/${node.key}` },
+    { name: info && friendlyFirst() ? pick(info.name) : name, url: `/tree/${node.key}` },
   ];
   const heading = info && friendlyFirst() ? pick(info.name) : name;
   const subtitle = [

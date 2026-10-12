@@ -71,7 +71,7 @@ async function shot(page, name, fullPage = true) {
 
 try {
   const page = await newPage();
-  await go(page, `#/home`);
+  await go(page, `/home`);
   await page.locator('.hero h1').waitFor();
   await page.locator('.today-card h2').waitFor();
   await shot(page, 'home-desktop');
@@ -84,13 +84,13 @@ try {
     ['harimau', /harimau/i],
     ['kupu-kupu', /kupu/i],
   ]) {
-    await go(page, `#/search?q=${encodeURIComponent(q)}`);
+    await go(page, `/search?q=${encodeURIComponent(q)}`);
     await page.locator('.discovery-card').first().waitFor();
     const first = await page.locator('.discovery-card h3').first().innerText();
     report.searches.push({ q, first });
     assert.match(first, expected, `search "${q}" should rank a matching name first`);
   }
-  await go(page, `#/search?q=nyamuk`);
+  await go(page, `/search?q=nyamuk`);
   await page.locator('.matched-groups').waitFor();
   report.checks.nyamukGroup = await page.locator('.matched-groups').innerText();
   assert.match(report.checks.nyamukGroup, /Nyamuk/);
@@ -104,7 +104,7 @@ try {
     ['bacteria', 'world'],
     ['archaea', 'world'],
   ]) {
-    await go(page, `#/search?group=${group}&scope=${scope}`);
+    await go(page, `/search?group=${group}&scope=${scope}`);
     await page.locator('.discovery-card').first().waitFor();
     await page.waitForFunction(() => document.querySelector('#results')?.dataset.hydrating !== 'true');
     await settle(page);
@@ -125,8 +125,8 @@ try {
 
   const firsts = Object.fromEntries(report.galleries.map(g => [g.group, g.first]));
   for (const [label, hash] of [
-    ['tiger', '#/species/inat-41967'],
-    ['komodo', '#/species/inat-39449'],
+    ['tiger', '/species/inat-41967'],
+    ['komodo', '/species/inat-39449'],
     ['plant', firsts.plants],
     ['fungus', firsts.fungi],
     ['bacterium', firsts.bacteria],
@@ -168,29 +168,29 @@ try {
     'Komodo should show its curated card'
   );
 
-  await go(page, `#/purba`);
+  await go(page, `/purba`);
   await page.waitForFunction(() =>
     [...document.querySelectorAll('[data-pbdb]')].some(d => /–/.test(d.textContent))
   );
   report.checks.pbdb = await page.locator('#fosil-tyrannosaurus [data-pbdb]').innerText();
   await shot(page, 'prehistoric');
 
-  await go(page, `#/learn/ekosistem`);
+  await go(page, `/learn/ekosistem`);
   await shot(page, 'lesson-ecosystem');
   await shot(page, 'preview-lesson', false);
-  await go(page, `#/lab/selection`);
+  await go(page, `/lab/selection`);
   await page.getByRole('button', { name: 'Jalankan 10 generasi' }).click();
   await shot(page, 'lab-selection');
-  await go(page, `#/compare?a=41967&b=118552`);
+  await go(page, `/compare?a=41967&b=118552`);
   await page.locator('.compare-table').waitFor();
   await shot(page, 'compare');
-  await go(page, `#/guru`);
+  await go(page, `/guru`);
   await shot(page, 'teacher');
   await page.context().close();
 
   // A printable lesson plan (teacher notes open), generated on a fresh page.
   const printer = await newPage({ role: 'teacher' });
-  await go(printer, '#/learn/klasifikasi');
+  await go(printer, '/learn/klasifikasi');
   await printer.emulateMedia({ media: 'print' });
   await printer.locator('.teacher-notes').evaluate(d => (d.open = true));
   await printer.pdf({ path: 'docs/lesson-plan-sample.pdf', format: 'A4', printBackground: true });
@@ -198,26 +198,26 @@ try {
 
   // Primary-school mode on a phone.
   const kid = await newPage({ level: 'sd', width: 390, height: 844 });
-  await go(kid, `#/home`);
+  await go(kid, `/home`);
   await kid.locator('.today-card h2').waitFor();
   await shot(kid, 'home-sd-mobile');
   await shot(kid, 'preview-sd-mobile', false);
-  await go(kid, `#/tree/1`);
+  await go(kid, `/tree/1`);
   await kid.locator('.taxon-card').first().waitFor();
   report.checks.sdTreeFirst = await kid.locator('.taxon-card h3').first().innerText();
   assert.match(report.checks.sdTreeFirst, /Hewan bertulang belakang/);
   await shot(kid, 'tree-sd-mobile');
-  await go(kid, `#/species/inat-569678`);
+  await go(kid, `/species/inat-569678`);
   await kid.locator('.curated-block').waitFor();
   await shot(kid, 'species-sd-mobile');
   await shot(kid, 'preview-sd-species', false);
-  await go(kid, `#/quiz/foto`);
+  await go(kid, `/quiz/foto`);
   await kid.locator('.game-photo img').waitFor();
   await shot(kid, 'photo-quiz-sd-mobile');
   await kid.context().close();
 
   const en = await newPage({ lang: 'en', level: 'kuliah' });
-  await go(en, `#/species/inat-41967`);
+  await go(en, `/species/inat-41967`);
   await en.locator('#dossier-status').waitFor({ state: 'detached', timeout: 60000 });
   await en.getByRole('tab', { name: 'Data & references' }).click();
   await en.locator('#synonyms li').first().waitFor();

@@ -8,6 +8,7 @@
 //
 // Environment: PORT (8080) · HOST (0.0.0.0) · INAT_INTERVAL_MS (1000) · CACHE_MAX_ENTRIES (3000)
 //              CLIENT_LIMIT_PER_MIN (240) · TRUST_PROXY (0) · HSTS=1 (behind HTTPS) · LOG=1 · USER_AGENT
+//              PROXY=0 serves files only (/api/* answers 404, as on plain static hosting); the tests use it.
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join, normalize, sep } from 'node:path';
@@ -26,6 +27,7 @@ const CLIENT_LIMIT = Number(process.env.CLIENT_LIMIT_PER_MIN || 240);
 const TRUST_PROXY = Number(process.env.TRUST_PROXY || 0);
 const USER_AGENT = process.env.USER_AGENT || DEFAULT_USER_AGENT;
 const LOG = process.env.LOG === '1';
+const PROXY = process.env.PROXY !== '0';
 const VERSION = JSON.parse(await readFile(join(ROOT, 'package.json'), 'utf8')).version;
 
 const SECURITY_HEADERS = {
@@ -81,8 +83,11 @@ function pick(req, body, type, key) {
   return { body: compressed.get(cacheKey), encoding };
 }
 
+/** App pages (/species/inat-41967, /learn/sel): paths made of plain segments, without a file name. */
+const isPage = pathname => /^\/(?:[\w%-]+(?:\/[\w%-]+)*)?$/.test(pathname) && !pathname.startsWith('/api/');
+
 async function serveStatic(req, res, pathname) {
-  if (pathname === '/') pathname = '/index.html';
+  if (pathname === '/' || isPage(pathname)) pathname = '/index.html';
   if (!PUBLIC_PATHS.some(re => re.test(pathname)))
     return send(res, 404, 'Not found', 'text/plain; charset=utf-8');
   const file = normalize(join(ROOT, decodeURIComponent(pathname)));
@@ -257,8 +262,10 @@ const server = createServer(async (req, res) => {
     if (!['GET', 'HEAD'].includes(req.method))
       return send(res, 405, 'Method not allowed', 'text/plain; charset=utf-8');
     const { pathname, search } = new URL(req.url, 'http://localhost');
-    if (pathname.startsWith('/api/')) await serveAPI(req, res, pathname, search);
-    else await serveStatic(req, res, pathname);
+    if (pathname.startsWith('/api/')) {
+      if (PROXY) await serveAPI(req, res, pathname, search);
+      else sendJSON(res, 404, { error: 'No proxy on this server' });
+    } else await serveStatic(req, res, pathname);
   } catch (error) {
     if (!res.headersSent) send(res, 500, 'Internal error', 'text/plain; charset=utf-8');
     console.error(error);

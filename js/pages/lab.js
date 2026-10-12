@@ -175,7 +175,7 @@ export async function render(ctx) {
     if (!next || next === active) return;
     active = next;
     values = loadValues(active);
-    history.replaceState(null, '', `#/lab/${active.id}`);
+    history.replaceState(null, '', `/lab/${active.id}`);
     renderLab(ctx);
     bindLab(active);
     $(`[data-lab="${active.id}"]`)?.focus({ preventScroll: true });

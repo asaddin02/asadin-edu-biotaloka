@@ -73,7 +73,7 @@ const s = S({
 export const title = () => s.title;
 
 const topicChip = t =>
-  `<a class="chip topic-chip" href="#/learn/${t.id}"><span aria-hidden="true">${t.icon}</span> ${esc(pick(t.title))}</a>`;
+  `<a class="chip topic-chip" href="/learn/${t.id}"><span aria-hidden="true">${t.icon}</span> ${esc(pick(t.title))}</a>`;
 
 function organisationLadder() {
   const overview = findTopic('organisasi');
@@ -84,7 +84,7 @@ function organisationLadder() {
       ${lessons.length ? `<div class="chip-row" aria-label="${s.lessons}">${lessons.slice(0, 3).map(topicChip).join('')}</div>${lessons.length > 3 ? `<details class="org-more"><summary>${s.moreLessons} (${fmt(lessons.length - 3)})</summary><div class="chip-row">${lessons.slice(3).map(topicChip).join('')}</div></details>` : ''}` : ''}</div></li>`;
   }).join(
     ''
-  )}</ol>${overview ? `<p><a class="btn secondary" href="#/learn/${overview.id}">${overview.icon} ${s.overview}: ${esc(pick(overview.title))}</a></p>` : ''}`;
+  )}</ol>${overview ? `<p><a class="btn secondary" href="/learn/${overview.id}">${overview.icon} ${s.overview}: ${esc(pick(overview.title))}</a></p>` : ''}`;
 }
 
 function fieldList() {
@@ -93,7 +93,7 @@ function fieldList() {
       <ul class="field-topics">${topicsInField(f.id)
         .map(
           t =>
-            `<li><a href="#/learn/${t.id}"><span aria-hidden="true">${t.icon}</span> ${esc(pick(t.title))}</a><span class="topic-meta">${t.levels.map(l => `<span class="level-dot${l === level ? ' current' : ''}">${esc(ui[l])}</span>`).join('')}</span></li>`
+            `<li><a href="/learn/${t.id}"><span aria-hidden="true">${t.icon}</span> ${esc(pick(t.title))}</a><span class="topic-meta">${t.levels.map(l => `<span class="level-dot${l === level ? ' current' : ''}">${esc(ui[l])}</span>`).join('')}</span></li>`
         )
         .join('')}</ul></section>`
   ).join('')}</div>`;
@@ -102,7 +102,7 @@ function fieldList() {
 function branchList() {
   return `<div class="branch-grid">${BRANCHES.map(b => {
     const lessons = b.topics.map(findTopic).filter(Boolean);
-    const tree = b.tree === 'root' ? '#/tree' : b.tree ? `#/tree/${Number(b.tree)}` : '';
+    const tree = b.tree === 'root' ? '/tree' : b.tree ? `/tree/${Number(b.tree)}` : '';
     return `<article class="card branch-card" id="cabang-${b.id}"><h3>${esc(pick(b.name))}${b.partial ? ` <span class="badge muted-badge">${s.partial}</span>` : ''}</h3><p>${esc(pick(b.desc))}</p>
       ${b.partial ? `<p class="muted small">${s.partialNote}</p>` : ''}
       <div class="chip-row">${lessons.map(topicChip).join('')}</div>
@@ -143,7 +143,7 @@ export async function render(ctx) {
       ['bidang', s.fieldsTitle],
       ['cabang', s.branchesTitle],
       ['cakupan', s.coverageTitle],
-    ])}<a class="btn secondary" href="#/learn">${s.exploreLessons} →</a></aside><div class="biomap-content">
+    ])}<a class="btn secondary" href="/learn">${s.exploreLessons} →</a></aside><div class="biomap-content">
     <section class="section" id="tingkat"><div class="section-head"><h2>${s.orgTitle}</h2></div><p class="muted">${s.orgIntro}</p>${organisationLadder()}
       ${notice(rich(s.orgNotes, { cls: 'compact' }))}</section>
     <section class="section" id="bidang"><div class="section-head"><h2>${s.fieldsTitle}</h2></div><p class="muted">${s.fieldsIntro}</p>${fieldList()}</section>

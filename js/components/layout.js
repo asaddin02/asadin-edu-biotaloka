@@ -48,10 +48,10 @@ export function renderHeader(page) {
   const active = PARENT[page] || page;
   const header = $('#header');
   header.innerHTML = `<div class="header-inner">
-    <a class="brand" href="#/home" aria-label="BioTaxa · ${esc(ui.home)}">${brandImage()}<span>BioTaxa<small>ASADIN EDU</small></span></a>
+    <a class="brand" href="/" aria-label="BioTaxa · ${esc(ui.home)}">${brandImage()}<span>BioTaxa<small>ASADIN EDU</small></span></a>
     <nav class="nav" aria-label="${ui.mainNav}">${NAV.map(
       n =>
-        `<a href="#/${n.page}" class="${active === n.page ? 'active' : ''}${n.desktop ? ' desktop-only' : ''}"${active === n.page ? ' aria-current="page"' : ''}>${icon(n.icon)}<span class="nav-short">${esc(n.label())}</span><span class="nav-long">${esc((n.long || n.label)())}</span></a>`
+        `<a href="${n.page === 'home' ? '/' : `/${n.page}`}" class="${active === n.page ? 'active' : ''}${n.desktop ? ' desktop-only' : ''}"${active === n.page ? ' aria-current="page"' : ''}>${icon(n.icon)}<span class="nav-short">${esc(n.label())}</span><span class="nav-long">${esc((n.long || n.label)())}</span></a>`
     ).join('')}</nav>
     <div class="header-tools">
       <button type="button" class="mode-chip" data-open-mode aria-haspopup="dialog" aria-label="${esc(ui.mode)}: ${esc(modeLabel())}">
@@ -68,18 +68,18 @@ export function renderHeader(page) {
 export function renderFooter() {
   const extra = [
     config.repositoryURL ? `<li>${link(config.repositoryURL, ui.sourceCode)}</li>` : '',
-    `<li><a href="#/dukung">${ui.donate}</a></li>`,
+    `<li><a href="/dukung">${ui.donate}</a></li>`,
   ].join('');
   $('#footer').innerHTML = `<div class="footer-main">
-      <a class="brand" href="#/home">${brandImage()}<span>BioTaxa<small>ASADIN EDU</small></span></a>
+      <a class="brand" href="/">${brandImage()}<span>BioTaxa<small>ASADIN EDU</small></span></a>
       <p>${ui.footer}</p><span class="footer-note">${ui.footerSub}</span>
     </div>
     <nav class="footer-links" aria-label="${s.footerLinks}"><ul>
-      <li><a href="#/learn">${ui.learn}</a></li>
-      <li><a href="#/kamus">${ui.glossary}</a></li>
-      <li><a href="#/guru">${ui.teacherLong}</a></li>
-      <li><a href="#/about">${ui.about}</a></li>
-      <li><a href="#/about#privasi">${s.privacy}</a></li>${extra}
+      <li><a href="/learn">${ui.learn}</a></li>
+      <li><a href="/kamus">${ui.glossary}</a></li>
+      <li><a href="/guru">${ui.teacherLong}</a></li>
+      <li><a href="/about">${ui.about}</a></li>
+      <li><a href="/about#privasi">${s.privacy}</a></li>${extra}
     </ul></nav>
     <div class="footer-discover"><span class="eyebrow">${ui.footerCurious}</span><p>${ui.footerTagline}</p></div>
     <div class="footer-bottom"><span>© BioTaxa · Asadin Edu · ${s.version} ${esc(config.version)}</span><span>${ui.licenseLine}</span></div>`;

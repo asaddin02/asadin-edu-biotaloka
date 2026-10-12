@@ -7,7 +7,7 @@ for (const route of ['learn?all=1', 'quiz']) {
   }) => {
     await setPrefs(page, { level: 'sma' });
     await mockAPIs(page);
-    await page.goto(`/#/${route}`);
+    await page.goto(`/${route}`);
     const query = page.getByLabel('Cari materi', { exact: true });
     await page.getByLabel('Bidang biologi', { exact: true }).selectOption('sel');
     await query.fill('DNA');
@@ -39,7 +39,7 @@ for (const route of ['learn?all=1', 'quiz']) {
 
 test('lesson scope keeps the selected field and search', async ({ page }) => {
   await setPrefs(page);
-  await page.goto('/#/learn?all=1&field=sel&q=DNA');
+  await page.goto('/learn?all=1&field=sel&q=DNA');
   await page.getByRole('link', { name: /Hanya materi jenjangku/ }).click();
   await expect(page.locator('#catalog-q')).toHaveValue('DNA');
   await expect(page.locator('#catalog-field')).toHaveValue('sel');
@@ -55,13 +55,13 @@ test('catalogs fit wide fonts on phones and tablets; the active mobile lab stays
   for (const width of [320, 390, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     for (const route of ['learn?all=1', 'quiz']) {
-      await page.goto(`/#/${route}`);
+      await page.goto(`/${route}`);
       await expect(page.locator('#catalog-q')).toBeVisible();
       expect(await noOverflow(page), `${width}: ${route}`).toBe(true);
     }
   }
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/#/lab/genetic');
+  await page.goto('/lab/genetic');
   const active = page.locator('[data-lab="genetic"]');
   await expect(active).toHaveAttribute('aria-pressed', 'true');
   const rect = await active.boundingBox();
@@ -73,6 +73,6 @@ test('catalogs fit wide fonts on phones and tablets; the active mobile lab stays
   await active.focus();
   await page.keyboard.press('Tab');
   await page.keyboard.press('Enter');
-  await expect(page).toHaveURL(/#\/lab\/selection/);
+  await expect(page).toHaveURL(/\/lab\/selection$/);
   await expect(page.locator('[data-lab="selection"]')).toBeFocused();
 });

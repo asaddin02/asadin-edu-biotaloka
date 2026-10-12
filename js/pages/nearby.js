@@ -1,4 +1,5 @@
 import { $, esc } from '../core/dom.js';
+import { navigate } from '../core/router.js';
 import { S, pick, fmt } from '../core/prefs.js';
 import { trackVisit } from '../core/userdata.js';
 import { ui } from '../i18n/ui.js';
@@ -91,13 +92,15 @@ export async function render(ctx) {
     navigator.geolocation.getCurrentPosition(
       pos => {
         const round = n => Math.round(n * 100) / 100;
-        location.hash = routeURL('nearby', {
-          lat: round(pos.coords.latitude),
-          lng: round(pos.coords.longitude),
-          radius,
-          group,
-          pname: s.here,
-        });
+        navigate(
+          routeURL('nearby', {
+            lat: round(pos.coords.latitude),
+            lng: round(pos.coords.longitude),
+            radius,
+            group,
+            pname: s.here,
+          })
+        );
       },
       () => {
         if (ctx.isCurrent()) results.innerHTML = notice(s.denied);

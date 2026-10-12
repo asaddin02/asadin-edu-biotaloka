@@ -29,7 +29,7 @@ function entry(g) {
     <h3>${esc(pick(g.term))}${pick(g.term).toLowerCase() !== g.term[1].toLowerCase() ? ` <small lang="${document.documentElement.lang === 'id' ? 'en' : 'id'}">${esc(document.documentElement.lang === 'id' ? g.term[1] : g.term[0])}</small>` : ''}</h3>
     <p>${esc(pick(g.def))}</p>
     ${g.adv && atLeast('sma') ? `<p class="term-adv"><strong>${s.more}:</strong> ${esc(pick(g.adv))}</p>` : ''}
-    ${topic ? `<a class="chip" href="#/learn/${topic.id}">${topic.icon} ${s.topic}: ${esc(pick(topic.title))}</a>` : ''}
+    ${topic ? `<a class="chip" href="/learn/${topic.id}">${topic.icon} ${s.topic}: ${esc(pick(topic.title))}</a>` : ''}
   </article>`;
 }
 

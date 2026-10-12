@@ -4,7 +4,7 @@ import { TOPICS } from '../js/data/topics/index.js';
 
 test('first visit invites choosing a mode; the choice changes text size and persists', async ({ page }) => {
   await mockAPIs(page);
-  await page.goto('/#/home');
+  await page.goto('/');
   await expect(page.locator('.mode-strip')).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('data-level', 'smp');
   await page
@@ -32,7 +32,7 @@ test('first visit invites choosing a mode; the choice changes text size and pers
 test('lessons adapt to the level; quizzes score and award a badge', async ({ page }) => {
   await setPrefs(page, { level: 'sd' });
   await mockAPIs(page);
-  await page.goto('/#/learn');
+  await page.goto('/learn');
   const cards = page.locator('.topic-grid .topic-card');
   await expect(cards.first()).toBeVisible();
   const sdCount = await cards.count();
@@ -41,7 +41,7 @@ test('lessons adapt to the level; quizzes score and award a badge', async ({ pag
   expect(sdCount).toBe(TOPICS.filter(t => t.levels.includes('sd')).length);
   expect(sdCount).toBeLessThan(TOPICS.length);
 
-  await page.goto('/#/learn/ekosistem');
+  await page.goto('/learn/ekosistem');
   await expect(page.locator('h1')).toHaveText('Ekosistem & rantai makanan');
   await expect(page.locator('#topic-text')).toContainText('padi → belalang → katak → ular → elang');
   await page.getByRole('link', { name: 'SMA Lanjutan', exact: true }).click();
@@ -58,7 +58,7 @@ test('lessons adapt to the level; quizzes score and award a badge', async ({ pag
 
 test('glossary terms open from lessons and the glossary page filters', async ({ page }) => {
   await setPrefs(page);
-  await page.goto('/#/learn/fotosintesis');
+  await page.goto('/learn/fotosintesis');
   await page.locator('#topic-text .term').first().click();
   const pop = page.locator('#term-pop');
   await expect(pop).toBeVisible();
@@ -72,7 +72,7 @@ test('glossary terms open from lessons and the glossary page filters', async ({ 
 test('compare shows the closest shared group, similarities and differences', async ({ page }) => {
   await setPrefs(page);
   await mockAPIs(page);
-  await page.goto('/#/compare?a=41967&b=118552');
+  await page.goto('/compare?a=41967&b=118552');
   await expect(page.locator('.shared-line')).toContainText('Famili');
   await expect(page.locator('.shared-line')).toContainText('Felidae');
   await expect(page.locator('.ladder-table tr.shared')).toHaveCount(5);
@@ -85,7 +85,7 @@ test('compare shows the closest shared group, similarities and differences', asy
 test('prehistoric life shows the timeline, Indonesian filter and PBDB ranges', async ({ page }) => {
   await setPrefs(page);
   await mockAPIs(page);
-  await page.goto('/#/purba');
+  await page.goto('/purba');
   await expect(page.locator('.timeline-marker').first()).toBeVisible();
   await expect(page.locator('#fosil-tyrannosaurus [data-pbdb]')).toContainText('83,6–66');
   await page.getByRole('link', { name: /Hanya yang ada di Indonesia/ }).click();
@@ -98,7 +98,7 @@ test('near me rounds the location before asking iNaturalist', async ({ page, con
   await context.setGeolocation({ latitude: -6.914744, longitude: 107.60981 });
   await setPrefs(page);
   await mockAPIs(page);
-  await page.goto('/#/nearby');
+  await page.goto('/nearby');
   const request = page.waitForRequest(
     r => r.url().includes('/v1/observations/species_counts') && r.url().includes('lat=')
   );
@@ -113,12 +113,12 @@ test('near me rounds the location before asking iNaturalist', async ({ page, con
 test('teachers create a link assignment; pupils answer and keep their work', async ({ page }) => {
   await setPrefs(page, { role: 'teacher' });
   await mockAPIs(page);
-  await page.goto('/#/guru?topic=ekosistem');
+  await page.goto('/guru?topic=ekosistem');
   await page.getByRole('button', { name: /Tambahkan spesies dari materi/ }).click();
   await expect(page.locator('.picked-list li')).not.toHaveCount(0);
   await page.getByRole('button', { name: /Buat tautan tugas/ }).click();
   const link = await page.locator('#assignment-url').inputValue();
-  expect(link).toContain('#/tugas?d=');
+  expect(link).toContain('/tugas?d=');
   await page.goto(link);
   await expect(page.locator('h1')).toHaveText('Ekosistem & rantai makanan');
   await expect(page.locator('.assignment-species li').first()).toBeVisible();
@@ -128,19 +128,19 @@ test('teachers create a link assignment; pupils answer and keep their work', asy
   await page.reload();
   await expect(page.locator('.assignment-questions textarea').first()).toHaveValue('Jawaban siswa');
   await expect(page.locator('.student-fields input').first()).toHaveValue('Budi');
-  await page.goto('/#/tugas?d=rusak');
+  await page.goto('/tugas?d=rusak');
   await expect(page.locator('#main')).toContainText('tidak valid');
 });
 
 test('passport tracks progress and data can be exported', async ({ page }) => {
   await setPrefs(page);
   await mockAPIs(page);
-  await page.goto('/#/species/inat-39449');
+  await page.goto('/species/inat-39449');
   await expect(page.locator('#toast')).toContainText('Langkah Pertama');
-  await page.goto('/#/saved?tab=passport');
+  await page.goto('/saved?tab=passport');
   await expect(page.locator('.badge-card.earned')).toContainText('Langkah Pertama');
   await expect(page.locator('.stat').first()).toContainText('1');
-  await page.goto('/#/saved?tab=data');
+  await page.goto('/saved?tab=data');
   const download = page.waitForEvent('download');
   await page.getByRole('button', { name: /Unduh cadangan/ }).click();
   expect((await download).suggestedFilename()).toMatch(/^biotaxa-backup-.*\.json$/);

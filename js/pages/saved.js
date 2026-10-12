@@ -126,7 +126,7 @@ function passportTab() {
       seen.length
         ? `<section class="section"><h2>${s.recent}</h2><div class="chips">${seen
             .slice(0, 16)
-            .map(([key, v]) => `<a class="chip" href="#/species/${esc(key)}"><em>${esc(v.name)}</em></a>`)
+            .map(([key, v]) => `<a class="chip" href="/species/${esc(key)}"><em>${esc(v.name)}</em></a>`)
             .join('')}</div></section>`
         : ''
     }
@@ -143,7 +143,7 @@ function notesTab() {
     ? `<ul class="note-list">${notes
         .map(
           n =>
-            `<li class="card note-item"><div><strong>${esc(n.label || n.key)}</strong><small class="muted">${fmtDate(n.updated, { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</small></div><p>${esc(n.text.slice(0, 400))}${n.text.length > 400 ? '…' : ''}</p><div class="actions">${n.href && n.href.startsWith('#/') ? `<a class="btn small secondary" href="${esc(n.href)}">${s.open}</a>` : ''}<button type="button" class="btn small ghost" data-delete-note="${esc(n.key)}">${icon('trash')} ${s.delete}</button></div></li>`
+            `<li class="card note-item"><div><strong>${esc(n.label || n.key)}</strong><small class="muted">${fmtDate(n.updated, { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</small></div><p>${esc(n.text.slice(0, 400))}${n.text.length > 400 ? '…' : ''}</p><div class="actions">${n.href && /^#?\//.test(n.href) ? `<a class="btn small secondary" href="${esc(n.href)}">${s.open}</a>` : ''}<button type="button" class="btn small ghost" data-delete-note="${esc(n.key)}">${icon('trash')} ${s.delete}</button></div></li>`
         )
         .join('')}</ul>`
     : emptyState(s.notesEmpty, '');

@@ -46,7 +46,7 @@ Jika diubah menjadi `false`, aplikasi hanya menampilkan foto **CC0, CC BY, dan C
 
 ## Model monetisasi yang selaras dengan open source
 
-- **Donasi** (misalnya Saweria, Trakteer, GitHub Sponsors). Halaman `#/dukung` dapat dibuka dari footer atau bagian dukungan di beranda. Isi `donateURL` di `js/config.js` dengan URL HTTPS akun donasi milik pengelola yang sudah diverifikasi. Tombol membuka layanan eksternal; aplikasi tidak memproses pembayaran. Jika URL kosong atau tidak valid, halaman menyatakan donasi uang belum tersedia. Donasi sukarela tidak memberikan akses eksklusif, nilai, atau lencana.
+- **Donasi** (misalnya Saweria, Trakteer, GitHub Sponsors). Halaman `/dukung` dapat dibuka dari footer atau bagian dukungan di beranda. Isi `donateURL` di `js/config.js` dengan URL HTTPS akun donasi milik pengelola yang sudah diverifikasi. Tombol membuka layanan eksternal; aplikasi tidak memproses pembayaran. Jika URL kosong atau tidak valid, halaman menyatakan donasi uang belum tersedia. Donasi sukarela tidak memberikan akses eksklusif, nilai, atau lencana.
 - **Sponsor institusi atau CSR** untuk biaya server dan penulisan konten, dengan pengakuan di halaman Sumber & metode.
 - **Layanan untuk sekolah**: pelatihan guru, instalasi server lokal/offline, atau paket lembar kerja cetak.
 - **Fitur sekolah berbayar di masa depan**, misalnya dasbor kelas dengan akun. Bagian ini membutuhkan backend dan kebijakan privasi anak yang ketat. Inti BioTaxa tetap gratis dan terbuka.

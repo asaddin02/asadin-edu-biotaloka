@@ -32,8 +32,8 @@ export const config = {
 
   // When BioTaxa is served by server/server.mjs, requests are routed through its caching proxy.
   proxy: {
-    health: 'api/health',
-    gbif: 'api/gbif/v1',
-    inat: 'api/inat/v1',
+    health: '/api/health',
+    gbif: '/api/gbif/v1',
+    inat: '/api/inat/v1',
   },
 };

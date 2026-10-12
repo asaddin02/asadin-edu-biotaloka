@@ -1,5 +1,6 @@
 import { config } from '../config.js';
 import { $, esc } from '../core/dom.js';
+import { currentURL, navigate } from '../core/router.js';
 import { S, fmt, pick } from '../core/prefs.js';
 import { read, write, KEYS } from '../core/storage.js';
 import { ui, rankLabel } from '../i18n/ui.js';
@@ -170,8 +171,8 @@ export async function render(ctx) {
       scope,
       kingdom: data.get('kingdom') || kingdom,
     });
-    if (location.hash === next) ctx.isCurrent() && render(ctx);
-    else location.hash = next;
+    if (currentURL() === next) ctx.isCurrent() && render(ctx);
+    else navigate(next);
   });
 
   const results = $('#results');

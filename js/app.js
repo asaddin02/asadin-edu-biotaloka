@@ -1,7 +1,7 @@
 // BioTaxa entry point: global behaviour shared by every page.
 import { $, $$, toast } from './core/dom.js';
 import { applyDocument, onPrefs, update, level, lang } from './core/prefs.js';
-import { configureRouter, render, parseRoute } from './core/router.js';
+import { configureRouter, currentURL, render, startRouter } from './core/router.js';
 import { getNote, setNote, onBadge } from './core/userdata.js';
 import {
   renderHeader,
@@ -42,7 +42,7 @@ configureRouter({
   error(route, error, notFound) {
     const main = $('#main');
     if (notFound) {
-      main.innerHTML = `${emptyState(ui.notFound, '')}<p class="center"><a class="btn" href="#/home">${ui.backHome}</a></p>`;
+      main.innerHTML = `${emptyState(ui.notFound, '')}<p class="center"><a class="btn" href="/">${ui.backHome}</a></p>`;
       return;
     }
     const target = $('#results') || main;
@@ -73,7 +73,7 @@ function writeNote(area) {
   pendingNotes.delete(key);
   const ok = setNote(key, area.value, {
     label: area.dataset.noteLabel || document.title,
-    href: location.hash,
+    href: currentURL(),
   });
   const status = area.closest('section, .field, li, .card')?.querySelector('[data-note-status]');
   if (status) status.textContent = ok ? `✓ ${ui.notesSaved}` : ui.storageFail;
@@ -137,7 +137,7 @@ document.addEventListener('click', event => {
   if (handleSuggestClick(event)) return;
   const target = event.target instanceof Element ? event.target : null;
   if (!target) return;
-  // With a hash router, following href="#main" would navigate to a page called "main".
+  // Skipping moves focus only; the fragment must not end up in the address bar.
   if (target.closest('a.skip')) {
     event.preventDefault();
     $('#main')?.focus();
@@ -229,13 +229,6 @@ onBadge(badge =>
   toast(`${badge.icon} ${ui.badgeEarned}: ${badge.name[lang === 'en' ? 1 : 0]}`, { tone: 'success' })
 );
 
-window.addEventListener('hashchange', () => {
-  window.scrollTo(0, 0);
-  render().then(() => {
-    if (!parseRoute().anchor) $('#main')?.focus({ preventScroll: true });
-  });
-});
-
 /* ---------- Connectivity & updates ---------- */
 window.addEventListener('online', () => {
   setConnectivity(true);
@@ -254,7 +247,7 @@ function registerServiceWorker() {
   }
   if (navigator.webdriver && !forced) return;
   navigator.serviceWorker
-    .register('sw.js', { updateViaCache: 'none' })
+    .register('/sw.js', { updateViaCache: 'none' })
     .then(registration => {
       // An update can already be waiting when a returning visitor opens the app.
       if (registration.waiting && navigator.serviceWorker.controller) showUpdate(registration.waiting);
@@ -288,6 +281,7 @@ function showUpdate(worker) {
 }
 
 /* ---------- Start ---------- */
+startRouter();
 renderFooter();
 setConnectivity(navigator.onLine !== false);
 initAPI().finally(() => {

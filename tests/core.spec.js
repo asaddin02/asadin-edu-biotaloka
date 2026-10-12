@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => setPrefs(page, { level: 'sma' }));
 
 test('tree keeps family and genus down to species; save, reload and switch language', async ({ page }) => {
   await mockAPIs(page);
-  await page.goto('/#/tree');
+  await page.goto('/tree');
   await page.locator('.domain-card').filter({ hasText: 'Eukarya' }).click();
   for (const n of chain)
     await page.locator('.taxon-card').filter({ hasText: n.canonicalName }).first().click();
@@ -48,7 +48,7 @@ test('curated group names lead the tree in SD mode and other groups can be revea
       }),
     })
   );
-  await page.goto('/#/tree/1');
+  await page.goto('/tree/1');
   await expect(page.locator('h1')).toHaveText('Hewan');
   const cards = page.locator('.taxon-grid').first().locator('.taxon-card');
   await expect(cards).toHaveCount(1);
@@ -60,7 +60,7 @@ test('curated group names lead the tree in SD mode and other groups can be revea
 
 test('GBIF index search paginates and shows HTML input as text', async ({ page }) => {
   await mockAPIs(page);
-  await page.goto('/#/search?source=index');
+  await page.goto('/search?source=index');
   await page.locator('#explore-q').fill('tiger');
   await page.getByRole('button', { name: 'Cari', exact: true }).click();
   await expect(page.locator('#results')).toContainText('25');
@@ -76,7 +76,7 @@ test('GBIF index search paginates and shows HTML input as text', async ({ page }
 
 test('a source outage offers retry instead of claiming there is no species', async ({ page }) => {
   await mockAPIs(page, { gbifOutage: true });
-  await page.goto('/#/search?q=tiger&source=index');
+  await page.goto('/search?q=tiger&source=index');
   await expect(page.getByRole('alert')).toContainText('Sumber data belum dapat dihubungi');
   await expect(page.getByRole('button', { name: 'Coba lagi' })).toBeVisible();
 });
@@ -90,15 +90,15 @@ test('slow responses never replace the page the learner moved to', async ({ page
       body: JSON.stringify({ count: 1, results: [chain.at(-1)] }),
     });
   });
-  await page.goto('/#/search?q=tiger&source=index');
-  await page.goto('/#/lab');
+  await page.goto('/search?q=tiger&source=index');
+  await page.goto('/lab');
   await page.waitForTimeout(1000);
   await expect(page.locator('#main h1')).toContainText('Rasa ingin tahu, bertemu eksperimen.');
 });
 
 test('Bacteria and Archaea branches, empty children, back and forward', async ({ page }) => {
   await mockAPIs(page);
-  await page.goto('/#/tree');
+  await page.goto('/tree');
   for (const name of ['Bacteria', 'Archaea']) {
     await page.locator('.domain-card').filter({ hasText: name }).click();
     await page.locator('.taxon-card').click();
@@ -107,12 +107,12 @@ test('Bacteria and Archaea branches, empty children, back and forward', async ({
     await expect(page.locator('.taxon-card')).toHaveCount(1);
     await page.goForward();
     await expect(page.locator('.status')).toContainText('Tidak ada turunan');
-    await page.goto('/#/tree');
+    await page.goto('/tree');
   }
 });
 
 test('unknown routes show a friendly page', async ({ page }) => {
-  await page.goto('/#/tidak-ada');
+  await page.goto('/tidak-ada');
   await expect(page.locator('#main')).toContainText('Halaman tidak ditemukan');
   await expect(page.getByRole('link', { name: 'Kembali ke beranda' })).toBeVisible();
 });

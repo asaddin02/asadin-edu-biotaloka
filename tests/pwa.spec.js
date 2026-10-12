@@ -11,7 +11,7 @@ test('installable manifest and offline lessons through the service worker', asyn
     localStorage.setItem('biotaxa-force-sw', '1');
     localStorage.setItem('biotaxa-level', JSON.stringify('smp'));
   });
-  await page.goto('/#/learn');
+  await page.goto('/learn');
   await page.evaluate(() => navigator.serviceWorker.ready);
   await expect
     .poll(
@@ -30,11 +30,11 @@ test('installable manifest and offline lessons through the service worker', asyn
   // A full reload without network is served by the service worker.
   // (Playwright's offline emulation reports navigator.onLine = true after a reload, so the banner is not re-checked.)
   await page.reload();
-  await page.goto('/#/learn/fotosintesis');
+  await page.goto('/learn/fotosintesis');
   await expect(page.locator('h1')).toHaveText('Tumbuhan & fotosintesis');
-  await page.goto('/#/lab/photosynthesis');
+  await page.goto('/lab/photosynthesis');
   await expect(page.locator('#lab-output')).toContainText('gelembung');
-  await page.goto('/#/quiz/klasifikasi');
+  await page.goto('/quiz/klasifikasi');
   await expect(page.locator('.quiz-q').first()).toBeVisible();
   await context.setOffline(false);
 });
@@ -52,7 +52,7 @@ test('a previously installed waiting update is offered on the next visit', async
     serviceWorker.register = async () => registration;
     Object.defineProperty(navigator, 'serviceWorker', { value: serviceWorker });
   });
-  await page.goto('/#/learn');
+  await page.goto('/learn');
   await expect(page.locator('#update-status')).toBeVisible();
   await page.locator('#update-status button').click();
   expect(await page.evaluate(() => window.updateMessage)).toEqual({ type: 'SKIP_WAITING' });

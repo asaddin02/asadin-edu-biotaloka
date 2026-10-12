@@ -57,7 +57,7 @@ export async function searchKnowledge(q, { limit = 8, minScore = 1 } = {}) {
         icon: t.icon,
         title: pick(t.title),
         sub: field ? pick(field.name) : '',
-        href: `#/learn/${t.id}`,
+        href: `/learn/${t.id}`,
         score: sc + 5,
       });
   }
@@ -70,7 +70,7 @@ export async function searchKnowledge(q, { limit = 8, minScore = 1 } = {}) {
         icon: '🧭',
         title: pick(b.name),
         sub: pick(b.desc),
-        href: `#/peta#cabang-${b.id}`,
+        href: `/peta#cabang-${b.id}`,
         score: sc,
       });
   }
@@ -83,7 +83,7 @@ export async function searchKnowledge(q, { limit = 8, minScore = 1 } = {}) {
         icon: o.icon,
         title: pick(o.name),
         sub: pick(o.desc),
-        href: `#/peta#tingkat-${o.id}`,
+        href: `/peta#tingkat-${o.id}`,
         score: sc - 5,
       });
   }
@@ -98,7 +98,7 @@ export async function searchKnowledge(q, { limit = 8, minScore = 1 } = {}) {
           icon: '📖',
           title: pick(g.term),
           sub: pick(g.def),
-          href: `#/kamus?q=${encodeURIComponent(g.id)}`,
+          href: `/kamus?q=${encodeURIComponent(g.id)}`,
           score: sc,
         });
     }
@@ -137,6 +137,6 @@ export async function lessonsMentioning(q, { exclude = [], limit = 6 } = {}) {
       icon: t.icon,
       title: pick(t.title),
       sub: pick(t.summary),
-      href: `#/learn/${t.id}`,
+      href: `/learn/${t.id}`,
     }));
 }

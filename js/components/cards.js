@@ -63,8 +63,8 @@ export function visualCard(taxon, { count = null, countLabel = 'observations' } 
   const common = taxon.preferred_common_name;
   const isSpecies = ['species', 'subspecies', 'variety', 'form', 'hybrid'].includes(taxon.rank);
   const href = isSpecies
-    ? `#/species/inat-${Number(taxon.id)}`
-    : `#/search?taxon=${Number(taxon.id)}&tname=${encodeURIComponent(common || taxon.name)}`;
+    ? `/species/inat-${Number(taxon.id)}`
+    : `/search?taxon=${Number(taxon.id)}&tname=${encodeURIComponent(common || taxon.name)}`;
   const n = count ?? taxon.observations_count ?? 0;
   const label =
     countLabel === 'indonesia' ? s.inIndonesia : countLabel === 'nearby' ? s.nearby : s.observations;
@@ -86,7 +86,7 @@ export function taxonCard(x, { href, subtitle = '', photo = '' } = {}) {
       : x.canonicalName || x.scientificName || ui.unknown;
   const url =
     href ||
-    (x.rank === 'SPECIES' || x.rank === 'SUBSPECIES' ? `#/species/${esc(x.key)}` : `#/tree/${esc(x.key)}`);
+    (x.rank === 'SPECIES' || x.rank === 'SUBSPECIES' ? `/species/${esc(x.key)}` : `/tree/${esc(x.key)}`);
   return `<a class="card taxon-card${photo ? ' has-photo' : ''}" data-scientific="${esc(scientificName(x))}" href="${url}">${photo}
     <span class="badge">${esc(rankLabel(x.rank))}</span>${x.nameType === 'INFORMAL' ? ` <span class="badge warn">${ui.informal}</span>` : ''}
     <h3>${esc(name)}</h3>${subtitle ? `<p class="card-sub">${esc(subtitle)}</p>` : x.vernacularName ? `<p class="card-sub">${esc(x.vernacularName)}</p>` : ''}
@@ -97,7 +97,7 @@ export function taxonCard(x, { href, subtitle = '', photo = '' } = {}) {
 export function curatedCard(sp, { showFact = false } = {}) {
   const photo = curatedPhoto(sp.photo);
   return `<article class="discovery-card curated-card">
-    <a href="#/species/${esc(sp.id)}" class="discovery-link">
+    <a href="/species/${esc(sp.id)}" class="discovery-link">
       <div class="media-frame${photo ? '' : ' no-photo'}">${photo ? photoMarkup(photo, pick(sp.name)) : placeholder('◎')}
         ${sp.end ? `<span class="media-badge endemic">🇮🇩 ${s.endemic}</span>` : ''}<span class="image-error-text">${s.imageFailed}</span></div>
       <div class="discovery-body"><h3>${esc(pick(sp.name))}</h3><p class="latin">${esc(sp.sci)}</p>${showFact ? `<p class="card-fact">${esc(pick(sp.fun).replace(/\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]/g, (_, k, l) => l || k))}</p>` : ''}</div>

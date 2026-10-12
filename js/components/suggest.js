@@ -1,5 +1,6 @@
 // Accessible search-as-you-type (ARIA combobox) backed by iNaturalist name autocomplete.
 import { $, esc } from '../core/dom.js';
+import { navigate } from '../core/router.js';
 import { S } from '../core/prefs.js';
 import { API } from '../services/api.js';
 import { licenseAllowed } from '../services/media.js';
@@ -104,12 +105,12 @@ export function handleSuggestInput(input) {
     return;
   }
   // Two letters match too many lessons and terms; organism names still suggest from two.
-  const navigate = input.dataset.suggest === 'navigate' && q.length >= 3;
+  const navigating = input.dataset.suggest === 'navigate' && q.length >= 3;
   timer = setTimeout(async () => {
     // Lessons and terms come from BioTaxa itself, so they still appear offline.
     const [remote, local] = await Promise.allSettled([
       API.autocomplete(q, { rank: input.dataset.suggestRank || '', perPage: 8 }),
-      navigate ? searchKnowledge(q, { limit: 3, minScore: 60 }) : Promise.resolve([]),
+      navigating ? searchKnowledge(q, { limit: 3, minScore: 60 }) : Promise.resolve([]),
     ]);
     if (mySeq !== seq || document.activeElement !== input) return;
     const names = remote.status === 'fulfilled' ? remote.value.results || [] : [];
@@ -136,7 +137,7 @@ export function choose(input, option) {
   if (option.dataset.href) {
     close(input);
     seq++;
-    location.hash = option.dataset.href;
+    navigate(option.dataset.href);
     return;
   }
   const item = {
@@ -149,9 +150,11 @@ export function choose(input, option) {
   seq++;
   if (input.dataset.suggest === 'navigate') {
     const isSpecies = ['species', 'subspecies', 'variety', 'form', 'hybrid'].includes(item.rank);
-    location.hash = isSpecies
-      ? `#/species/inat-${item.id}`
-      : `#/search?${new URLSearchParams({ taxon: item.id, tname: item.common || item.name })}`;
+    navigate(
+      isSpecies
+        ? `/species/inat-${item.id}`
+        : `/search?${new URLSearchParams({ taxon: item.id, tname: item.common || item.name })}`
+    );
   } else {
     input.value = item.common || item.name;
     input.dispatchEvent(new CustomEvent('suggest-pick', { bubbles: true, detail: item }));

@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => setPrefs(page, { level: 'sma' }));
 test('lever model uses newtons and records experiments that survive reload and language change', async ({
   page,
 }) => {
-  await page.goto('/#/lab/lever');
+  await page.goto('/lab/lever');
   await expect(page.locator('#lab-output')).toContainText('5 N');
   await page.locator('#armOut').fill('20');
   await expect(page.locator('#lab-output')).toContainText('2,5 N');
@@ -23,7 +23,7 @@ test('lever model uses newtons and records experiments that survive reload and l
 });
 
 test('photosynthesis names the limiting factor', async ({ page }) => {
-  await page.goto('/#/lab/photosynthesis');
+  await page.goto('/lab/photosynthesis');
   await page.locator('#light').fill('10');
   await expect(page.locator('#lab-output')).toContainText('cahaya');
   await page.locator('#light').fill('100');
@@ -34,7 +34,7 @@ test('photosynthesis names the limiting factor', async ({ page }) => {
 });
 
 test('energy flow bars and the food chain game', async ({ page }) => {
-  await page.goto('/#/lab/food');
+  await page.goto('/lab/food');
   await expect(page.locator('#lab-output')).toContainText('100');
   const names = ['Padi', 'Belalang', 'Katak', 'Ular sawah', 'Elang'];
   for (const name of names) await page.locator('[data-chain-pick]').filter({ hasText: name }).click();
@@ -42,7 +42,7 @@ test('energy flow bars and the food chain game', async ({ page }) => {
 });
 
 test('osmosis direction and Mendelian cross', async ({ page }) => {
-  await page.goto('/#/lab/osmosis');
+  await page.goto('/lab/osmosis');
   await expect(page.locator('#lab-output')).toContainText('ke dalam sel');
   await page.locator('#outside').fill('6');
   await expect(page.locator('#lab-output')).toContainText('ke luar sel');
@@ -56,7 +56,7 @@ test('osmosis direction and Mendelian cross', async ({ page }) => {
 });
 
 test('natural selection runs generations and the scale of life names the tool', async ({ page }) => {
-  await page.goto('/#/lab/selection');
+  await page.goto('/lab/selection');
   await page.getByRole('button', { name: 'Jalankan 10 generasi' }).click();
   await expect(page.locator('.lab-headline')).toContainText('Generasi 10');
   await expect(page.locator('.selection-chart circle')).toHaveCount(11);
