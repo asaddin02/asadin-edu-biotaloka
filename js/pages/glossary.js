@@ -38,7 +38,7 @@ export async function render(ctx) {
   const collator = new Intl.Collator(locale());
   const sorted = [...glossary].sort((a, b) => collator.compare(pick(a.term), pick(b.term)));
   const letters = [...new Set(sorted.map(g => normalize(pick(g.term))[0].toUpperCase()))];
-  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTAXA / KAMUS')}
+  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTALOKA / KAMUS')}
     <div class="glossary-workspace"><aside class="glossary-sidebar"><div class="glossary-tools"><label class="sr-only" for="glossary-q">${s.search}</label><input id="glossary-q" type="search" value="${esc(q)}" placeholder="${s.placeholder}" autocomplete="off"><span class="muted" id="glossary-count" aria-live="polite"></span></div>
     <nav class="alphabet" aria-label="A–Z">${letters.map(l => `<a href="#letter-${l}" data-letter="${l}">${l}</a>`).join('')}</nav>
     </aside><div class="glossary-content"><div id="glossary-list">${letters

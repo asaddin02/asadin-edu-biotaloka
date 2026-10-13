@@ -143,5 +143,5 @@ test('passport tracks progress and data can be exported', async ({ page }) => {
   await page.goto('/saved?tab=data');
   const download = page.waitForEvent('download');
   await page.getByRole('button', { name: /Unduh cadangan/ }).click();
-  expect((await download).suggestedFilename()).toMatch(/^biotaxa-backup-.*\.json$/);
+  expect((await download).suggestedFilename()).toMatch(/^biotaloka-backup-.*\.json$/);
 });

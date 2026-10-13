@@ -2,7 +2,7 @@
 // Content license: CC BY-SA 4.0.
 //
 // ORGANIZATION  levels of biological organisation, smallest first. Lessons point here with `org`.
-// BRANCHES      branches (sub-disciplines) of biology and where BioTaxa covers them.
+// BRANCHES      branches (sub-disciplines) of biology and where Biotaloka covers them.
 //               `topics` = lessons that teach the branch's core ideas; `tree` = GBIF taxon key to
 //               open in the tree of life ('root' = the tree's start page); `partial` = no dedicated
 //               lesson yet, only the basics inside broader lessons (said openly in the UI).

@@ -1,4 +1,4 @@
-// Read-aloud with the browser's built-in speech synthesis. Nothing is sent to BioTaxa.
+// Read-aloud with the browser's built-in speech synthesis. Nothing is sent to Biotaloka.
 import { lang, level } from '../core/prefs.js';
 
 export const canSpeak = () =>

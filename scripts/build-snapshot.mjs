@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Records the API responses behind BioTaxa's most visited pages into data/snapshot/, so the deployed
+// Records the API responses behind Biotaloka's most visited pages into data/snapshot/, so the deployed
 // site can serve them as static files instead of sending every visitor to GBIF and iNaturalist.
 // The real app runs in a headless browser; each response is stored under the exact URL the app asked
 // for (see js/services/snapshot.js). iNaturalist is asked at most once every 1.1 s.
@@ -24,7 +24,7 @@ const BASE = `http://127.0.0.1:${PORT}`;
 const QUICK = process.argv.includes('--quick');
 const CONCURRENCY = 4;
 const INAT_GAP = 1100;
-const USER_AGENT = 'BioTaxa snapshot builder (+https://github.com/asaddin02/asadin-edu-biotaxa)';
+const USER_AGENT = 'Biotaloka snapshot builder (+https://github.com/asaddin02/asadin-edu-biotaloka)';
 
 // Words children commonly type, on top of every curated species name.
 const EXTRA = {
@@ -118,8 +118,8 @@ async function newContext(browser, { lang, level }) {
   });
   await context.addInitScript(
     ([g, l]) => {
-      localStorage.setItem('biotaxa-language', JSON.stringify(g));
-      localStorage.setItem('biotaxa-level', JSON.stringify(l));
+      localStorage.setItem('biotaloka-language', JSON.stringify(g));
+      localStorage.setItem('biotaloka-level', JSON.stringify(l));
     },
     [lang, level]
   );

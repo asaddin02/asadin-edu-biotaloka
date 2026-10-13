@@ -23,6 +23,6 @@ Kami berusaha menanggapi dalam 7 hari. / We aim to respond within 7 days.
 
 - Content Security Policy ketat: skrip hanya dari origin sendiri, tanpa skrip inline.
 - Semua teks dari API di-escape sebelum ditampilkan; tidak ada `eval`.
-- Tidak ada akun, cookie, atau data pribadi yang dikirim ke server BioTaxa.
+- Tidak ada akun, cookie, atau data pribadi yang dikirim ke server Biotaloka.
 - Proxy hanya meneruskan endpoint baca-saja yang diizinkan, dengan batas laju per klien.
 - Server hanya menyajikan folder publik (`/css`, `/js`, `/assets`, `index.html`, `sw.js`, `manifest.webmanifest`, `robots.txt`).

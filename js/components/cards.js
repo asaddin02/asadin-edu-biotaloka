@@ -105,4 +105,4 @@ export function curatedCard(sp, { showFact = false } = {}) {
   </article>`;
 }
 
-export const refresh = root => root?.dispatchEvent(new Event('biotaxa:enhance', { bubbles: true }));
+export const refresh = root => root?.dispatchEvent(new Event('biotaloka:enhance', { bubbles: true }));

@@ -1,8 +1,8 @@
-# BioTaxa production image: the static app plus the caching API proxy (server/server.mjs).
+# Biotaloka production image: the static app plus the caching API proxy (server/server.mjs).
 # The server has no npm dependencies, so nothing is installed at build time.
 #
-#   docker build -t biotaxa .
-#   docker run -d -p 8080:8080 --name biotaxa biotaxa
+#   docker build -t biotaloka .
+#   docker run -d -p 8080:8080 --name biotaloka biotaloka
 #
 # Behind a reverse proxy (nginx, Caddy, a PaaS router) also pass -e TRUST_PROXY=1, and -e HSTS=1 when it
 # terminates HTTPS. See README.md for every setting.

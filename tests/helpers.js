@@ -278,9 +278,9 @@ export async function setPrefs(page, { level = 'smp', lang = 'id', role = 'stude
     ([l, g, r]) => {
       if (sessionStorage.getItem('prefs-set')) return;
       sessionStorage.setItem('prefs-set', '1');
-      localStorage.setItem('biotaxa-level', JSON.stringify(l));
-      localStorage.setItem('biotaxa-language', JSON.stringify(g));
-      localStorage.setItem('biotaxa-role', JSON.stringify(r));
+      localStorage.setItem('biotaloka-level', JSON.stringify(l));
+      localStorage.setItem('biotaloka-language', JSON.stringify(g));
+      localStorage.setItem('biotaloka-role', JSON.stringify(r));
     },
     [level, lang, role]
   );

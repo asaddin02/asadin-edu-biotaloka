@@ -2,13 +2,13 @@
 // captures documentation screenshots (full pages, plus viewport-sized preview-* images for the README).
 // Separate from the deterministic suite on purpose.
 //   npm run dev            (or any server)   then   npm run smoke
-//   BIOTAXA_URL=http://127.0.0.1:8085 npm run smoke
+//   BIOTALOKA_URL=http://127.0.0.1:8085 npm run smoke
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
 
-const base = (process.env.BIOTAXA_URL || 'http://127.0.0.1:8085').replace(/\/$/, '');
+const base = (process.env.BIOTALOKA_URL || 'http://127.0.0.1:8085').replace(/\/$/, '');
 const chrome =
   process.env.CHROME_PATH || (existsSync('/usr/bin/google-chrome') ? '/usr/bin/google-chrome' : undefined);
 const shots = 'docs/screenshots';
@@ -29,8 +29,8 @@ async function newPage({ level = 'smp', lang = 'id', width = 1440, height = 1000
   const context = await browser.newContext({ viewport: { width, height } });
   await context.addInitScript(
     ([l, g]) => {
-      localStorage.setItem('biotaxa-level', JSON.stringify(l));
-      localStorage.setItem('biotaxa-language', JSON.stringify(g));
+      localStorage.setItem('biotaloka-level', JSON.stringify(l));
+      localStorage.setItem('biotaloka-language', JSON.stringify(g));
     },
     [level, lang]
   );

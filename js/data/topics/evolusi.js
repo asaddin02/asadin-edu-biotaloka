@@ -172,16 +172,16 @@ At the genome level, selection is detected from dN/dS ratios (non-synonymous ver
   },
   activity: {
     smp: [
-      'Jalankan simulasi Seleksi alam di Lab BioTaxa. Mulai dengan 10% ngengat gelap di lingkungan tercemar. Berapa generasi hingga ngengat gelap lebih dari separuh?',
-      'Run the BioTaxa Natural selection lab. Start with 10% dark moths in a polluted environment. How many generations until dark moths are over half?',
+      'Jalankan simulasi Seleksi alam di Lab Biotaloka. Mulai dengan 10% ngengat gelap di lingkungan tercemar. Berapa generasi hingga ngengat gelap lebih dari separuh?',
+      'Run the Biotaloka Natural selection lab. Start with 10% dark moths in a polluted environment. How many generations until dark moths are over half?',
     ],
     sma: [
-      'Gunakan fitur Bandingkan di BioTaxa untuk manusia dan orangutan, lalu harimau dan kucing. Di tingkat takson mana mereka berpisah? Hubungkan dengan konsep nenek moyang bersama.',
-      'Use BioTaxa Compare for humans vs orangutans and tigers vs cats. At which rank do they split? Link this to common ancestry.',
+      'Gunakan fitur Bandingkan di Biotaloka untuk manusia dan orangutan, lalu harimau dan kucing. Di tingkat takson mana mereka berpisah? Hubungkan dengan konsep nenek moyang bersama.',
+      'Use Biotaloka Compare for humans vs orangutans and tigers vs cats. At which rank do they split? Link this to common ancestry.',
     ],
     kuliah: [
-      'Cari tiga spesies endemik Wallacea di BioTaxa. Petakan temuan mereka dan diskusikan hipotesis spesiasi alopatrik.',
-      'Find three Wallacean endemics in BioTaxa. Map their occurrences and discuss allopatric speciation hypotheses.',
+      'Cari tiga spesies endemik Wallacea di Biotaloka. Petakan temuan mereka dan diskusikan hipotesis spesiasi alopatrik.',
+      'Find three Wallacean endemics in Biotaloka. Map their occurrences and discuss allopatric speciation hypotheses.',
     ],
     sd: [
       'Bandingkan gambar tangan manusia, sayap kelelawar, sirip paus, dan kaki kucing. Warnai tulang-tulang yang mirip dengan warna yang sama. Apa yang kamu temukan?',
@@ -419,8 +419,8 @@ At the genome level, selection is detected from dN/dS ratios (non-synonymous ver
         'Hook: photos of anoa, babirusa and maleo — “Why only on Sulawesi?”',
       ],
       [
-        'Simulasi: seleksi alam ngengat di Lab BioTaxa.',
-        'Simulate: peppered-moth selection in the BioTaxa Lab.',
+        'Simulasi: seleksi alam ngengat di Lab Biotaloka.',
+        'Simulate: peppered-moth selection in the Biotaloka Lab.',
       ],
       [
         'Penjelasan: syarat seleksi alam, bukti evolusi, miskonsepsi.',

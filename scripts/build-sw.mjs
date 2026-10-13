@@ -12,7 +12,7 @@ const include = [
   'manifest.webmanifest',
   'css',
   'js',
-  'assets/brand/biotaxa-mark.png',
+  'assets/brand/biotaloka-mark.png',
   'assets/brand/icon-192.png',
   'assets/brand/icon-512.png',
   'assets/brand/icon-maskable-512.png',

@@ -118,7 +118,7 @@ function renderLab(ctx) {
   const lab = active;
   const main = ctx.main;
   const labs = ordered();
-  main.innerHTML = `${pageHead(s.heading, s.intro, 'BIOTAXA / LAB')}
+  main.innerHTML = `${pageHead(s.heading, s.intro, 'BIOTALOKA / LAB')}
     <div class="lab-workspace"><div class="lab-tabs" role="group" aria-label="${s.title}">${labs
       .map(
         l =>

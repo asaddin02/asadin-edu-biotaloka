@@ -271,7 +271,7 @@ export const recheckBadges = commit;
 /* ---------- Export / import / reset ---------- */
 export function exportAll() {
   return {
-    app: 'BioTaxa',
+    app: 'Biotaloka',
     version: 1,
     exported: new Date().toISOString(),
     collection,
@@ -280,8 +280,10 @@ export function exportAll() {
     experiments,
   };
 }
+// Backups exported before the site was renamed carry the old app id; accept them so progress can move over.
+const APP_IDS = ['Biotaloka', 'BioTaxa'];
 export function importAll(data) {
-  if (!data || data.app !== 'BioTaxa') return false;
+  if (!data || !APP_IDS.includes(data.app)) return false;
   if (Array.isArray(data.collection)) write(KEYS.collection, data.collection);
   if (data.notes && typeof data.notes === 'object') write(KEYS.notes, data.notes);
   if (data.progress && typeof data.progress === 'object') write(KEYS.progress, data.progress);

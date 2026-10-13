@@ -34,7 +34,7 @@ test.afterEach(() => {
 });
 
 async function call(path, { method = 'GET', env = {} } = {}) {
-  const url = new URL(`https://biotaxa.pages.dev/api/${path}`);
+  const url = new URL(`https://biotaloka.pages.dev/api/${path}`);
   const pending = [];
   const response = await onRequest({
     request: new Request(url, { method }),
@@ -66,7 +66,7 @@ test('the first request fills the edge cache and the next one is served from it'
   expect(upstreamCalls).toEqual([
     {
       url: 'https://api.inaturalist.org/v1/taxa/41967?locale=id',
-      agent: expect.stringContaining('github.com/asaddin02/asadin-edu-biotaxa'),
+      agent: expect.stringContaining('github.com/asaddin02/asadin-edu-biotaloka'),
     },
   ]);
   const second = await call('inat/v1/taxa/41967?locale=id');
@@ -90,9 +90,9 @@ test('rate limits and outages are passed on, never cached', async () => {
 });
 
 test('the User-Agent can be set per deployment', async () => {
-  await call('gbif/v1/species/5219416', { env: { USER_AGENT: 'BioTaxa (school.example)' } });
+  await call('gbif/v1/species/5219416', { env: { USER_AGENT: 'Biotaloka (school.example)' } });
   expect(upstreamCalls[0]).toEqual({
     url: 'https://api.gbif.org/v1/species/5219416',
-    agent: 'BioTaxa (school.example)',
+    agent: 'Biotaloka (school.example)',
   });
 });

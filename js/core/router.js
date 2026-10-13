@@ -120,11 +120,11 @@ export async function render() {
       cleanup: fn => cleanups.push(fn),
     });
     if (token !== epoch) return;
-    document.title = `${mod.title ? mod.title(route) : 'BioTaxa'} · BioTaxa`;
+    document.title = `${mod.title ? mod.title(route) : 'Biotaloka'} · Biotaloka`;
     hooks.after(route, main);
   } catch (error) {
     if (token !== epoch) return;
-    console.warn('BioTaxa render failed:', error);
+    console.warn('Biotaloka render failed:', error);
     hooks.error(route, error, false);
   }
 }

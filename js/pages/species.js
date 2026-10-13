@@ -60,8 +60,8 @@ const s = S({
   forClass: ['Untuk kelas dan tugas', 'For class and homework'],
   sourcesNotes: ['Sumber & catatan', 'Sources & notes'],
   updatedNote: [
-    'Informasi mengikuti catatan sumber, bukan hasil pengukuran BioTaxa.',
-    'Information follows source records, not measurements made by BioTaxa.',
+    'Informasi mengikuti catatan sumber, bukan hasil pengukuran Biotaloka.',
+    'Information follows source records, not measurements made by Biotaloka.',
   ],
   exactJoin: [
     'Identitas dicocokkan berdasarkan nama ilmiah yang sama.',
@@ -618,10 +618,10 @@ function citations(name, gbif, inatId) {
       org: 'iNaturalist',
     });
   list.push({
-    key: 'biotaxa',
-    text: `BioTaxa · Asadin Edu (${year}). ${name}. ${location.href}. Accessed ${today}.`,
+    key: 'biotaloka',
+    text: `Biotaloka · Asadin Edu (${year}). ${name}. ${location.href}. Accessed ${today}.`,
     url: location.href,
-    title: `${name} — BioTaxa`,
+    title: `${name} — Biotaloka`,
     org: 'Asadin Edu',
   });
   return list.map(c => ({ ...c, today, year }));
@@ -906,7 +906,7 @@ export async function render(ctx) {
     gbif: String(id).startsWith('inat-') ? null : id,
   });
   state.data = seed;
-  document.title = `${state.curated ? pick(state.curated.name) : nameOf(seed.taxon)} · BioTaxa`;
+  document.title = `${state.curated ? pick(state.curated.name) : nameOf(seed.taxon)} · Biotaloka`;
   renderPage(seed, false);
   try {
     const enriched = await API.enrich(seed, { inatId: state.curated?.inat });
@@ -937,6 +937,6 @@ export async function render(ctx) {
     const status = $('#dossier-status');
     if (status)
       status.innerHTML = `${s.loadFailed} <button class="chip" type="button" data-retry>${ui.retry}</button>`;
-    console.warn('BioTaxa species enrichment failed:', error);
+    console.warn('Biotaloka species enrichment failed:', error);
   }
 }

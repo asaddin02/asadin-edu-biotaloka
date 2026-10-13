@@ -114,7 +114,7 @@ export async function render(ctx) {
     list: ancient.filter(x => x.period === p.id).sort((a, b) => b.est[0] - a.est[0]),
   })).filter(g => g.list.length);
 
-  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTAXA / PURBA')}
+  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTALOKA / PURBA')}
     <div class="segmented" role="group"><a href="/purba" class="${onlyIndo ? '' : 'selected'}">${s.all}</a><a href="/purba?indo=1" class="${onlyIndo ? 'selected' : ''}">🇮🇩 ${s.onlyIndo}</a></div>
     ${timeline(ancient)}
     ${byPeriod

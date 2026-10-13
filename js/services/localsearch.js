@@ -1,4 +1,4 @@
-// Offline search over BioTaxa's own knowledge: lessons, glossary terms, branches of biology and
+// Offline search over Biotaloka's own knowledge: lessons, glossary terms, branches of biology and
 // levels of organisation. Species names are searched by the providers (see suggest.js).
 import { pick, lang } from '../core/prefs.js';
 import { TOPICS, FIELDS, loadTopics } from '../data/topics/index.js';

@@ -8,8 +8,8 @@ const s = S({
   title: ['Sumber & metode', 'Sources & methods'],
   heading: ['Rasa ingin tahu membutuhkan sumber yang baik.', 'Curiosity deserves good sources.'],
   sub: [
-    'BioTaxa membaca data terbuka saat dibutuhkan dan memadukannya dengan materi kurasi. Tidak ada klaim bahwa semua spesies bumi sudah dikenal atau memiliki data lengkap.',
-    'BioTaxa reads open data on demand and combines it with curated lessons. It does not claim that every species is known or fully documented.',
+    'Biotaloka membaca data terbuka saat dibutuhkan dan memadukannya dengan materi kurasi. Tidak ada klaim bahwa semua spesies bumi sudah dikenal atau memiliki data lengkap.',
+    'Biotaloka reads open data on demand and combines it with curated lessons. It does not claim that every species is known or fully documented.',
   ],
   sources: ['Sumber data', 'Data sources'],
   gbif: [
@@ -32,7 +32,7 @@ const s = S({
     'Umur terpanjang yang pernah tercatat pada kartu hewan kurasi (Human Ageing Genomic Resources, CC BY 3.0).',
     'Longest recorded lifespans on curated animal cards (Human Ageing Genomic Resources, CC BY 3.0).',
   ],
-  curated: ['Konten kurasi BioTaxa', 'BioTaxa curated content'],
+  curated: ['Konten kurasi Biotaloka', 'Biotaloka curated content'],
   curatedText: [
     '111 kartu spesies, 12 materi dengan kuis dan catatan guru, lebih dari 100 istilah kamus, dan 29 makhluk purba ditulis dalam bahasa sederhana dari sumber terbuka. Konten ini berlisensi CC BY-SA 4.0 dan terbuka untuk koreksi.',
     '111 species cards, 12 lessons with quizzes and teacher notes, over 100 glossary terms and 29 prehistoric organisms, written in plain language from open sources. This content is licensed CC BY-SA 4.0 and open to corrections.',
@@ -54,8 +54,8 @@ const s = S({
   ],
   mediaPolicy: ['Kebijakan foto saat ini', 'Current photo policy'],
   mediaNC: [
-    'foto berlisensi non-komersial (NC) ikut ditampilkan karena BioTaxa gratis.',
-    'non-commercial (NC) photos are shown because BioTaxa is free.',
+    'foto berlisensi non-komersial (NC) ikut ditampilkan karena Biotaloka gratis.',
+    'non-commercial (NC) photos are shown because Biotaloka is free.',
   ],
   mediaSafe: [
     'hanya foto CC0, CC BY, dan CC BY-SA yang ditampilkan.',
@@ -96,7 +96,7 @@ const PRIVACY = [
 export async function render(ctx) {
   const card = (name, text, url) =>
     `<article class="card"><h3>${name}</h3><p>${text}</p>${link(url, name)}</article>`;
-  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTAXA / SUMBER')}
+  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTALOKA / SUMBER')}
     <div class="about-workspace">${sectionNav([
       ['about-sources', s.sources],
       ['about-curated', s.curated],

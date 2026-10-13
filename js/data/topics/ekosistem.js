@@ -162,20 +162,20 @@ Classic experiments remain touchstones: Robert Paine (1966) removed *Pisaster* s
   },
   activity: {
     sd: [
-      'Mainkan “Susun rantai makanan” di Laboratorium BioTaxa. Lalu gambar rantai makanan di sekitar rumah atau sekolahmu.',
-      'Play “Build a food chain” in the BioTaxa Laboratory. Then draw a food chain from around your home or school.',
+      'Mainkan “Susun rantai makanan” di Laboratorium Biotaloka. Lalu gambar rantai makanan di sekitar rumah atau sekolahmu.',
+      'Play “Build a food chain” in the Biotaloka Laboratory. Then draw a food chain from around your home or school.',
     ],
     smp: [
       'Amati satu petak kebun 1 × 1 m selama 15 menit. Catat semua makhluk hidup yang terlihat dan susun jaring-jaring makanan sederhana.',
       'Observe a 1 × 1 m garden plot for 15 minutes. Record every organism and draw a simple food web.',
     ],
     sma: [
-      'Pakai simulasi Aliran energi BioTaxa dengan efisiensi 5%, 10%, dan 20%. Berapa energi yang sampai ke konsumen III? Jelaskan mengapa jumlah predator puncak sedikit.',
-      'Use the BioTaxa Energy flow simulation at 5%, 10% and 20% efficiency. How much reaches tertiary consumers? Explain why top predators are few.',
+      'Pakai simulasi Aliran energi Biotaloka dengan efisiensi 5%, 10%, dan 20%. Berapa energi yang sampai ke konsumen III? Jelaskan mengapa jumlah predator puncak sedikit.',
+      'Use the Biotaloka Energy flow simulation at 5%, 10% and 20% efficiency. How much reaches tertiary consumers? Explain why top predators are few.',
     ],
     kuliah: [
-      'Unduh data temuan satu spesies dari BioTaxa (mode Kuliah). Petakan dan diskusikan sumber bias pengambilan sampelnya.',
-      'Download occurrence data for one species from BioTaxa (University mode). Map it and discuss its sampling biases.',
+      'Unduh data temuan satu spesies dari Biotaloka (mode Kuliah). Petakan dan diskusikan sumber bias pengambilan sampelnya.',
+      'Download occurrence data for one species from Biotaloka (University mode). Map it and discuss its sampling biases.',
     ],
   },
   species: [
@@ -436,8 +436,8 @@ Classic experiments remain touchstones: Robert Paine (1966) removed *Pisaster* s
         'Field observation: a 1 × 1 m plot in the schoolyard.',
       ],
       [
-        'Simulasi: permainan rantai makanan dan aliran energi di Lab BioTaxa.',
-        'Simulate: food-chain game and energy flow in the BioTaxa Lab.',
+        'Simulasi: permainan rantai makanan dan aliran energi di Lab Biotaloka.',
+        'Simulate: food-chain game and energy flow in the Biotaloka Lab.',
       ],
       [
         'Diskusi: interaksi (mutualisme, komensalisme, parasitisme) dengan contoh kartu spesies.',
@@ -447,7 +447,7 @@ Classic experiments remain touchstones: Robert Paine (1966) removed *Pisaster* s
     ],
     assess: [
       ['Poster jaring-jaring makanan dari hasil pengamatan.', 'Food-web poster from the field observation.'],
-      ['Kuis BioTaxa.', 'BioTaxa quiz.'],
+      ['Kuis Biotaloka.', 'Biotaloka quiz.'],
     ],
     misconceptions: [
       {

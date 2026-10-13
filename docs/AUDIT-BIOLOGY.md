@@ -1,6 +1,6 @@
-# Audit cakupan dan akurasi Biologi BioTaxa
+# Audit cakupan dan akurasi Biologi Biotaloka
 
-Dokumen ini mencatat audit BioTaxa sebagai **ensiklopedia Biologi interaktif untuk SD sampai kuliah dan guru**. Audit dibuat dua kali: sebelum perubahan (bagian A) dan sesudahnya (bagian B). Tujuannya agar klaim kelengkapan selalu bisa dibuktikan dari isi repositori, bukan dari kesan tampilan.
+Dokumen ini mencatat audit Biotaloka sebagai **ensiklopedia Biologi interaktif untuk SD sampai kuliah dan guru**. Audit dibuat dua kali: sebelum perubahan (bagian A) dan sesudahnya (bagian B). Tujuannya agar klaim kelengkapan selalu bisa dibuktikan dari isi repositori, bukan dari kesan tampilan.
 
 Status yang dipakai: **COMPLETE**, **PARTIAL**, **MISSING**, **INCORRECT**, **UNSOURCED**, **OUTDATED**, **BROKEN**.
 
@@ -68,7 +68,7 @@ Tindakan yang dipakai: **KEEP** (benar), **EXPAND** (benar tetapi dangkal), **CO
 | **Materi guru** | Tujuan, langkah, asesmen, kunci jawaban | PARTIAL | Tujuan untuk kuliah **tidak ada di semua topik**; tidak ada daftar miskonsepsi | — | IMPLEMENT |
 | **Pencarian** | Nama organisme (iNaturalist, GBIF) | PARTIAL | Materi, konsep, dan istilah kamus tidak bisa dicari dari kotak pencarian | — | IMPLEMENT |
 | **Kartu spesies**: deskripsi, makanan, habitat, ukuran | 111 kartu | PARTIAL | Umur hanya 1 kartu; perilaku, reproduksi, pemangsa, dan peran ekologis bergantung pada uraian GBIF bila ada | — | KEEP (bagian kosong sudah ditandai "belum ada uraian") |
-| Sumber per kartu spesies | Label "kurasi BioTaxa" | UNSOURCED | Rujukan per kartu | — | VERIFY/SOURCE (bertahap) |
+| Sumber per kartu spesies | Label "kurasi Biotaloka" | UNSOURCED | Rujukan per kartu | — | VERIFY/SOURCE (bertahap) |
 | Foto kartu | 109/111 berfoto, semua berlisensi dan beratribusi | COMPLETE | 2 mikroba tanpa foto terbuka | — | KEEP |
 | Kamus | 103 istilah | PARTIAL | Istilah fisiologi, molekuler, dan bioteknologi | — | EXPAND |
 | Laboratorium | 7 simulasi | PARTIAL | Tidak ada model untuk kode genetik atau enzim | — | IMPLEMENT (bila waktu cukup) |

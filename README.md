@@ -1,10 +1,10 @@
-# BioTaxa · Asadin Edu
+# Biotaloka · Asadin Edu
 
 **Atlas makhluk hidup yang terbuka, gratis, dan dwibahasa (Indonesia/English) untuk siswa SD sampai mahasiswa, serta guru.** Jelajahi jutaan spesies dari GBIF dan iNaturalist, pelajari materi Kurikulum Merdeka, coba simulasi laboratorium, dan bawa kelas belajar di luar ruangan.
 
 **Lanjut dari PC lain:** baca [serah terima 2 Oktober 2026](docs/HANDOFF-2026-10-02.md) untuk aksi hari ini, posisi terakhir Claude, target, dan pekerjaan konten yang tersisa.
 
-![Beranda BioTaxa](docs/screenshots/preview-home.png)
+![Beranda Biotaloka](docs/screenshots/preview-home.png)
 
 <p>
   <img src="docs/screenshots/preview-sd-mobile.png" alt="Beranda mode SD di ponsel" width="240">
@@ -56,7 +56,7 @@ npm run dev        # http://127.0.0.1:8085
 
 ### Situs publik: Cloudflare Pages (disarankan)
 
-Cloudflare Pages menyajikan aplikasi dari jaringan CDN secara gratis tanpa batas permintaan. Sanggup melayani puluhan ribu pengguna bersamaan. Batas yang sebenarnya ada pada API iNaturalist, dan BioTaxa menanganinya dalam tiga lapis:
+Cloudflare Pages menyajikan aplikasi dari jaringan CDN secara gratis tanpa batas permintaan. Sanggup melayani puluhan ribu pengguna bersamaan. Batas yang sebenarnya ada pada API iNaturalist, dan Biotaloka menanganinya dalam tiga lapis:
 
 1. **Snapshot API.** Setiap malam, GitHub Actions merekam respons API untuk halaman yang paling sering dibuka (galeri, spesies kurasi, pencarian umum, pohon kehidupan) lalu menyajikannya sebagai file statis.
 2. **Edge cache.** Permintaan lain lewat [functions/api/[[path]].js](functions/api/[[path]].js), yang menyimpan respons di cache Cloudflare. Satu kelas yang membuka halaman yang sama cukup memicu satu permintaan ke iNaturalist, dan IP sekolah tidak terkena batas.
@@ -71,9 +71,9 @@ Penyiapan (sekali saja):
 3. Salin **Account ID** dari **Workers & Pages** (panel kanan) di dashboard Cloudflare.
 4. Di GitHub, buka **Settings → Secrets and variables → Actions**, lalu isi:
    - _Secrets_: `CLOUDFLARE_API_TOKEN` dan `CLOUDFLARE_ACCOUNT_ID`.
-   - _Variables_: `CLOUDFLARE_PAGES_PROJECT`, misalnya `biotaxa`. Nama ini menjadi alamat `https://biotaxa.pages.dev` bila masih tersedia.
+   - _Variables_: `CLOUDFLARE_PAGES_PROJECT`, misalnya `biotaloka`. Nama ini menjadi alamat `https://biotaloka.pages.dev` bila masih tersedia.
 5. Buka **Actions → Deploy → Run workflow**, centang _Record a fresh API snapshot_, lalu jalankan. Deploy pertama memakan waktu sekitar 30 menit.
-6. Jika alamat situs berbeda (misalnya memakai domain sendiri), isi variable `SITE_URL`, misalnya `https://biotaxa.id`, agar pratinjau tautan di WhatsApp dan media sosial benar.
+6. Jika alamat situs berbeda (misalnya memakai domain sendiri), isi variable `SITE_URL`, misalnya `https://biotaloka.id`, agar pratinjau tautan di WhatsApp dan media sosial benar.
 
 Setelah itu, setiap push ke `main` yang lulus CI otomatis diterbitkan, dan snapshot diperbarui setiap pukul 02.00 WIB. Untuk mencoba di komputer sendiri dengan runtime Cloudflare:
 
@@ -94,8 +94,8 @@ PORT=8080 npm start
 Atau dengan Docker:
 
 ```bash
-docker build -t biotaxa .
-docker run -d --restart unless-stopped -p 8080:8080 --name biotaxa biotaxa
+docker build -t biotaloka .
+docker run -d --restart unless-stopped -p 8080:8080 --name biotaloka biotaloka
 ```
 
 Jika server berada di belakang reverse proxy (nginx, Caddy, Cloudflare, atau router PaaS), tambahkan `TRUST_PROXY=1`. Jika proxy itu melayani HTTPS, tambahkan juga `HSTS=1`.
@@ -110,7 +110,7 @@ Server ini dirancang untuk **satu sekolah**, bukan untuk situs publik. Semua pen
 | `CLIENT_LIMIT_PER_MIN` | `240`             | Batas permintaan API per alamat per menit                                                               |
 | `INAT_INTERVAL_MS`     | `1000`            | Jeda minimum antarpermintaan ke iNaturalist                                                             |
 | `CACHE_MAX_ENTRIES`    | `3000`            | Jumlah respons API yang disimpan di memori                                                              |
-| `USER_AGENT`           | `BioTaxa/3 …`     | Identitas ke penyedia API. Isi dengan alamat situs atau kontak Anda                                     |
+| `USER_AGENT`           | `Biotaloka/3 …`   | Identitas ke penyedia API. Isi dengan alamat situs atau kontak Anda                                     |
 | `LOG`                  | mati              | `1` untuk mencatat setiap permintaan                                                                    |
 
 ### Hosting statis lain
@@ -167,7 +167,7 @@ dist/             (dibuat otomatis) situs siap terbit
 
 ## Sumber data dan batasannya
 
-BioTaxa menampilkan data dari [GBIF](https://www.gbif.org), [iNaturalist](https://www.inaturalist.org), [Wikipedia](https://www.wikipedia.org), dan [Paleobiology Database](https://paleobiodb.org). Setiap foto menampilkan atribusi dan lisensinya.
+Biotaloka menampilkan data dari [GBIF](https://www.gbif.org), [iNaturalist](https://www.inaturalist.org), [Wikipedia](https://www.wikipedia.org), dan [Paleobiology Database](https://paleobiodb.org). Setiap foto menampilkan atribusi dan lisensinya.
 
 Tidak ada satu sumber pun yang punya semua fakta tentang setiap makhluk hidup. Karena itu:
 
@@ -190,7 +190,7 @@ Guru, dosen, mahasiswa biologi, penerjemah, dan pengembang sangat diharapkan iku
 
 ## English
 
-BioTaxa is a free, open-source, bilingual atlas of life for learners from primary school to university, and for their teachers.
+Biotaloka is a free, open-source, bilingual atlas of life for learners from primary school to university, and for their teachers.
 
 - **Five modes.** Primary, middle school, high school, university and teacher. Each changes text size, vocabulary, lessons, visible tabs and activities.
 - **Features.** Child-friendly search and an Indonesia-first gallery (iNaturalist), a GBIF tree of life, 160 curated species cards in plain language, 41 lessons in 8 fields of biology written in four layers (primary to university) with 476 quiz questions and teacher notes, a Map of Biology, 9 lab simulations, a 213-term glossary, lesson and concept search, species comparison, "near me", prehistoric life with a geological timeline, badges, printable lesson plans and link-based assignments. It works offline as a PWA, is tested with axe for WCAG 2.1 AA, and has no accounts, ads or analytics.

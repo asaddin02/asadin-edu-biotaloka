@@ -68,10 +68,10 @@ const s = S({
     'Telusuri satu cabang setiap langkah, dari domain sampai spesies.',
     'Follow one branch at a time, from domain to species.',
   ],
-  what: ['Apa itu BioTaxa?', 'What is BioTaxa?'],
+  what: ['Apa itu Biotaloka?', 'What is Biotaloka?'],
   whatText: [
-    'BioTaxa adalah ruang belajar keanekaragaman hayati yang gratis dan terbuka. Data langsung dari GBIF, iNaturalist, Wikipedia, dan Paleobiology Database dipadukan dengan materi kurasi berbahasa sederhana.',
-    'BioTaxa is a free, open space to learn about biodiversity. Live data from GBIF, iNaturalist, Wikipedia and the Paleobiology Database is combined with curated, plain-language lessons.',
+    'Biotaloka adalah ruang belajar keanekaragaman hayati yang gratis dan terbuka. Data langsung dari GBIF, iNaturalist, Wikipedia, dan Paleobiology Database dipadukan dengan materi kurasi berbahasa sederhana.',
+    'Biotaloka is a free, open space to learn about biodiversity. Live data from GBIF, iNaturalist, Wikipedia and the Paleobiology Database is combined with curated, plain-language lessons.',
   ],
   sourcesLine: ['Nama & data mengikuti sumber terbuka', 'Names & data follow open sources'],
   teacherTop: ['UNTUK GURU', 'FOR TEACHERS'],
@@ -81,7 +81,7 @@ const s = S({
     'Lesson plans per topic, answer keys and assignments shared by link — no account needed.',
   ],
   teacherBtn: ['Buka Mode Guru', 'Open Teacher mode'],
-  support: ['Suka belajar di BioTaxa?', 'Enjoy learning with BioTaxa?'],
+  support: ['Suka belajar di Biotaloka?', 'Enjoy learning with Biotaloka?'],
   supportText: [
     'Bantu ruang belajar ini terus berkembang. Dukungan bersifat sukarela; belajar tetap gratis.',
     'Help this learning space grow. Support is voluntary; learning stays free.',

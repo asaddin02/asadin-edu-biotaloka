@@ -59,7 +59,7 @@ Did you know? Most kinds of animals on Earth are invertebrates, and the biggest 
 
 Ikan, amfibi, dan reptil adalah **ektoterm**: suhu tubuhnya dipengaruhi lingkungan. Burung dan mamalia adalah **endoterm**: menjaga suhu tubuh dengan panas dari metabolisme.
 
-Pengelompokan hewan membantu kita menyusun [[klasifikasi]] dan memahami kekerabatannya. Telusuri setiap filum di Pohon Kehidupan BioTaxa.`,
+Pengelompokan hewan membantu kita menyusun [[klasifikasi]] dan memahami kekerabatannya. Telusuri setiap filum di Pohon Kehidupan Biotaloka.`,
       `**Features of animals (Animalia)**: many-celled eukaryotes, [[heterotrof|heterotrophs]] that get food by eating other organisms, cells without cell walls, and usually able to move actively for part of their life cycle.
 
 **Invertebrates** (over 90% of animal species):
@@ -81,7 +81,7 @@ Pengelompokan hewan membantu kita menyusun [[klasifikasi]] dan memahami kekeraba
 
 Fish, amphibians and reptiles are **ectotherms**: their body temperature depends on their surroundings. Birds and mammals are **endotherms**: they keep their temperature steady with heat from metabolism.
 
-Grouping animals helps us build a [[klasifikasi|classification]] and understand relationships. Follow each phylum in the BioTaxa Tree of Life.`,
+Grouping animals helps us build a [[klasifikasi|classification]] and understand relationships. Follow each phylum in the Biotaloka Tree of Life.`,
     ],
     sma: [
       `Hewan dikelompokkan berdasarkan **rancangan tubuh** (body plan):
@@ -406,7 +406,7 @@ Grouping animals helps us build a [[klasifikasi|classification]] and understand 
       ['Pemantik: tebak kelompok hewan dari foto atau spesimen.', 'Hook: guess animal groups from photos or specimens.'],
       ['Pengelompokan dan pembuatan kunci determinasi.', 'Sort animals and build an identification key.'],
       ['Penjelasan filum dan kelas sesuai jenjang.', 'Explain phyla and classes at the right depth.'],
-      ['Telusuri filum di Pohon Kehidupan dan kartu spesies BioTaxa.', 'Explore phyla in the Tree of Life and BioTaxa species cards.'],
+      ['Telusuri filum di Pohon Kehidupan dan kartu spesies Biotaloka.', 'Explore phyla in the Tree of Life and Biotaloka species cards.'],
       ['Kuis dan diskusi konservasi hewan Indonesia.', 'Quiz and discussion of Indonesian animal conservation.'],
     ],
     assess: [

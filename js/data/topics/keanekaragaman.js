@@ -82,7 +82,7 @@ Fragmentasi habitat mengecilkan populasi dan memutus aliran gen, meningkatkan ri
 
 Ekosistem pesisir Indonesia—bakau, lamun, terumbu karang—menyimpan karbon biru dan melindungi pantai. Kehilangannya melepaskan karbon dan mengurangi hasil perikanan.
 
-Data kehadiran dari warga (citizen science) membantu memetakan sebaran, tetapi memiliki bias: lebih banyak dari daerah mudah dijangkau dan spesies yang mencolok. Karena itu, peta di BioTaxa disebut “sampel temuan”, bukan batas sebaran.
+Data kehadiran dari warga (citizen science) membantu memetakan sebaran, tetapi memiliki bias: lebih banyak dari daerah mudah dijangkau dan spesies yang mencolok. Karena itu, peta di Biotaloka disebut “sampel temuan”, bukan batas sebaran.
 
 Indeks keanekaragaman membantu membandingkan komunitas. **Kekayaan spesies** hanya menghitung jumlah spesies, sedangkan indeks Shannon–Wiener (H′ = −Σ pᵢ ln pᵢ, dengan pᵢ proporsi individu spesies ke-i) juga memperhitungkan kemerataan. Komunitas dengan 10 spesies yang jumlahnya seimbang lebih beragam daripada komunitas 10 spesies yang didominasi satu spesies.
 
@@ -93,7 +93,7 @@ Habitat fragmentation shrinks populations and cuts gene flow, raising inbreeding
 
 Indonesia’s coastal ecosystems — mangroves, seagrass, coral reefs — store blue carbon and protect coasts. Losing them releases carbon and reduces fisheries.
 
-Citizen-science occurrence data help map ranges but are biased towards accessible places and conspicuous species. That is why BioTaxa maps are called “sample records”, not range limits.
+Citizen-science occurrence data help map ranges but are biased towards accessible places and conspicuous species. That is why Biotaloka maps are called “sample records”, not range limits.
 
 Diversity indices help compare communities. **Species richness** only counts species, while the Shannon–Wiener index (H′ = −Σ pᵢ ln pᵢ, where pᵢ is the proportion of individuals of species i) also accounts for evenness. A community of 10 species in balanced numbers is more diverse than one of 10 species dominated by a single species.
 
@@ -178,16 +178,16 @@ Monitoring is now helped by environmental DNA (eDNA), detecting species from tra
   },
   activity: {
     sd: [
-      'Pilih satu hewan endemik Indonesia di BioTaxa. Buat poster: nama, tempat tinggal, makanan, dan satu cara kita bisa menjaganya.',
-      'Choose one Indonesian endemic in BioTaxa. Make a poster: name, home, food and one way we can protect it.',
+      'Pilih satu hewan endemik Indonesia di Biotaloka. Buat poster: nama, tempat tinggal, makanan, dan satu cara kita bisa menjaganya.',
+      'Choose one Indonesian endemic in Biotaloka. Make a poster: name, home, food and one way we can protect it.',
     ],
     smp: [
-      'Buka “Di sekitarku” di BioTaxa dan cari makhluk hidup yang pernah diamati di sekitar sekolahmu. Kelompokkan hasilnya dan diskusikan mana yang asli dan mana yang pendatang.',
-      'Open “Near me” in BioTaxa and list organisms observed around your school. Group them and discuss which are native and which were introduced.',
+      'Buka “Di sekitarku” di Biotaloka dan cari makhluk hidup yang pernah diamati di sekitar sekolahmu. Kelompokkan hasilnya dan diskusikan mana yang asli dan mana yang pendatang.',
+      'Open “Near me” in Biotaloka and list organisms observed around your school. Group them and discuss which are native and which were introduced.',
     ],
     sma: [
-      'Pilih satu spesies berstatus CR atau EN. Buka peta temuannya di BioTaxa dan analisis: di mana temuan terkonsentrasi? Apa ancaman di wilayah itu?',
-      'Pick a CR or EN species. Open its occurrence map in BioTaxa and analyse: where are records clustered? What threats exist there?',
+      'Pilih satu spesies berstatus CR atau EN. Buka peta temuannya di Biotaloka dan analisis: di mana temuan terkonsentrasi? Apa ancaman di wilayah itu?',
+      'Pick a CR or EN species. Open its occurrence map in Biotaloka and analyse: where are records clustered? What threats exist there?',
     ],
     kuliah: [
       'Rancang analisis kesenjangan sederhana: bandingkan sebaran temuan satu spesies endemik dengan lokasi taman nasional. Tuliskan keterbatasan datanya.',
@@ -484,8 +484,8 @@ Monitoring is now helped by environmental DNA (eDNA), detecting species from tra
         'Hook: a map of Indonesia with endemic animals on each island.',
       ],
       [
-        'Eksplorasi: kartu spesies endemik di BioTaxa (tanda “Hanya di Indonesia”).',
-        'Explore: endemic species cards in BioTaxa (the “Only in Indonesia” badge).',
+        'Eksplorasi: kartu spesies endemik di Biotaloka (tanda “Hanya di Indonesia”).',
+        'Explore: endemic species cards in Biotaloka (the “Only in Indonesia” badge).',
       ],
       [
         'Aktivitas: “Di sekitarku” — makhluk hidup di sekitar sekolah.',
@@ -499,7 +499,7 @@ Monitoring is now helped by environmental DNA (eDNA), detecting species from tra
     ],
     assess: [
       ['Poster kampanye konservasi.', 'Conservation campaign poster.'],
-      ['Kuis BioTaxa.', 'BioTaxa quiz.'],
+      ['Kuis Biotaloka.', 'Biotaloka quiz.'],
     ],
     misconceptions: [
       {

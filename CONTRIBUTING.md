@@ -1,6 +1,6 @@
-# Berkontribusi ke BioTaxa
+# Berkontribusi ke Biotaloka
 
-Terima kasih sudah ingin membantu. BioTaxa dipakai anak SD sampai mahasiswa, jadi dua hal paling penting: **isinya benar** dan **mudah dipahami**. Kontribusi tidak harus berupa kode. Guru, dosen, penerjemah, dan fotografer alam sama-sama dibutuhkan.
+Terima kasih sudah ingin membantu. Biotaloka dipakai anak SD sampai mahasiswa, jadi dua hal paling penting: **isinya benar** dan **mudah dipahami**. Kontribusi tidak harus berupa kode. Guru, dosen, penerjemah, dan fotografer alam sama-sama dibutuhkan.
 
 English summary at the [end of this file](#english-summary).
 

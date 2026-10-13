@@ -1,5 +1,5 @@
-// Photographs bundled with BioTaxa for the home page. All are CC0, CC BY or CC BY-SA,
-// so they remain usable if BioTaxa is ever monetised. Credits must stay visible.
+// Photographs bundled with Biotaloka for the home page. All are CC0, CC BY or CC BY-SA,
+// so they remain usable if Biotaloka is ever monetised. Credits must stay visible.
 export const featured = [
   {
     id: 'inat-569678',

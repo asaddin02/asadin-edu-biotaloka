@@ -128,7 +128,7 @@ Research involves **ethics**: permits, humane treatment of animals, informed con
 
 **Tingkat bukti**: tinjauan sistematis dan meta-analisis, uji terkontrol acak, studi kohort, studi kasus-kontrol, laporan kasus, hingga opini ahli. Tinjauan sejawat (*peer review*) menyaring kesalahan, tetapi tidak menjamin kebenaran.
 
-**Model dan simulasi**, seperti laboratorium BioTaxa, adalah penyederhanaan untuk menguji logika sebuah gagasan. Kesimpulan dari model perlu divalidasi dengan data nyata.
+**Model dan simulasi**, seperti laboratorium Biotaloka, adalah penyederhanaan untuk menguji logika sebuah gagasan. Kesimpulan dari model perlu divalidasi dengan data nyata.
 
 **Etika dan izin penelitian di Indonesia**: penelitian yang melibatkan manusia memerlukan persetujuan komite etik. Peneliti asing memerlukan izin penelitian dari BRIN, dan pemanfaatan sumber daya genetik diatur prinsip akses dan pembagian keuntungan menurut Protokol Nagoya, yang telah diratifikasi Indonesia.`,
       `**Philosophy of science**: Karl Popper stressed falsification as the mark of a scientific claim; Thomas Kuhn described science developing through paradigms and paradigm shifts; in practice, scientists often use abductive reasoning, choosing the best explanation among several and then testing it.
@@ -139,7 +139,7 @@ Research involves **ethics**: permits, humane treatment of animals, informed con
 
 **Levels of evidence**: systematic reviews and meta-analyses, randomised controlled trials, cohort studies, case–control studies, case reports and expert opinion. Peer review filters errors but does not guarantee truth.
 
-**Models and simulations**, such as the BioTaxa laboratories, are simplifications for testing the logic of an idea. Conclusions from models must be validated with real data.
+**Models and simulations**, such as the Biotaloka laboratories, are simplifications for testing the logic of an idea. Conclusions from models must be validated with real data.
 
 **Ethics and research permits in Indonesia**: research involving people needs ethics committee approval. Foreign researchers need a research permit from BRIN, and the use of genetic resources is governed by access and benefit-sharing principles under the Nagoya Protocol, which Indonesia has ratified.`,
     ],

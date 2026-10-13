@@ -1,9 +1,9 @@
 // Security headers and API proxy rules shared by server/server.mjs, the Cloudflare Pages Function
 // (functions/api/[[path]].js) and the static site build (scripts/build-site.mjs), so every way of
-// hosting BioTaxa sends the same policy. No Node-only APIs: this module also runs on Cloudflare.
+// hosting Biotaloka sends the same policy. No Node-only APIs: this module also runs on Cloudflare.
 
-export const REPOSITORY = 'https://github.com/asaddin02/asadin-edu-biotaxa';
-export const DEFAULT_USER_AGENT = `BioTaxa/3 (open-source education atlas; +${REPOSITORY})`;
+export const REPOSITORY = 'https://github.com/asaddin02/asadin-edu-biotaloka';
+export const DEFAULT_USER_AGENT = `Biotaloka/3 (open-source education atlas; +${REPOSITORY})`;
 
 export const CSP = [
   "default-src 'self'",

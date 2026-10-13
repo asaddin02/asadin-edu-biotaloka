@@ -78,8 +78,8 @@ const s = S({
   live: ['Data langsung', 'Live data'],
   knowledge: ['Materi & konsep', 'Lessons & concepts'],
   knowledgeHint: [
-    'Dari materi, kamus, dan Peta Biologi BioTaxa. Tetap tersedia tanpa internet.',
-    'From BioTaxa’s lessons, glossary and Map of Biology. Available offline too.',
+    'Dari materi, kamus, dan Peta Biologi Biotaloka. Tetap tersedia tanpa internet.',
+    'From Biotaloka’s lessons, glossary and Map of Biology. Available offline too.',
   ],
   mentioned: ['Juga dibahas di materi', 'Also discussed in'],
   typeTopic: ['Materi', 'Lesson'],
@@ -139,7 +139,7 @@ export async function render(ctx) {
     .join('');
   const kingdoms = Object.entries(KINGDOM_KEYS);
 
-  main.innerHTML = `<div class="explore-heading"><div><span class="eyebrow">BIOTAXA / ${s.title.toUpperCase()}</span><h1>${s.heading}</h1><p>${s.intro}</p></div><span class="explore-stamp" aria-hidden="true">${brandImage()}</span></div>
+  main.innerHTML = `<div class="explore-heading"><div><span class="eyebrow">BIOTALOKA / ${s.title.toUpperCase()}</span><h1>${s.heading}</h1><p>${s.intro}</p></div><span class="explore-stamp" aria-hidden="true">${brandImage()}</span></div>
     <form class="search-form" id="search-form" role="search">
       <span class="search-symbol" aria-hidden="true">${icon('search')}</span>
       ${suggestField({ id: 'explore-q', value: q, placeholder: ui.searchPlaceholder, label: ui.search })}
@@ -183,7 +183,7 @@ export async function render(ctx) {
     else await browseResults(ctx, { scope, page, taxonId: taxon || g?.taxon || '', results, link });
   } catch (error) {
     if (ctx.isCurrent()) results.innerHTML = errorState();
-    console.warn('BioTaxa explore failed:', error);
+    console.warn('Biotaloka explore failed:', error);
   }
 }
 

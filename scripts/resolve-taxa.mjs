@@ -9,7 +9,9 @@ const INAT = 'https://api.inaturalist.org/v1';
 const GBIF = 'https://api.gbif.org/v1';
 const SAFE = ['cc0', 'cc-by', 'cc-by-sa'];
 const OPEN = [...SAFE, 'cc-by-nc', 'cc-by-nc-sa', 'cc-by-nd', 'cc-by-nc-nd'];
-const headers = { 'User-Agent': 'BioTaxa data tooling (+https://github.com/asaddin02/asadin-edu-biotaxa)' };
+const headers = {
+  'User-Agent': 'Biotaloka data tooling (+https://github.com/asaddin02/asadin-edu-biotaloka)',
+};
 let last = 0;
 
 async function inat(path, params = {}) {

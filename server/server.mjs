@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// BioTaxa production server: static files + caching proxy for GBIF and iNaturalist.
+// Biotaloka production server: static files + caching proxy for GBIF and iNaturalist.
 // No dependencies. Node 20+.
 //
 // Why a proxy? A whole classroom usually shares one public IP address. iNaturalist asks clients to
@@ -275,7 +275,7 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen(PORT, HOST, () =>
-  console.log(`BioTaxa ${VERSION} on http://${HOST === '0.0.0.0' ? 'localhost' : HOST}:${PORT}`)
+  console.log(`Biotaloka ${VERSION} on http://${HOST === '0.0.0.0' ? 'localhost' : HOST}:${PORT}`)
 );
 for (const signal of ['SIGTERM', 'SIGINT']) {
   process.on(signal, () => {

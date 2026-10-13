@@ -1,4 +1,4 @@
-// "Peta Biologi": how BioTaxa's lessons fit together, from molecules to the biosphere,
+// "Peta Biologi": how Biotaloka's lessons fit together, from molecules to the biosphere,
 // plus an honest, computed statement of what the current content covers.
 import { $, esc } from '../core/dom.js';
 import { S, pick, level, LEVELS, fmt } from '../core/prefs.js';
@@ -11,8 +11,8 @@ import { rich } from '../components/richtext.js';
 const s = S({
   title: ['Peta Biologi', 'Map of Biology'],
   sub: [
-    'Biologi mempelajari kehidupan dari molekul sampai seluruh bumi. Peta ini menunjukkan bagaimana semua materi BioTaxa saling terhubung.',
-    'Biology studies life from molecules to the whole planet. This map shows how every BioTaxa lesson fits together.',
+    'Biologi mempelajari kehidupan dari molekul sampai seluruh bumi. Peta ini menunjukkan bagaimana semua materi Biotaloka saling terhubung.',
+    'Biology studies life from molecules to the whole planet. This map shows how every Biotaloka lesson fits together.',
   ],
   orgTitle: ['Tingkat organisasi kehidupan', 'Levels of biological organisation'],
   orgIntro: [
@@ -34,15 +34,15 @@ const s = S({
   example: ['Contoh', 'Example'],
   lessons: ['Materi', 'Lessons'],
   overview: ['Materi ringkasan', 'Overview lesson'],
-  fieldsTitle: ['Bidang biologi di BioTaxa', 'Fields of biology in BioTaxa'],
+  fieldsTitle: ['Bidang biologi di Biotaloka', 'Fields of biology in Biotaloka'],
   fieldsIntro: [
     'Materi dikelompokkan menjadi delapan bidang. Titik menunjukkan jenjang yang disarankan; setiap materi tetap bisa dibaca di semua versi yang tersedia.',
     'Lessons are grouped into eight fields. Dots show the recommended levels; every lesson can still be read in each version it has.',
   ],
   branchesTitle: ['Cabang ilmu biologi', 'Branches of biology'],
   branchesIntro: [
-    'Biologi memiliki banyak cabang ilmu. Berikut tempat setiap cabang dibahas di BioTaxa.',
-    'Biology has many branches. Here is where BioTaxa covers each one.',
+    'Biologi memiliki banyak cabang ilmu. Berikut tempat setiap cabang dibahas di Biotaloka.',
+    'Biology has many branches. Here is where Biotaloka covers each one.',
   ],
   partial: ['Baru dasar-dasarnya', 'Basics only'],
   partialNote: [
@@ -50,7 +50,7 @@ const s = S({
     'No dedicated lesson yet. Its basic ideas appear in these lessons.',
   ],
   openTree: ['Jelajahi di pohon kehidupan', 'Explore in the tree of life'],
-  coverageTitle: ['Cakupan BioTaxa saat ini', 'Current documented coverage'],
+  coverageTitle: ['Cakupan Biotaloka saat ini', 'Current documented coverage'],
   coverageIntro: [
     'Angka berikut dihitung langsung dari konten di aplikasi ini, bukan perkiraan.',
     'These numbers are counted directly from the content in this app, not estimated.',
@@ -137,7 +137,7 @@ async function coverage(ctx) {
 }
 
 export async function render(ctx) {
-  ctx.main.innerHTML = `${pageHead(s.title, s.sub, 'BIOTAXA / PETA')}
+  ctx.main.innerHTML = `${pageHead(s.title, s.sub, 'BIOTALOKA / PETA')}
     <div class="biomap-workspace"><aside class="biomap-navigation">${sectionNav([
       ['tingkat', s.orgTitle],
       ['bidang', s.fieldsTitle],

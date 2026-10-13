@@ -384,8 +384,8 @@ Thermodynamically, living things are **open systems** that keep their order by c
         'Discuss: group findings and agree on a list of characteristics.',
       ],
       [
-        'Elaborasi: buka kartu spesies BioTaxa (putri malu, E. coli, ragi) dan cari bukti tiap ciri.',
-        'Elaborate: open BioTaxa species cards (sensitive plant, E. coli, yeast) and find evidence for each characteristic.',
+        'Elaborasi: buka kartu spesies Biotaloka (putri malu, E. coli, ragi) dan cari bukti tiap ciri.',
+        'Elaborate: open Biotaloka species cards (sensitive plant, E. coli, yeast) and find evidence for each characteristic.',
       ],
       [
         'Refleksi: kerjakan kuis dan tulis satu pertanyaan yang masih membuatmu penasaran.',
@@ -397,7 +397,7 @@ Thermodynamically, living things are **open systems** that keep their order by c
         'Tabel pengamatan (minimal 5 makhluk hidup dan 5 benda tak hidup beserta alasannya).',
         'Observation table (at least 5 living and 5 non-living things with reasons).',
       ],
-      ['Kuis BioTaxa dengan target minimal 80%.', 'BioTaxa quiz with a target of at least 80%.'],
+      ['Kuis Biotaloka dengan target minimal 80%.', 'Biotaloka quiz with a target of at least 80%.'],
     ],
     misconceptions: [
       {

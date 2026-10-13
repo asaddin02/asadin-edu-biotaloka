@@ -49,11 +49,11 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
-      - run: docker build -t biotaxa .
+      - run: docker build -t biotaloka .
       - name: Container serves the app and the proxy health endpoint
         run: |
-          docker run -d --name biotaxa -p 8080:8080 biotaxa
+          docker run -d --name biotaloka -p 8080:8080 biotaloka
           for _ in $(seq 1 30); do curl -sf http://127.0.0.1:8080/api/health && break; sleep 1; done
           curl -sf http://127.0.0.1:8080/ | grep -q '<title>'
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/package.json)" = 404
-          docker stop biotaxa
+          docker stop biotaloka

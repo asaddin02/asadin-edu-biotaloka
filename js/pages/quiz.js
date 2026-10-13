@@ -117,7 +117,7 @@ function renderGame() {
 export async function render(ctx) {
   const { id, main } = ctx;
   if (id === 'foto') {
-    main.innerHTML = `${pageHead(s.photoTitle, s.photoText, 'BIOTAXA / QUIZ')}<section class="photo-game card" id="photo-game" aria-live="polite"></section>`;
+    main.innerHTML = `${pageHead(s.photoTitle, s.photoText, 'BIOTALOKA / QUIZ')}<section class="photo-game card" id="photo-game" aria-live="polite"></section>`;
     await newGame();
     if (!ctx.isCurrent()) return;
     renderGame();
@@ -156,7 +156,7 @@ export async function render(ctx) {
   main.innerHTML = loading();
   const topics = await loadTopics(TOPICS.filter(t => t.levels.includes(level)));
   if (!ctx.isCurrent()) return;
-  main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTAXA / QUIZ')}
+  main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTALOKA / QUIZ')}
     <div class="quiz-workspace"><a class="feature-card" href="/quiz/foto"><span class="feature-emoji" aria-hidden="true">📸</span><span><strong>${s.photoTitle}</strong><small>${s.photoText}</small>${progress.quizzes.photo ? `<span class="done">⭐ ${s.best}: ${fmt(Math.round(progress.quizzes.photo.best * 100))}%</span>` : ''}</span><span class="btn">${s.start} →</span></a>
     <section class="section lesson-catalog"><h2>${s.topicQuizzes}</h2>${catalogTools()}${catalogGroups(
       topics,

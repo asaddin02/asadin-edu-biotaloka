@@ -32,7 +32,7 @@ Tumbuhan adalah [[produsen]]: energi dalam gula yang mereka buat mengalir ke hew
 
 Laju fotosintesis dipengaruhi **intensitas cahaya**, **kadar CO₂**, **suhu**, dan ketersediaan air. Faktor yang paling kurang disebut faktor pembatas. Misalnya, di pagi hari yang redup, cahaya membatasi laju fotosintesis walaupun CO₂ cukup.
 
-Cobalah simulasi Fotosintesis di Laboratorium BioTaxa: ubah satu faktor dan amati jumlah gelembung oksigen.`,
+Cobalah simulasi Fotosintesis di Laboratorium Biotaloka: ubah satu faktor dan amati jumlah gelembung oksigen.`,
       `[[fotosintesis|Photosynthesis]] makes glucose from carbon dioxide and water using light energy, inside [[kloroplas|chloroplasts]]:
 
 **6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂**
@@ -41,7 +41,7 @@ Plants are [[produsen|producers]]: the energy in their sugar passes to plant eat
 
 The rate depends on **light intensity**, **CO₂ level**, **temperature** and water. Whichever is in shortest supply is the limiting factor. On a dim morning, light limits photosynthesis even if there is plenty of CO₂.
 
-Try the Photosynthesis simulation in the BioTaxa Laboratory: change one factor and watch the oxygen bubbles.`,
+Try the Photosynthesis simulation in the Biotaloka Laboratory: change one factor and watch the oxygen bubbles.`,
     ],
     sma: [
       `Fotosintesis berlangsung dalam dua tahap. **Reaksi terang** di membran tilakoid: klorofil pada fotosistem II dan I menyerap cahaya, air dipecah (fotolisis) melepaskan O₂, dan aliran elektron menghasilkan ATP (lewat ATP sintase) serta NADPH. **Siklus Calvin** di stroma: enzim rubisco mengikat CO₂ ke RuBP, lalu ATP dan NADPH dipakai untuk menghasilkan gula tiga karbon (G3P).
@@ -120,12 +120,12 @@ The **action spectrum** of photosynthesis (rate against wavelength) follows abso
       'Cover part of a leaf with foil for 3 days. Uncover it and compare the colour. What happened to the part that got no light?',
     ],
     smp: [
-      'Masukkan tanaman air (misalnya Hydrilla) ke gelas berisi air. Letakkan dekat lampu pada jarak 10, 20, dan 40 cm. Hitung gelembung per menit. Bandingkan dengan simulasi BioTaxa.',
-      'Put a water plant (e.g. Hydrilla) in a glass of water. Place a lamp at 10, 20 and 40 cm. Count bubbles per minute. Compare with the BioTaxa simulation.',
+      'Masukkan tanaman air (misalnya Hydrilla) ke gelas berisi air. Letakkan dekat lampu pada jarak 10, 20, dan 40 cm. Hitung gelembung per menit. Bandingkan dengan simulasi Biotaloka.',
+      'Put a water plant (e.g. Hydrilla) in a glass of water. Place a lamp at 10, 20 and 40 cm. Count bubbles per minute. Compare with the Biotaloka simulation.',
     ],
     sma: [
-      'Gunakan simulasi Fotosintesis BioTaxa untuk membuat grafik laju terhadap intensitas cahaya pada dua kadar CO₂. Jelaskan titik ketika grafik mendatar.',
-      'Use the BioTaxa Photosynthesis simulation to graph rate against light intensity at two CO₂ levels. Explain where the curve levels off.',
+      'Gunakan simulasi Fotosintesis Biotaloka untuk membuat grafik laju terhadap intensitas cahaya pada dua kadar CO₂. Jelaskan titik ketika grafik mendatar.',
+      'Use the Biotaloka Photosynthesis simulation to graph rate against light intensity at two CO₂ levels. Explain where the curve levels off.',
     ],
     kuliah: [
       'Ekstrak pigmen daun dengan pelarut dan pisahkan dengan kromatografi kertas. Hitung nilai Rf setiap pita, lalu hubungkan warna pigmen dengan spektrum serapan dan spektrum aksi fotosintesis.',
@@ -379,8 +379,8 @@ The **action spectrum** of photosynthesis (rate against wavelength) follows abso
         'Experiment: foil-covered leaf / Hydrilla bubbles.',
       ],
       [
-        'Simulasi: Lab Fotosintesis BioTaxa, ubah satu faktor setiap kali.',
-        'Simulate: BioTaxa Photosynthesis lab, one factor at a time.',
+        'Simulasi: Lab Fotosintesis Biotaloka, ubah satu faktor setiap kali.',
+        'Simulate: Biotaloka Photosynthesis lab, one factor at a time.',
       ],
       [
         'Penjelasan: persamaan reaksi, faktor pembatas, peran produsen.',
@@ -390,7 +390,7 @@ The **action spectrum** of photosynthesis (rate against wavelength) follows abso
     ],
     assess: [
       ['Grafik laju fotosintesis dan interpretasinya.', 'A photosynthesis-rate graph with interpretation.'],
-      ['Kuis BioTaxa.', 'BioTaxa quiz.'],
+      ['Kuis Biotaloka.', 'Biotaloka quiz.'],
     ],
     misconceptions: [
       {

@@ -51,7 +51,7 @@ test('no horizontal overflow from 320px to 1440px in SD and SMP modes', async ({
   await wideFont(page);
   await mockAPIs(page);
   for (const level of ['sd', 'smp']) {
-    await page.addInitScript(l => localStorage.setItem('biotaxa-level', JSON.stringify(l)), level);
+    await page.addInitScript(l => localStorage.setItem('biotaloka-level', JSON.stringify(l)), level);
     for (const width of [320, 390, 768, 1024, 1440]) {
       await page.setViewportSize({ width, height: 900 });
       for (const route of [
@@ -161,7 +161,7 @@ test('both languages render every main page', async ({ page }) => {
     ['lab', 'Where curiosity meets experiments.'],
     ['kamus', 'Biology glossary'],
     ['purba', 'Explore 3.5 billion years of life.'],
-    ['guru', 'BioTaxa teacher space'],
+    ['guru', 'Biotaloka teacher space'],
   ]) {
     await page.goto(`/${route}`);
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');

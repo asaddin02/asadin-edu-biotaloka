@@ -120,16 +120,16 @@ Not every trait is an adaptation. Some arise through genetic drift or developmen
   },
   activity: {
     sd: [
-      'Pilih 3 kartu spesies BioTaxa (misalnya cicak, kantong semar, dan bekantan). Gambar hewan/tumbuhannya dan beri panah ke bagian tubuh yang membantunya bertahan hidup.',
-      'Pick 3 BioTaxa species cards (e.g. a gecko, a pitcher plant and a proboscis monkey). Draw each and point arrows at the body parts that help it survive.',
+      'Pilih 3 kartu spesies Biotaloka (misalnya cicak, kantong semar, dan bekantan). Gambar hewan/tumbuhannya dan beri panah ke bagian tubuh yang membantunya bertahan hidup.',
+      'Pick 3 Biotaloka species cards (e.g. a gecko, a pitcher plant and a proboscis monkey). Draw each and point arrows at the body parts that help it survive.',
     ],
     smp: [
-      'Buat tabel adaptasi morfologi, fisiologi, dan tingkah laku untuk 6 spesies dari BioTaxa. Diskusikan mana yang paling sulit digolongkan.',
-      'Make a table of structural, physiological and behavioural adaptations for 6 BioTaxa species. Discuss which were hardest to classify.',
+      'Buat tabel adaptasi morfologi, fisiologi, dan tingkah laku untuk 6 spesies dari Biotaloka. Diskusikan mana yang paling sulit digolongkan.',
+      'Make a table of structural, physiological and behavioural adaptations for 6 Biotaloka species. Discuss which were hardest to classify.',
     ],
     sma: [
-      'Jalankan simulasi Seleksi alam di Laboratorium BioTaxa pada lingkungan bersih dan tercemar. Jelaskan mengapa warna yang “unggul” berubah.',
-      'Run the BioTaxa Natural selection simulation in clean and polluted environments. Explain why the “winning” colour changes.',
+      'Jalankan simulasi Seleksi alam di Laboratorium Biotaloka pada lingkungan bersih dan tercemar. Jelaskan mengapa warna yang “unggul” berubah.',
+      'Run the Biotaloka Natural selection simulation in clean and polluted environments. Explain why the “winning” colour changes.',
     ],
     kuliah: [
       'Pilih satu klaim adaptasi yang populer (misalnya fungsi warna mencolok pada katak). Rancang pengujian yang mempertimbangkan penjelasan alternatif dan kekerabatan spesies, termasuk data yang diperlukan dan hasil yang akan membantah hipotesis.',
@@ -351,8 +351,8 @@ Not every trait is an adaptation. Some arise through genetic drift or developmen
     steps: [
       ['Pemantik: tebak-tebakan foto hewan berkamuflase.', 'Hook: a camouflage photo guessing game.'],
       [
-        'Eksplorasi: kartu spesies BioTaxa — cari bagian “Fakta seru”.',
-        'Explore: BioTaxa species cards — look at the “Fun fact” sections.',
+        'Eksplorasi: kartu spesies Biotaloka — cari bagian “Fakta seru”.',
+        'Explore: Biotaloka species cards — look at the “Fun fact” sections.',
       ],
       ['Klasifikasi: tabel jenis adaptasi.', 'Classify: a table of adaptation types.'],
       ['Simulasi (SMA): seleksi alam ngengat.', 'Simulate (high school): moth natural selection.'],
@@ -366,7 +366,7 @@ Not every trait is an adaptation. Some arise through genetic drift or developmen
         'Desain makhluk khayalan beserta alasan setiap adaptasinya.',
         'Imaginary creature design with a reason for each adaptation.',
       ],
-      ['Kuis BioTaxa.', 'BioTaxa quiz.'],
+      ['Kuis Biotaloka.', 'Biotaloka quiz.'],
     ],
     misconceptions: [
       {

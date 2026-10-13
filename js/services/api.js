@@ -31,7 +31,7 @@ export async function initAPI() {
 async function detectProxy() {
   let known = null;
   try {
-    known = sessionStorage.getItem('biotaxa-proxy');
+    known = sessionStorage.getItem('biotaloka-proxy');
   } catch {
     /* session storage unavailable */
   }
@@ -50,7 +50,7 @@ async function detectProxy() {
       clearTimeout(timer);
     }
     try {
-      sessionStorage.setItem('biotaxa-proxy', known);
+      sessionStorage.setItem('biotaloka-proxy', known);
     } catch {
       /* ignore */
     }

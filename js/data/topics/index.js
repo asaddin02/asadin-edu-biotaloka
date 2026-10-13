@@ -617,7 +617,7 @@ export function loadTopic(id) {
 }
 export const loadTopics = (list = TOPICS) => Promise.all(list.map(t => loadTopic(t.id)));
 
-/** Kurikulum Merdeka phases for each BioTaxa level (indicative mapping). */
+/** Kurikulum Merdeka phases for each Biotaloka level (indicative mapping). */
 export const PHASES = {
   sd: ['Fase A–C · SD kelas 1–6 (IPAS)', 'Phases A–C · Grades 1–6 (IPAS)'],
   smp: ['Fase D · SMP kelas 7–9 (IPA)', 'Phase D · Grades 7–9 (Science)'],

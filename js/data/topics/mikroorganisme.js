@@ -367,8 +367,8 @@ Biotechnology uses microbes: recombinant insulin from *E. coli*, heat-stable PCR
         'Hook: bring a piece of tempeh — “Who made this?”',
       ],
       [
-        'Skala kehidupan di Lab BioTaxa: seberapa kecil bakteri dan virus?',
-        'Scale-of-life lab in BioTaxa: how small are bacteria and viruses?',
+        'Skala kehidupan di Lab Biotaloka: seberapa kecil bakteri dan virus?',
+        'Scale-of-life lab in Biotaloka: how small are bacteria and viruses?',
       ],
       [
         'Percobaan roti dan cuci tangan (plastik tetap tertutup).',
@@ -382,7 +382,7 @@ Biotechnology uses microbes: recombinant insulin from *E. coli*, heat-stable PCR
     ],
     assess: [
       ['Laporan percobaan kapang roti.', 'Bread mould experiment report.'],
-      ['Kuis BioTaxa.', 'BioTaxa quiz.'],
+      ['Kuis Biotaloka.', 'Biotaloka quiz.'],
     ],
     misconceptions: [
       {

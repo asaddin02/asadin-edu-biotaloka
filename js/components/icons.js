@@ -48,4 +48,4 @@ export function icon(name, label = '') {
 }
 
 export const brandImage = (cls = 'brand-symbol') =>
-  `<img class="${cls}" src="/assets/brand/biotaxa-mark.png" alt="" width="64" height="64">`;
+  `<img class="${cls}" src="/assets/brand/biotaloka-mark.png" alt="" width="64" height="64">`;

@@ -4,7 +4,7 @@ import { fmt, pick } from '../core/prefs.js';
 import { ui } from '../i18n/ui.js';
 import { brandImage, icon } from './icons.js';
 
-export function pageHead(title, subtitle = '', eyebrow = 'BIOTAXA', { brand = true } = {}) {
+export function pageHead(title, subtitle = '', eyebrow = 'BIOTALOKA', { brand = true } = {}) {
   return `<header class="page-head">${brand ? brandImage('page-brand') : ''}<span class="eyebrow">${esc(eyebrow)}</span><h1>${esc(title)}</h1>${subtitle ? `<p>${esc(subtitle)}</p>` : ''}</header>`;
 }
 

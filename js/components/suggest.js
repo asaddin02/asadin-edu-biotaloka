@@ -107,7 +107,7 @@ export function handleSuggestInput(input) {
   // Two letters match too many lessons and terms; organism names still suggest from two.
   const navigating = input.dataset.suggest === 'navigate' && q.length >= 3;
   timer = setTimeout(async () => {
-    // Lessons and terms come from BioTaxa itself, so they still appear offline.
+    // Lessons and terms come from Biotaloka itself, so they still appear offline.
     const [remote, local] = await Promise.allSettled([
       API.autocomplete(q, { rank: input.dataset.suggestRank || '', perPage: 8 }),
       navigating ? searchKnowledge(q, { limit: 3, minScore: 60 }) : Promise.resolve([]),

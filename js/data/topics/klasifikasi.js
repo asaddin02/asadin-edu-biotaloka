@@ -8,7 +8,7 @@ Contohnya, hewan yang bertulang belakang (seperti ikan, katak, cicak, burung, da
 
 Setiap makhluk hidup juga punya nama ilmiah dari dua kata. Harimau bernama *Panthera tigris*. Kata pertama menunjukkan kelompok dekatnya (genus), kata kedua menunjukkan jenisnya ([[spesies]]). Nama ilmiah sama di seluruh dunia, jadi ilmuwan dari Indonesia dan Jepang tahu hewan yang sama sedang dibicarakan.
 
-Coba buka **Pohon kehidupan** di BioTaxa dan ikuti cabangnya dari kelompok besar sampai ke satu spesies!
+Coba buka **Pohon kehidupan** di Biotaloka dan ikuti cabangnya dari kelompok besar sampai ke satu spesies!
 
 Satu makhluk hidup bisa punya banyak nama daerah. Capung, misalnya, disebut *kinjeng* dalam bahasa Jawa dan *papatong* dalam bahasa Sunda. Nama daerah itu indah dan perlu dijaga, tetapi nama ilmiah membantu semua orang di dunia memakai satu nama yang sama.
 
@@ -19,7 +19,7 @@ For example, animals with a backbone (fish, frogs, geckos, birds and cats) are [
 
 Every living thing also has a two-word scientific name. The tiger is *Panthera tigris*. The first word is its close group (genus), the second tells the exact kind ([[spesies|species]]). Scientific names are the same everywhere, so scientists in Indonesia and Japan know they mean the same animal.
 
-Open the **Tree of life** in BioTaxa and follow the branches from big groups down to one species!
+Open the **Tree of life** in Biotaloka and follow the branches from big groups down to one species!
 
 One living thing can have many local names. Dragonflies, for example, are called *kinjeng* in Javanese and *papatong* in Sundanese. Local names are precious and worth keeping, but scientific names help everyone in the world use the same name.
 
@@ -71,7 +71,7 @@ Saat membaca katalog taksonomi, perhatikan:
 - **Penulis dan tahun**, untuk membedakan homonim, yaitu nama yang sama untuk takson yang berbeda.
 - **Sumber**: GBIF, Catalogue of Life, iNaturalist, dan basis data khusus suatu kelompok dapat berbeda untuk sementara waktu.
 
-Di BioTaxa, mode Akademik pada halaman spesies menampilkan penulis nama, status nama, dan sinonim dari GBIF.`,
+Di Biotaloka, mode Akademik pada halaman spesies menampilkan penulis nama, status nama, dan sinonim dari GBIF.`,
       `Modern classification aims to reflect evolutionary history. Good groups are monophyletic: one ancestor and all its descendants. Relationships are drawn as [[kladogram|cladograms]] or phylogenetic trees built from shared derived traits — morphology and [[dna|DNA]] sequences.
 
 Some traditional groups are not monophyletic. Traditional “Reptilia” left out birds, even though birds descend from dinosaurs. “Protista” is not a natural group either, just eukaryotes that are not animals, plants or fungi.
@@ -87,7 +87,7 @@ When reading a taxonomic catalogue, check:
 - **Author and year**, to tell homonyms apart, that is, the same name used for different taxa.
 - **Source**: GBIF, Catalogue of Life, iNaturalist and group-specific databases can disagree for a while.
 
-In BioTaxa, Academic mode on a species page shows the author, name status and synonyms from GBIF.`,
+In Biotaloka, Academic mode on a species page shows the author, name status and synonyms from GBIF.`,
     ],
     kuliah: [
       `Taksonomi menyatukan tiga kegiatan: deskripsi (mengenali takson), nomenklatur (penamaan menurut kode ICZN, ICN, ICNP, atau ICVCN), dan sistematika (merekonstruksi kekerabatan). Nomenklatur bersifat stabil melalui prinsip prioritas dan spesimen tipe, sementara klasifikasi dapat berubah seiring hipotesis filogenetik.
@@ -96,7 +96,7 @@ Rekonstruksi filogeni memakai metode parsimoni, kemungkinan maksimum (maximum li
 
 Konsep spesies juga beragam: biologis (isolasi reproduksi), filogenetik (kelompok diagnosis terkecil), ekologis, dan kohesi. Untuk prokariota, taksonomi berbasis genom seperti GTDB memakai kedekatan genom rata-rata (ANI) dan filogeni protein penanda.
 
-Saat memakai BioTaxa untuk penelitian, perhatikan status nama (accepted, synonym, doubtful), sumber kutipan, dan tanggal akses. Kutip dataset asli (misalnya GBIF Backbone Taxonomy, doi:10.15468/39omei).
+Saat memakai Biotaloka untuk penelitian, perhatikan status nama (accepted, synonym, doubtful), sumber kutipan, dan tanggal akses. Kutip dataset asli (misalnya GBIF Backbone Taxonomy, doi:10.15468/39omei).
 
 Kode nomenklatur menetapkan aturan kunci: publikasi yang efektif dan sah, prioritas (nama sah tertua yang dipakai), dan tipe nomenklatur (holotipe untuk spesies, spesies tipe untuk genus). Sinonim dibedakan menjadi sinonim objektif atau homotipik (berdasar tipe yang sama, misalnya akibat pemindahan genus) dan sinonim subjektif atau heterotipik (tipe berbeda yang dinilai termasuk satu takson).
 
@@ -107,7 +107,7 @@ Phylogenies are inferred with parsimony, maximum likelihood and Bayesian methods
 
 Species concepts vary: biological (reproductive isolation), phylogenetic (smallest diagnosable cluster), ecological and cohesion concepts. For prokaryotes, genome-based taxonomy such as GTDB uses average nucleotide identity (ANI) and marker-protein phylogenies.
 
-When using BioTaxa for research, check name status (accepted, synonym, doubtful), the cited source and access date. Cite the original dataset (e.g. GBIF Backbone Taxonomy, doi:10.15468/39omei).
+When using Biotaloka for research, check name status (accepted, synonym, doubtful), the cited source and access date. Cite the original dataset (e.g. GBIF Backbone Taxonomy, doi:10.15468/39omei).
 
 The nomenclatural codes set key rules: effective and valid publication, priority (the oldest valid name is used) and nomenclatural types (a holotype for a species, a type species for a genus). Synonyms are objective or homotypic (based on the same type, for example after a change of genus) or subjective or heterotypic (different types judged to belong to one taxon).
 
@@ -176,8 +176,8 @@ Author citation for new combinations differs between codes. In zoology the origi
       'Collect 8 animal pictures. Sort them into backbone and no backbone. Then sort again: egg-laying and live-bearing.',
     ],
     smp: [
-      'Buka Pohon kehidupan di BioTaxa. Telusuri harimau dan kucing sampai tingkat spesies. Di tingkat mana jalur keduanya berpisah? Gunakan juga fitur Bandingkan.',
-      'Open the Tree of life in BioTaxa. Trace the tiger and the house cat down to species. At which rank do their paths split? Try the Compare feature too.',
+      'Buka Pohon kehidupan di Biotaloka. Telusuri harimau dan kucing sampai tingkat spesies. Di tingkat mana jalur keduanya berpisah? Gunakan juga fitur Bandingkan.',
+      'Open the Tree of life in Biotaloka. Trace the tiger and the house cat down to species. At which rank do their paths split? Try the Compare feature too.',
     ],
     sma: [
       'Pilih tiga spesies (misalnya burung gereja, komodo, dan buaya). Susun kladogram berdasarkan ciri: bertelur bercangkang, bulu, dan sisik. Diskusikan mengapa burung lebih dekat dengan buaya daripada dengan kadal.',
@@ -441,16 +441,16 @@ Author citation for new combinations differs between codes. In zoology the origi
         'Hook: “How would you organise books in a library?” Link it to grouping organisms.',
       ],
       [
-        'Eksplorasi: kelompokkan kartu spesies BioTaxa dengan kriteria buatan peserta didik.',
-        'Explore: sort BioTaxa species cards using learners’ own criteria.',
+        'Eksplorasi: kelompokkan kartu spesies Biotaloka dengan kriteria buatan peserta didik.',
+        'Explore: sort Biotaloka species cards using learners’ own criteria.',
       ],
       [
         'Penjelasan: perkenalkan tingkatan takson dan aturan penulisan nama ilmiah.',
         'Explain: introduce ranks and the rules for writing scientific names.',
       ],
       [
-        'Penerapan: telusuri Pohon kehidupan BioTaxa dan fitur Bandingkan untuk dua spesies.',
-        'Apply: follow the BioTaxa Tree of life and use Compare for two species.',
+        'Penerapan: telusuri Pohon kehidupan Biotaloka dan fitur Bandingkan untuk dua spesies.',
+        'Apply: follow the Biotaloka Tree of life and use Compare for two species.',
       ],
       [
         'Evaluasi: kuis dan tugas menulis nama ilmiah lima spesies di sekitar sekolah.',

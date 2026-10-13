@@ -10,7 +10,7 @@ import { icon } from '../components/icons.js';
 
 const s = S({
   title: ['Mode Guru', 'Teacher mode'],
-  heading: ['Ruang guru BioTaxa', 'BioTaxa teacher space'],
+  heading: ['Ruang guru Biotaloka', 'Biotaloka teacher space'],
   sub: [
     'Siapkan pelajaran, bagikan tugas lewat tautan, dan unduh modul ajar. Tanpa akun dan tanpa data siswa di server.',
     'Prepare lessons, share assignments by link and print lesson plans. No accounts and no student data on a server.',
@@ -20,7 +20,7 @@ const s = S({
     'Mode Guru aktif: catatan guru dan kunci jawaban terbuka di setiap materi.',
     'Teacher mode is on: teacher notes and answer keys open on every lesson.',
   ],
-  tipsTitle: ['Cara memakai BioTaxa di kelas', 'Using BioTaxa in class'],
+  tipsTitle: ['Cara memakai Biotaloka di kelas', 'Using Biotaloka in class'],
   builder: ['Buat tugas', 'Create an assignment'],
   taskSetup: ['Identitas tugas', 'Assignment details'],
   taskMaterials: ['Bahan belajar', 'Learning materials'],
@@ -64,8 +64,8 @@ const s = S({
   ],
   privacy: ['Privasi siswa', 'Student privacy'],
   privacyText: [
-    'BioTaxa tidak memiliki akun dan tidak mengumpulkan jawaban siswa. Jawaban tersimpan di perangkat masing-masing sampai dicetak atau disimpan sebagai PDF.',
-    'BioTaxa has no accounts and does not collect student answers. Answers stay on each device until printed or saved as PDF.',
+    'Biotaloka tidak memiliki akun dan tidak mengumpulkan jawaban siswa. Jawaban tersimpan di perangkat masing-masing sampai dicetak atau disimpan sebagai PDF.',
+    'Biotaloka has no accounts and does not collect student answers. Answers stay on each device until printed or saved as PDF.',
   ],
 });
 
@@ -192,7 +192,7 @@ export async function render(ctx) {
   const restoreDraft = draft?.preset === (presetTopic?.id || '');
   chosen = restoreDraft ? [...draft.chosen] : [];
   const tips = TIPS[level] || TIPS.smp;
-  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTAXA / GURU')}
+  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTALOKA / GURU')}
     ${role === 'teacher' ? notice(`✓ ${s.activeNote}`) : `<p><button type="button" class="btn" data-set-mode="teacher">${icon('teacher')} ${s.activate}</button></p>`}
     ${sectionNav([
       ['builder', s.builder],

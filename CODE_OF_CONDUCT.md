@@ -1,8 +1,8 @@
 # Kode etik / Code of conduct
 
-BioTaxa dibuat untuk anak-anak, pelajar, dan guru. Kami ingin setiap kontributor merasa aman dan dihargai.
+Biotaloka dibuat untuk anak-anak, pelajar, dan guru. Kami ingin setiap kontributor merasa aman dan dihargai.
 
-BioTaxa is built for children, students and teachers. We want every contributor to feel safe and respected.
+Biotaloka is built for children, students and teachers. We want every contributor to feel safe and respected.
 
 ## Harapan kami / Our expectations
 

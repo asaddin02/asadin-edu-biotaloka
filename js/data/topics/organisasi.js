@@ -415,7 +415,7 @@ Debates about levels of selection (gene, individual, group) are directly linked 
       ['Pemantik: perbesar gambar dari bumi sampai sel (atau sebaliknya).', 'Hook: zoom from Earth down to a cell (or the reverse).'],
       ['Susun kartu tangga kehidupan dalam kelompok.', 'Arrange the ladder-of-life cards in groups.'],
       ['Pengamatan mikroskop sel dan jaringan.', 'Microscope observation of cells and tissues.'],
-      ['Buka Peta Biologi BioTaxa untuk menghubungkan setiap tingkat dengan materi.', 'Open the BioTaxa Map of Biology to link each level to lessons.'],
+      ['Buka Peta Biologi Biotaloka untuk menghubungkan setiap tingkat dengan materi.', 'Open the Biotaloka Map of Biology to link each level to lessons.'],
       ['Kuis dan refleksi.', 'Quiz and reflection.'],
     ],
     assess: [

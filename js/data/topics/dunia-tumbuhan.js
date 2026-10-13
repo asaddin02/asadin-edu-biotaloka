@@ -176,8 +176,8 @@ Indonesia is a centre of diversity for many plant groups, such as the dipterocar
       'Draw the life cycles of a moss, a fern and a flowering plant side by side. Mark haploid (n) and diploid (2n) stages, where meiosis and fertilisation happen, and which generation dominates.',
     ],
     kuliah: [
-      'Pilih satu tumbuhan asli Indonesia. Bandingkan nama diterima, sinonim, dan sebarannya di GBIF (melalui BioTaxa) dan di katalog tumbuhan lain. Catat perbedaan ejaan atau konsep takson dan jelaskan dampaknya bagi analisis data.',
-      'Pick a plant native to Indonesia. Compare its accepted name, synonyms and distribution in GBIF (via BioTaxa) and another plant catalogue. Note differences in spelling or taxon concept and explain their effect on data analysis.',
+      'Pilih satu tumbuhan asli Indonesia. Bandingkan nama diterima, sinonim, dan sebarannya di GBIF (melalui Biotaloka) dan di katalog tumbuhan lain. Catat perbedaan ejaan atau konsep takson dan jelaskan dampaknya bagi analisis data.',
+      'Pick a plant native to Indonesia. Compare its accepted name, synonyms and distribution in GBIF (via Biotaloka) and another plant catalogue. Note differences in spelling or taxon concept and explain their effect on data analysis.',
     ],
   },
   species: ['Marchantia polymorpha', 'Asplenium nidus', 'Oryza sativa', 'Mangifera indica', 'Rafflesia arnoldi', 'Amorphophallus titanum', 'Phalaenopsis amabilis', 'Nepenthes gracilis', 'Polytrichum commune', 'Azolla pinnata', 'Pinus merkusii', 'Gnetum gnemon', 'Cycas rumphii', 'Kappaphycus alvarezii'],
@@ -387,7 +387,7 @@ Indonesia is a centre of diversity for many plant groups, such as the dipterocar
       ['Pemantik: berburu tumbuhan di halaman sekolah.', 'Hook: a plant hunt in the schoolyard.'],
       ['Pengamatan sorus paku dan kecambah monokotil–dikotil.', 'Observe fern sori and monocot–dicot seedlings.'],
       ['Penjelasan kelompok tumbuhan sesuai jenjang.', 'Explain plant groups at the right depth.'],
-      ['Telusuri Plantae di Pohon Kehidupan BioTaxa.', 'Explore Plantae in the BioTaxa Tree of Life.'],
+      ['Telusuri Plantae di Pohon Kehidupan Biotaloka.', 'Explore Plantae in the Biotaloka Tree of Life.'],
       ['Kuis dan diskusi konservasi tumbuhan Indonesia.', 'Quiz and discussion of Indonesian plant conservation.'],
     ],
     assess: [

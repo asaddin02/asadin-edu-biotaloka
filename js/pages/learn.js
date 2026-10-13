@@ -128,7 +128,7 @@ function hub(ctx) {
   const visible = t => showAll || t.levels.includes(level);
   const earned = Object.keys(progress.badges).length;
   const topics = TOPICS.filter(visible);
-  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTAXA / LEARN')}
+  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTALOKA / LEARN')}
     <div class="mode-banner"><span>${s.yourMode}: <strong>${esc(modeLabel())}</strong></span><div class="actions"><a class="text-link" href="${routeURL('learn', Object.fromEntries(ctx.params))}#learning-tools" data-jump="learning-tools">${s.activities} ↓</a><button type="button" class="btn small secondary" data-open-mode>${s.change}</button></div></div>
     <div class="learn-workspace"><section class="section lesson-catalog"><div class="section-head"><h2>${showAll ? s.allTopics : s.forYou}</h2><a class="text-link" data-catalog-scope="${showAll ? '' : '1'}" href="${routeURL('learn', showAll ? {} : { all: 1 })}">${showAll ? s.showMine : s.showAll} →</a></div>
       ${catalogTools()}${catalogGroups(topics, t => topicCard(t, progress))}</section>

@@ -33,7 +33,7 @@ test('curated group names lead the tree in SD mode and other groups can be revea
   context,
 }) => {
   await context.clearCookies();
-  await page.addInitScript(() => localStorage.setItem('biotaxa-level', JSON.stringify('sd')));
+  await page.addInitScript(() => localStorage.setItem('biotaloka-level', JSON.stringify('sd')));
   await mockAPIs(page);
   await page.route('https://api.gbif.org/v1/species/1/children**', r =>
     r.fulfill({

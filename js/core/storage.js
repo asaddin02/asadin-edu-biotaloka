@@ -27,13 +27,13 @@ export function remove(key) {
 }
 
 export const KEYS = {
-  lang: 'biotaxa-language',
-  level: 'biotaxa-level',
-  role: 'biotaxa-role',
-  collection: 'biotaxa-collection',
-  notes: 'biotaxa-notes',
-  progress: 'biotaxa-progress',
-  experiments: 'biotaxa-experiments',
-  scope: 'biotaxa-scope',
-  labState: 'biotaxa-lab-state',
+  lang: 'biotaloka-language',
+  level: 'biotaloka-level',
+  role: 'biotaloka-role',
+  collection: 'biotaloka-collection',
+  notes: 'biotaloka-notes',
+  progress: 'biotaloka-progress',
+  experiments: 'biotaloka-experiments',
+  scope: 'biotaloka-scope',
+  labState: 'biotaloka-lab-state',
 };

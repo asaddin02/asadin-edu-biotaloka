@@ -30,8 +30,8 @@ const s = S({
   find: ['Cari tempat', 'Find place'],
   radius: ['Jarak', 'Distance'],
   privacy: [
-    'Privasi: lokasimu dibulatkan sekitar 1 km dan hanya dikirim ke iNaturalist untuk mencari pengamatan. BioTaxa tidak menyimpannya.',
-    'Privacy: your location is rounded to about 1 km and only sent to iNaturalist to look up observations. BioTaxa does not store it.',
+    'Privasi: lokasimu dibulatkan sekitar 1 km dan hanya dikirim ke iNaturalist untuk mencari pengamatan. Biotaloka tidak menyimpannya.',
+    'Privacy: your location is rounded to about 1 km and only sent to iNaturalist to look up observations. Biotaloka does not store it.',
   ],
   locating: ['Mencari lokasimu…', 'Finding your location…'],
   denied: [
@@ -70,7 +70,7 @@ export async function render(ctx) {
   const g = groups.find(x => x.id === group);
   const base = { lat: hasCoords ? lat : '', lng: hasCoords ? lng : '', place, pname, radius, group };
 
-  main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTAXA / NEARBY')}
+  main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTALOKA / NEARBY')}
     <div class="nearby-workspace"><section class="nearby-tools card">
       <button type="button" class="btn" data-locate>${icon('nearby')} ${s.useLocation}</button>
       <form id="place-form" class="place-form" role="search"><label for="place-q">${s.or}</label><div class="inline-field"><input id="place-q" name="q" value="${esc(pname)}" placeholder="${s.placePlaceholder}" maxlength="80" autocomplete="off"><button type="submit" class="btn secondary">${s.find}</button></div></form>
@@ -150,6 +150,6 @@ export async function render(ctx) {
     trackVisit('nearby');
   } catch (error) {
     if (ctx.isCurrent()) results.innerHTML = errorState();
-    console.warn('BioTaxa nearby failed:', error);
+    console.warn('Biotaloka nearby failed:', error);
   }
 }

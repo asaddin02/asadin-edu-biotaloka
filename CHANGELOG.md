@@ -1,5 +1,9 @@
 # Riwayat perubahan / Changelog
 
+## Nama baru: Biotaloka — 13 Oktober 2026
+
+- Berganti nama menjadi **Biotaloka** dan pindah ke https://biotaloka.pages.dev. Data yang tersimpan di browser pada alamat lama tidak ikut pindah: ekspor cadangan di situs lama, lalu impor di alamat baru.
+
 ## Penyesuaian UI/UX setelah perluasan materi — 28 September 2026
 
 - Katalog materi dan kuis memiliki pencarian, filter delapan bidang, jumlah hasil, serta keadaan kosong dengan tombol atur ulang. Filter tetap tersimpan saat memuat ulang, kembali dari materi, dan berganti bahasa.
@@ -40,7 +44,7 @@ Audit lengkap cakupan dan akurasi materi dicatat di [`docs/AUDIT-BIOLOGY.md`](do
 
 ## Pembaruan UI/UX — 25 September 2026
 
-- Halaman dukungan menyediakan kanal Indonesia dan internasional yang dapat dikonfigurasi terpisah, beserta bantuan transaksi. Ajakan kontribusi kode diganti dengan penggunaan BioTaxa dalam kegiatan belajar.
+- Halaman dukungan menyediakan kanal Indonesia dan internasional yang dapat dikonfigurasi terpisah, beserta bantuan transaksi. Ajakan kontribusi kode diganti dengan penggunaan Biotaloka dalam kegiatan belajar.
 
 - Halaman dukungan sukarela `#/dukung`, tautan footer dan bagian dukungan beranda; pembayaran melalui URL HTTPS eksternal yang dikonfigurasi pengelola. Status belum tersedia ditampilkan jika tujuan donasi belum diisi.
 
@@ -66,7 +70,7 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/). Ve
 
 ## [3.0.0] — 2026-09-24
 
-Perombakan besar agar BioTaxa bisa dipakai siswa SD sampai mahasiswa serta guru, dan siap diterbitkan sebagai proyek open source.
+Perombakan besar agar Biotaloka bisa dipakai siswa SD sampai mahasiswa serta guru, dan siap diterbitkan sebagai proyek open source.
 
 ### Ditambahkan
 

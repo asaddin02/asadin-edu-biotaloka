@@ -4,12 +4,12 @@ test.use({ serviceWorkers: 'allow' });
 
 test('installable manifest and offline lessons through the service worker', async ({ page, context }) => {
   const manifest = await (await page.request.get('/manifest.webmanifest')).json();
-  expect(manifest.short_name).toBe('BioTaxa');
+  expect(manifest.short_name).toBe('Biotaloka');
   expect(manifest.icons.some(i => i.purpose === 'maskable')).toBe(true);
 
   await page.addInitScript(() => {
-    localStorage.setItem('biotaxa-force-sw', '1');
-    localStorage.setItem('biotaxa-level', JSON.stringify('smp'));
+    localStorage.setItem('biotaloka-force-sw', '1');
+    localStorage.setItem('biotaloka-level', JSON.stringify('smp'));
   });
   await page.goto('/learn');
   await page.evaluate(() => navigator.serviceWorker.ready);
@@ -18,7 +18,7 @@ test('installable manifest and offline lessons through the service worker', asyn
       async () =>
         page.evaluate(async () => {
           const keys = await caches.keys();
-          const app = keys.find(k => k.startsWith('biotaxa-app-'));
+          const app = keys.find(k => k.startsWith('biotaloka-app-'));
           return app ? (await (await caches.open(app)).keys()).length : 0;
         }),
       { timeout: 20000 }
@@ -41,7 +41,7 @@ test('installable manifest and offline lessons through the service worker', asyn
 
 test('a previously installed waiting update is offered on the next visit', async ({ page }) => {
   await page.addInitScript(() => {
-    localStorage.setItem('biotaxa-force-sw', '1');
+    localStorage.setItem('biotaloka-force-sw', '1');
     const worker = new EventTarget();
     worker.state = 'installed';
     worker.postMessage = data => (window.updateMessage = data);

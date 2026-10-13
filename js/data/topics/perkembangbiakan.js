@@ -362,8 +362,8 @@ Animal strategies range from many offspring with little care (fish, frogs) to fe
         'Hook: a photo of a maleo egg next to a chicken egg.',
       ],
       [
-        'Eksplorasi: kartu spesies BioTaxa (kuda laut, maleo, bakau, paku).',
-        'Explore: BioTaxa species cards (seahorse, maleo, mangrove, fern).',
+        'Eksplorasi: kartu spesies Biotaloka (kuda laut, maleo, bakau, paku).',
+        'Explore: Biotaloka species cards (seahorse, maleo, mangrove, fern).',
       ],
       ['Praktik: stek dan tunas; jurnal pengamatan.', 'Practice: cuttings and shoots; observation journal.'],
       ['Diskusi: generatif vs vegetatif.', 'Discuss: sexual vs vegetative.'],
@@ -371,7 +371,7 @@ Animal strategies range from many offspring with little care (fish, frogs) to fe
     ],
     assess: [
       ['Jurnal pengamatan pertumbuhan stek.', 'Cutting growth journal.'],
-      ['Kuis BioTaxa.', 'BioTaxa quiz.'],
+      ['Kuis Biotaloka.', 'Biotaloka quiz.'],
     ],
     misconceptions: [
       {

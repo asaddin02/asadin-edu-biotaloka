@@ -27,8 +27,8 @@ const s = S({
     'Choose a doorway, then follow its branches from big groups down to one species.',
   ],
   note: [
-    'Domain adalah lapisan panduan BioTaxa. Cabang berikutnya mengikuti GBIF Backbone; tingkatan yang tidak tercatat tidak dibuat-buat. Ini klasifikasi, bukan pohon filogenetik berskala waktu.',
-    'Domains are BioTaxa’s learning layer. Deeper branches follow the GBIF Backbone; missing ranks are not invented. This is a classification, not a time-scaled phylogeny.',
+    'Domain adalah lapisan panduan Biotaloka. Cabang berikutnya mengikuti GBIF Backbone; tingkatan yang tidak tercatat tidak dibuat-buat. Ini klasifikasi, bukan pohon filogenetik berskala waktu.',
+    'Domains are Biotaloka’s learning layer. Deeper branches follow the GBIF Backbone; missing ranks are not invented. This is a classification, not a time-scaled phylogeny.',
   ],
   children: ['Kelompok di dalamnya', 'Groups inside'],
   childSpecies: ['Spesies di dalamnya', 'Species inside'],
@@ -122,7 +122,7 @@ function kingdomCard(key) {
 export async function render(ctx) {
   const { id, params, main } = ctx;
   if (!id) {
-    main.innerHTML = pageHead(s.heading, s.sub, 'BIOTAXA / ATLAS') + domainCards() + notice(s.note);
+    main.innerHTML = pageHead(s.heading, s.sub, 'BIOTALOKA / ATLAS') + domainCards() + notice(s.note);
     return;
   }
   if (DOMAINS[id]) {

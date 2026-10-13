@@ -25,7 +25,7 @@ const s = S({
     'Answers save automatically on this device. To hand in, print or save as PDF.',
   ],
   print: ['Cetak / simpan PDF', 'Print / save as PDF'],
-  from: ['Tugas dari guru melalui BioTaxa', 'Assignment from your teacher via BioTaxa'],
+  from: ['Tugas dari guru melalui Biotaloka', 'Assignment from your teacher via Biotaloka'],
 });
 
 export const title = () => s.title;
@@ -64,12 +64,12 @@ export async function render(ctx) {
   const raw = ctx.params.get('d') || '';
   const data = validate(decodeData(raw));
   if (!data) {
-    ctx.main.innerHTML = pageHead(s.title, '', 'BIOTAXA / TUGAS') + notice(s.invalid);
+    ctx.main.innerHTML = pageHead(s.title, '', 'BIOTALOKA / TUGAS') + notice(s.invalid);
     return;
   }
   const key = `tugas-${hash(raw)}`;
   const topic = data.tp ? findTopic(data.tp) : null;
-  ctx.main.innerHTML = `${pageHead(data.t, s.from, 'BIOTAXA / TUGAS')}
+  ctx.main.innerHTML = `${pageHead(data.t, s.from, 'BIOTALOKA / TUGAS')}
     <div class="assignment-meta">${data.l ? `<span class="tag">${s.level}: ${esc(ui[data.l])}</span>` : ''}${data.due ? `<span class="tag">${icon('clock')} ${s.due}: ${esc(fmtDate(`${data.due}T12:00:00`))}</span>` : ''}</div>
     <section class="card student-fields"><label class="field"><span>${s.name}</span><input type="text" data-note-key="${key}-name" data-note-label="${esc(data.t)} · ${s.name}" maxlength="80" autocomplete="name"></label><label class="field"><span>${s.klass}</span><input type="text" data-note-key="${key}-class" data-note-label="${esc(data.t)} · ${s.klass}" maxlength="40"></label></section>
     ${data.i ? `<section class="section"><h2>${s.instructions}</h2><p class="prose">${esc(data.i)}</p></section>` : ''}

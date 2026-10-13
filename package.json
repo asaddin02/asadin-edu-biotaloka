@@ -1,5 +1,5 @@
 {
-  "name": "asadin-edu-biotaxa",
+  "name": "asadin-edu-biotaloka",
   "version": "3.0.0",
   "private": true,
   "type": "module",
@@ -28,17 +28,17 @@
     "leaflet": "^1.9.4",
     "prettier": "^3.9.9"
   },
-  "description": "BioTaxa · Asadin Edu — open, bilingual atlas of life for primary school to university learners and teachers.",
+  "description": "Biotaloka · Asadin Edu — open, bilingual atlas of life for primary school to university learners and teachers.",
   "license": "MIT",
   "engines": {
     "node": ">=20"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asaddin02/asadin-edu-biotaxa.git"
+    "url": "git+https://github.com/asaddin02/asadin-edu-biotaloka.git"
   },
   "bugs": {
-    "url": "https://github.com/asaddin02/asadin-edu-biotaxa/issues"
+    "url": "https://github.com/asaddin02/asadin-edu-biotaloka/issues"
   },
-  "homepage": "https://github.com/asaddin02/asadin-edu-biotaxa#readme"
+  "homepage": "https://github.com/asaddin02/asadin-edu-biotaloka#readme"
 }

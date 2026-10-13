@@ -1,4 +1,4 @@
-/* BioTaxa — Living atlas. Light theme, local assets, rem-based sizes (the SD level scales everything up). */
+/* Biotaloka — Living atlas. Light theme, local assets, rem-based sizes (the SD level scales everything up). */
 
 /* ========== 1. Tokens ========== */
 :root {
@@ -4708,5 +4708,17 @@ textarea:focus-visible {
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--muted);
+  }
+}
+
+/* The narrowest phones: the longer wordmark must leave room for the level and language controls. */
+@media (max-width: 360px) {
+  .brand {
+    font-size: 1.12rem;
+    gap: 0.4rem;
+  }
+  .brand-symbol {
+    width: 32px;
+    height: 32px;
   }
 }

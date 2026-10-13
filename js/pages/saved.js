@@ -20,8 +20,8 @@ const s = S({
   title: ['Koleksi', 'Collection'],
   heading: ['Penemuan kecil, koleksi pribadi.', 'Little discoveries, your own collection.'],
   sub: [
-    'Semua tersimpan di peramban ini saja. Tidak ada akun dan tidak ada data yang dikirim ke server BioTaxa.',
-    'Everything stays in this browser. No account and no data sent to a BioTaxa server.',
+    'Semua tersimpan di peramban ini saja. Tidak ada akun dan tidak ada data yang dikirim ke server Biotaloka.',
+    'Everything stays in this browser. No account and no data sent to a Biotaloka server.',
   ],
   tabs: ['Bagian koleksi', 'Collection sections'],
   collection: ['Spesies', 'Species'],
@@ -48,8 +48,8 @@ const s = S({
   certName: ['Nama penjelajah', 'Explorer’s name'],
   certPrint: ['Cetak sertifikat', 'Print certificate'],
   certText: [
-    'telah mengenali {n} spesies dan mengumpulkan {b} lencana di BioTaxa.',
-    'has met {n} species and earned {b} badges on BioTaxa.',
+    'telah mengenali {n} spesies dan mengumpulkan {b} lencana di Biotaloka.',
+    'has met {n} species and earned {b} badges on Biotaloka.',
   ],
   notesEmpty: [
     'Belum ada catatan. Catatan dari lembar kerja, materi, dan lab akan muncul di sini.',
@@ -66,7 +66,7 @@ const s = S({
   export: ['Unduh cadangan', 'Download backup'],
   import: ['Impor cadangan', 'Import backup'],
   imported: ['Data berhasil diimpor.', 'Data imported.'],
-  importFail: ['Berkas tidak dikenali sebagai cadangan BioTaxa.', 'This file is not a BioTaxa backup.'],
+  importFail: ['Berkas tidak dikenali sebagai cadangan Biotaloka.', 'This file is not a Biotaloka backup.'],
   resetTitle: ['Hapus semua data', 'Delete all data'],
   resetText: [
     'Menghapus koleksi, catatan, progres, lencana, dan buku eksperimen dari peramban ini. Tindakan ini tidak bisa dibatalkan.',
@@ -74,8 +74,8 @@ const s = S({
   ],
   reset: ['Hapus semua', 'Delete everything'],
   confirm: [
-    'Yakin ingin menghapus semua data BioTaxa di peramban ini?',
-    'Delete all BioTaxa data in this browser?',
+    'Yakin ingin menghapus semua data Biotaloka di peramban ini?',
+    'Delete all Biotaloka data in this browser?',
   ],
   resetDone: ['Semua data dihapus.', 'All data deleted.'],
 });
@@ -130,7 +130,7 @@ function passportTab() {
             .join('')}</div></section>`
         : ''
     }
-    <section class="certificate card" id="certificate">${brandImage('cert-brand')}<span class="eyebrow">BIOTAXA · ASADIN EDU</span><h2>${s.certificate}</h2>
+    <section class="certificate card" id="certificate">${brandImage('cert-brand')}<span class="eyebrow">BIOTALOKA · ASADIN EDU</span><h2>${s.certificate}</h2>
       <label class="field"><span>${s.certName}</span><input type="text" id="cert-name" maxlength="60" autocomplete="name"></label>
       <p class="cert-text">${esc(s.certText.replace('{n}', fmt(seen.length)).replace('{b}', fmt(earned.length)))}</p>
       <p class="cert-badges" aria-hidden="true">${earned.map(b => b.icon).join(' ')}</p><p class="muted small">${fmtDate(new Date())}</p>
@@ -158,7 +158,7 @@ export async function render(ctx) {
   const tab = TABS.includes(ctx.params.get('tab')) ? ctx.params.get('tab') : 'collection';
   const labels = { collection: s.collection, passport: s.passport, notes: s.notes, data: s.data };
   const body = { collection: collectionTab, passport: passportTab, notes: notesTab, data: dataTab }[tab]();
-  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTAXA / KOLEKSI')}
+  ctx.main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTALOKA / KOLEKSI')}
     <div class="saved-workspace"><nav class="segmented tabs-nav" aria-label="${s.tabs}">${TABS.map(t => `<a href="${routeURL('saved', t === 'collection' ? {} : { tab: t })}" class="${t === tab ? 'selected' : ''}"${t === tab ? ' aria-current="page"' : ''}>${labels[t]}</a>`).join('')}</nav>
     <div id="saved-body">${body}</div></div>`;
   refresh(ctx.main);
@@ -170,7 +170,7 @@ export async function render(ctx) {
   });
   ctx.on('click', '[data-export]', () =>
     download(
-      `biotaxa-backup-${new Date().toISOString().slice(0, 10)}.json`,
+      `biotaloka-backup-${new Date().toISOString().slice(0, 10)}.json`,
       JSON.stringify(exportAll(), null, 2),
       'application/json'
     )

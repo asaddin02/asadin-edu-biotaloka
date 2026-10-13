@@ -1,4 +1,4 @@
-// Deployment settings. Edit this file when publishing your own copy of BioTaxa.
+// Deployment settings. Edit this file when publishing your own copy of Biotaloka.
 export const config = {
   version: '3.0.0',
 
@@ -9,8 +9,8 @@ export const config = {
   allowNonCommercialMedia: true,
 
   // Optional links shown in the interface. Leave empty to hide them.
-  repositoryURL: 'https://github.com/asaddin02/asadin-edu-biotaxa',
-  feedbackURL: 'https://github.com/asaddin02/asadin-edu-biotaxa/issues/new/choose',
+  repositoryURL: 'https://github.com/asaddin02/asadin-edu-biotaloka',
+  feedbackURL: 'https://github.com/asaddin02/asadin-edu-biotaloka/issues/new/choose',
   // Verified HTTPS donation page owned by the project. Empty = monetary donations unavailable.
   donateURL: '',
   // Optional regional channels. Only configured HTTPS links appear; no geolocation required.
@@ -30,7 +30,7 @@ export const config = {
     gbifMaps: 'https://api.gbif.org/v2/map',
   },
 
-  // When BioTaxa is served by server/server.mjs, requests are routed through its caching proxy.
+  // When Biotaloka is served by server/server.mjs, requests are routed through its caching proxy.
   proxy: {
     health: '/api/health',
     gbif: '/api/gbif/v1',

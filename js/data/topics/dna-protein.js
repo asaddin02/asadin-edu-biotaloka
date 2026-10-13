@@ -90,7 +90,7 @@ Chromosome mutations include deletions, duplications, inversions and translocati
 
 **Pengecualian dogma sentral**: transkripsi balik pada retrovirus dan telomerase (RNA → DNA), replikasi RNA pada virus RNA, serta prion yang menyebarkan bentuk lipatan protein tanpa asam nukleat.
 
-**Genomik**: Proyek Genom Manusia menyelesaikan draf pada awal 2000-an, dan konsorsium Telomere-to-Telomere menerbitkan urutan yang hampir lengkap pada 2022. Teknologi berkembang dari sekuensing Sanger ke sekuensing generasi berikutnya (bacaan pendek, masif) dan sekuensing bacaan panjang. Data urutan disimpan di basis data publik seperti GenBank (NCBI) dan dianalisis dengan alat bioinformatika, misalnya BLAST untuk mencari kemiripan urutan. Di mode Akademik BioTaxa, halaman spesies menautkan ke NCBI dan GenBank.
+**Genomik**: Proyek Genom Manusia menyelesaikan draf pada awal 2000-an, dan konsorsium Telomere-to-Telomere menerbitkan urutan yang hampir lengkap pada 2022. Teknologi berkembang dari sekuensing Sanger ke sekuensing generasi berikutnya (bacaan pendek, masif) dan sekuensing bacaan panjang. Data urutan disimpan di basis data publik seperti GenBank (NCBI) dan dianalisis dengan alat bioinformatika, misalnya BLAST untuk mencari kemiripan urutan. Di mode Akademik Biotaloka, halaman spesies menautkan ke NCBI dan GenBank.
 
 **Evolusi molekuler**: duplikasi gen menyediakan bahan bagi fungsi baru (misalnya keluarga gen globin), dan perbedaan urutan yang menumpuk secara kira-kira teratur dipakai sebagai jam molekuler.`,
       `**Genome organisation**: eukaryotic DNA is wrapped around histone octamers to form nucleosomes (about 147 base pairs each), then packed further into active euchromatin and dense heterochromatin. Only about 1–2% of the human genome codes for protein; much of the rest is regulatory regions, functional RNA genes, introns, repeats and transposable elements (nearly half the genome). Transposable elements were first discovered by Barbara McClintock in maize.
@@ -101,7 +101,7 @@ Chromosome mutations include deletions, duplications, inversions and translocati
 
 **Exceptions to the central dogma**: reverse transcription in retroviruses and telomerase (RNA → DNA), RNA replication in RNA viruses, and prions, which spread a protein fold without any nucleic acid.
 
-**Genomics**: the Human Genome Project finished its draft in the early 2000s, and the Telomere-to-Telomere consortium published a nearly complete sequence in 2022. Technology has moved from Sanger sequencing to next-generation (massive short-read) and long-read sequencing. Sequence data are stored in public databases such as GenBank (NCBI) and analysed with bioinformatics tools, for example BLAST to find similar sequences. In BioTaxa’s University mode, species pages link to NCBI and GenBank.
+**Genomics**: the Human Genome Project finished its draft in the early 2000s, and the Telomere-to-Telomere consortium published a nearly complete sequence in 2022. Technology has moved from Sanger sequencing to next-generation (massive short-read) and long-read sequencing. Sequence data are stored in public databases such as GenBank (NCBI) and analysed with bioinformatics tools, for example BLAST to find similar sequences. In Biotaloka’s University mode, species pages link to NCBI and GenBank.
 
 **Molecular evolution**: gene duplication supplies raw material for new functions (such as the globin gene family), and sequence differences that build up at a roughly steady rate are used as molecular clocks.`,
     ],

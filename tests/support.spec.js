@@ -44,11 +44,11 @@ test('configured donations link to the exact HTTPS destination without embedding
     const { config } = await import('/js/config.js');
     config.donateLocalURL = '';
     config.donateInternationalURL = '';
-    config.donateURL = 'https://example.org/biotaxa?ref=support';
+    config.donateURL = 'https://example.org/biotaloka?ref=support';
   });
   await page.locator('#footer a[href="/dukung"]').click();
   const link = page.locator('[data-donate]');
-  await expect(link).toHaveAttribute('href', 'https://example.org/biotaxa?ref=support');
+  await expect(link).toHaveAttribute('href', 'https://example.org/biotaloka?ref=support');
   await expect(link).toHaveAttribute('target', '_blank');
   await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   await expect(page.locator('#main iframe, #main input')).toHaveCount(0);

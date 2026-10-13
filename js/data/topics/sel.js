@@ -36,7 +36,7 @@ Ada dua tipe utama sel:
 
 Beberapa organel penting: inti sel (pusat kendali), [[mitokondria]] (tempat [[respirasi]] menghasilkan energi), ribosom (pembuat protein), dan pada tumbuhan terdapat [[kloroplas]] (tempat [[fotosintesis]]), dinding sel, serta vakuola besar.
 
-Zat berpindah melalui membran dengan [[difusi]] dan [[osmosis]]. Coba simulasi osmosis di Laboratorium BioTaxa untuk melihat ke mana air bergerak.
+Zat berpindah melalui membran dengan [[difusi]] dan [[osmosis]]. Coba simulasi osmosis di Laboratorium Biotaloka untuk melihat ke mana air bergerak.
 
 Organel lain yang perlu dikenal:
 - **Retikulum endoplasma (RE)**: jaringan saluran bermembran. RE kasar ditempeli [[ribosom]] dan ikut membuat protein; RE halus membuat lemak.
@@ -61,7 +61,7 @@ There are two main kinds:
 
 Key organelles: the nucleus (control centre), [[mitokondria|mitochondria]] (where [[respirasi|respiration]] releases energy), ribosomes (protein builders), and in plants [[kloroplas|chloroplasts]] (for [[fotosintesis|photosynthesis]]), a cell wall and a large vacuole.
 
-Substances cross membranes by [[difusi|diffusion]] and [[osmosis]]. Try the osmosis simulation in the BioTaxa Laboratory to see which way water moves.
+Substances cross membranes by [[difusi|diffusion]] and [[osmosis]]. Try the osmosis simulation in the Biotaloka Laboratory to see which way water moves.
 
 Other organelles worth knowing:
 - **Endoplasmic reticulum (ER)**: a network of membrane channels. Rough ER is studded with [[ribosom|ribosomes]] and helps make proteins; smooth ER makes lipids.
@@ -204,8 +204,8 @@ Cells in animal tissues are joined by tight junctions, desmosomes and gap juncti
       'Observe onion epidermis and cheek cells (with teacher supervision) under a microscope. Draw both and label the differences.',
     ],
     sma: [
-      'Rendam potongan kentang dalam larutan garam 0%, 5%, dan 10% selama 30 menit. Ukur perubahan massa dan jelaskan dengan konsep osmosis. Bandingkan dengan simulasi Laboratorium BioTaxa.',
-      'Soak potato pieces in 0%, 5% and 10% salt solution for 30 minutes. Measure mass change and explain it with osmosis. Compare with the BioTaxa Laboratory simulation.',
+      'Rendam potongan kentang dalam larutan garam 0%, 5%, dan 10% selama 30 menit. Ukur perubahan massa dan jelaskan dengan konsep osmosis. Bandingkan dengan simulasi Laboratorium Biotaloka.',
+      'Soak potato pieces in 0%, 5% and 10% salt solution for 30 minutes. Measure mass change and explain it with osmosis. Compare with the Biotaloka Laboratory simulation.',
     ],
     kuliah: [
       'Hitung rasio luas permukaan terhadap volume untuk sel berbentuk bola berjari-jari 1, 10, dan 100 µm. Hubungkan hasilnya dengan ukuran bakteri, sel eukariota, dan telur burung.',
@@ -475,8 +475,8 @@ Cells in animal tissues are joined by tight junctions, desmosomes and gap juncti
     time: ['3 × 40 menit (termasuk praktikum)', '3 × 40 minutes (including practical)'],
     steps: [
       [
-        'Pemantik: tampilkan skala kehidupan di Lab BioTaxa — dari virus hingga paus biru.',
-        'Hook: show the scale-of-life lab in BioTaxa — from viruses to the blue whale.',
+        'Pemantik: tampilkan skala kehidupan di Lab Biotaloka — dari virus hingga paus biru.',
+        'Hook: show the scale-of-life lab in Biotaloka — from viruses to the blue whale.',
       ],
       ['Praktikum: mengamati sel bawang dan sel pipi.', 'Practical: observe onion and cheek cells.'],
       [
@@ -484,8 +484,8 @@ Cells in animal tissues are joined by tight junctions, desmosomes and gap juncti
         'Explain: organelles and their functions; prokaryotes vs eukaryotes.',
       ],
       [
-        'Simulasi: osmosis di Lab BioTaxa, lalu percobaan kentang.',
-        'Simulate: osmosis in the BioTaxa Lab, then the potato experiment.',
+        'Simulasi: osmosis di Lab Biotaloka, lalu percobaan kentang.',
+        'Simulate: osmosis in the Biotaloka Lab, then the potato experiment.',
       ],
       ['Evaluasi: kuis dan laporan praktikum.', 'Evaluate: quiz and practical report.'],
     ],

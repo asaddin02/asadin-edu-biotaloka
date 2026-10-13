@@ -31,7 +31,7 @@ Istilah penting:
 - [[fenotipe|Fenotipe]]: sifat yang tampak, misalnya ungu atau putih.
 - [[homozigot|Homozigot]] (AA atau aa) dan [[heterozigot]] (Aa).
 
-Coba Laboratorium Pewarisan di BioTaxa: pilih genotipe induk dan lihat kotak Punnett-nya.
+Coba Laboratorium Pewarisan di Biotaloka: pilih genotipe induk dan lihat kotak Punnett-nya.
 
 Contoh perhitungan dengan kotak Punnett: dua orang tua **Aa × Aa** menghasilkan kemungkinan keturunan **AA : Aa : aa = 1 : 2 : 1**. Bila A dominan, perbandingan fenotipenya 3 : 1. Ingat, ini peluang: dari empat anak, belum tentu tepat satu yang aa.
 
@@ -47,7 +47,7 @@ Key terms:
 - [[fenotipe|Phenotype]]: the visible trait, such as purple or white.
 - [[homozigot|Homozygous]] (AA or aa) and [[heterozigot|heterozygous]] (Aa).
 
-Try the Heredity Lab in BioTaxa: choose parent genotypes and see the Punnett square.
+Try the Heredity Lab in Biotaloka: choose parent genotypes and see the Punnett square.
 
 A Punnett square example: two parents **Aa × Aa** give possible offspring **AA : Aa : aa = 1 : 2 : 1**. If A is dominant, the phenotype ratio is 3 : 1. Remember, this is probability: out of four children, exactly one being aa is not guaranteed.
 
@@ -60,7 +60,7 @@ Some diseases are inherited, such as **thalassaemia**, a blood disorder that is 
 
 Banyak pola tidak mengikuti Mendel sederhana: dominansi tidak sempurna (bunga pukul empat merah × putih → merah muda), kodominansi (golongan darah AB), alel ganda (sistem ABO), gen terpaut dan pindah silang, pewarisan terpaut kromosom X (buta warna, hemofilia), serta sifat poligenik (tinggi badan, warna kulit) yang juga dipengaruhi lingkungan.
 
-Rasio Mendel adalah peluang. Pada jumlah keturunan kecil, hasil nyata bisa menyimpang cukup jauh dari 3 : 1; makin banyak keturunan, makin dekat ke rasio harapan. Simulasi acak di Lab BioTaxa memperlihatkan hal ini.
+Rasio Mendel adalah peluang. Pada jumlah keturunan kecil, hasil nyata bisa menyimpang cukup jauh dari 3 : 1; makin banyak keturunan, makin dekat ke rasio harapan. Simulasi acak di Lab Biotaloka memperlihatkan hal ini.
 
 **[[gen terpaut|Gen terpaut]]** adalah gen yang letaknya berdekatan pada [[kromosom]] yang sama sehingga cenderung diwariskan bersama; hukum pemilahan bebas tidak berlaku penuh. Thomas Hunt Morgan menemukannya pada lalat buah *Drosophila melanogaster*. Keterpautan dapat diputus oleh [[pindah silang]] saat meiosis. Makin jauh jarak dua gen, makin sering terjadi pindah silang di antaranya, sehingga frekuensi rekombinasi dapat dipakai untuk menyusun **peta gen**.
 
@@ -71,7 +71,7 @@ Silsilah (pedigree) keluarga dipakai untuk menelusuri pola pewarisan. Sifat auto
 
 Many patterns go beyond simple Mendelian inheritance: incomplete dominance (red × white four-o’clocks → pink), codominance (blood group AB), multiple alleles (ABO), linked genes and crossing over, X-linked inheritance (colour blindness, haemophilia) and polygenic traits (height, skin colour) shaped by environment too.
 
-Mendelian ratios are probabilities. With few offspring, results can stray far from 3 : 1; with many, they approach the expected ratio. The random simulation in the BioTaxa Lab shows this.
+Mendelian ratios are probabilities. With few offspring, results can stray far from 3 : 1; with many, they approach the expected ratio. The random simulation in the Biotaloka Lab shows this.
 
 **[[gen terpaut|Linked genes]]** lie close together on the same [[kromosom|chromosome]], so they tend to be inherited together and independent assortment does not fully apply. Thomas Hunt Morgan discovered linkage in the fruit fly *Drosophila melanogaster*. Linkage can be broken by [[pindah silang|crossing over]] during meiosis. The further apart two genes are, the more often crossing over happens between them, so recombination frequencies can be used to build a **gene map**.
 
@@ -160,8 +160,8 @@ Not all inheritance follows the nuclear chromosomes. Mitochondrial DNA is inheri
       'Toss two coins 40 times. Heads = A, tails = a. Record the pairs (AA, Aa, aa) and compare with 1 : 2 : 1.',
     ],
     sma: [
-      'Di Lab Pewarisan BioTaxa, jalankan simulasi 20 dan 1.000 keturunan dari persilangan Aa × Aa. Mengapa hasil 1.000 lebih dekat ke 3 : 1?',
-      'In the BioTaxa Heredity Lab, simulate 20 and 1,000 offspring of Aa × Aa. Why is 1,000 closer to 3 : 1?',
+      'Di Lab Pewarisan Biotaloka, jalankan simulasi 20 dan 1.000 keturunan dari persilangan Aa × Aa. Mengapa hasil 1.000 lebih dekat ke 3 : 1?',
+      'In the Biotaloka Heredity Lab, simulate 20 and 1,000 offspring of Aa × Aa. Why is 1,000 closer to 3 : 1?',
     ],
     kuliah: [
       'Diberikan 36% individu fenotipe resesif dalam populasi, hitung frekuensi alel dan proporsi heterozigot dengan asumsi Hardy–Weinberg. Diskusikan asumsi yang mungkin dilanggar.',
@@ -386,15 +386,15 @@ Not all inheritance follows the nuclear chromosomes. Mitochondrial DNA is inheri
       ],
       ['Aktivitas koin: simulasi segregasi alel.', 'Coin activity: simulate allele segregation.'],
       [
-        'Lab Pewarisan BioTaxa: kotak Punnett dan simulasi acak.',
-        'BioTaxa Heredity Lab: Punnett square and random simulation.',
+        'Lab Pewarisan Biotaloka: kotak Punnett dan simulasi acak.',
+        'Biotaloka Heredity Lab: Punnett square and random simulation.',
       ],
       ['Latihan soal persilangan.', 'Practice cross problems.'],
       ['Evaluasi: kuis.', 'Evaluate: quiz.'],
     ],
     assess: [
       ['Lembar hasil lempar koin dan analisis rasio.', 'Coin-toss results sheet with ratio analysis.'],
-      ['Kuis BioTaxa.', 'BioTaxa quiz.'],
+      ['Kuis Biotaloka.', 'Biotaloka quiz.'],
     ],
     misconceptions: [
       {

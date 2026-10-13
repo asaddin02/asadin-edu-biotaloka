@@ -13,7 +13,7 @@ Indonesia juga punya fosil terkenal:
 
 Burung adalah keturunan dinosaurus. Jadi, saat melihat burung gereja, kamu sedang melihat kerabat dinosaurus yang masih hidup!
 
-Kunjungi halaman **Kehidupan purba** di BioTaxa untuk menjelajahi garis waktu bumi.`,
+Kunjungi halaman **Kehidupan purba** di Biotaloka untuk menjelajahi garis waktu bumi.`,
       `Long before people existed, Earth was home to creatures that are now [[kepunahan|extinct]], such as dinosaurs. How do we know? From [[fosil|fossils]]!
 
 Fossils are remains or traces of ancient life kept in rock: bones, teeth, shells, footprints or leaf imprints.
@@ -25,7 +25,7 @@ Indonesia has famous fossils too:
 
 Birds descend from dinosaurs. So when you see a sparrow, you are looking at a living relative of dinosaurs!
 
-Visit the **Prehistoric life** page in BioTaxa to explore Earth’s timeline.`,
+Visit the **Prehistoric life** page in Biotaloka to explore Earth’s timeline.`,
     ],
     smp: [
       `[[fosil|Fosil]] terbentuk ketika sisa makhluk hidup cepat tertimbun sedimen (lumpur, pasir, abu vulkanik), lalu mineral menggantikan bagian kerasnya selama jutaan tahun. Bagian lunak jarang menjadi fosil, sehingga catatan fosil tidak lengkap.
@@ -62,14 +62,14 @@ Fosil transisi mendokumentasikan perubahan besar: *Tiktaalik* (ikan bersirip dag
 
 Penanggalan memakai stratigrafi, biostratigrafi (fosil indeks seperti amonit dan foraminifera), dan penanggalan radiometrik (misalnya ⁴⁰Ar/³⁹Ar pada tufa vulkanik). Situs Sangiran di Jawa Tengah, Situs Warisan Dunia UNESCO, menyimpan lapisan berumur lebih dari satu juta tahun yang berisi fosil *Homo erectus* dan fauna purba.
 
-Data Paleobiology Database (PBDB) yang ditampilkan BioTaxa berupa rentang umur catatan fosil. Rentang tersebut bisa berubah seiring temuan baru dan revisi penanggalan.`,
+Data Paleobiology Database (PBDB) yang ditampilkan Biotaloka berupa rentang umur catatan fosil. Rentang tersebut bisa berubah seiring temuan baru dan revisi penanggalan.`,
       `The fossil record shows five great mass extinctions: end-Ordovician, Late Devonian, end-Permian (the largest, wiping out most marine species), end-Triassic and end-Cretaceous. Survivors often underwent adaptive radiations — mammals after the non-avian dinosaurs vanished, for example.
 
 Transitional fossils document major changes: *Tiktaalik* (a lobe-finned fish with early tetrapod features), *Archaeopteryx* (a mix of dinosaur and bird traits) and a series of legged fossil whales.
 
 Dating uses stratigraphy, biostratigraphy (index fossils such as ammonites and forams) and radiometric methods (e.g. ⁴⁰Ar/³⁹Ar on volcanic tuffs). The Sangiran site in Central Java, a UNESCO World Heritage Site, preserves layers more than a million years old with *Homo erectus* fossils and ancient fauna.
 
-The Paleobiology Database (PBDB) data shown in BioTaxa are age ranges of fossil records. They can change with new finds and revised dates.`,
+The Paleobiology Database (PBDB) data shown in Biotaloka are age ranges of fossil records. They can change with new finds and revised dates.`,
     ],
     kuliah: [
       `**Tafonomi** mempelajari bagaimana sisa makhluk hidup menjadi fosil. Catatan fosil sangat bias: organisme bercangkang atau bertulang di lingkungan yang cepat tertimbun sedimen jauh lebih mungkin terawetkan. Situs dengan pengawetan luar biasa (*Lagerstätten*) seperti Burgess Shale dan Chengjiang menyimpan jaringan lunak dan membuka jendela ke keragaman Kambrium. Karena kemunculan pertama dan terakhir suatu takson dalam catatan fosil jarang tepat sama dengan waktu asal dan punahnya, kepunahan yang tiba-tiba dapat tampak bertahap (efek Signor–Lipps).
@@ -80,7 +80,7 @@ The Paleobiology Database (PBDB) data shown in BioTaxa are age ranges of fossil 
 
 **Paleoantropologi Indonesia**: fosil *Homo erectus* ditemukan di Trinil (Eugène Dubois, 1891), Sangiran, dan Ngandong; penanggalan terbaru menempatkan populasi Ngandong sekitar 117–108 ribu tahun lalu, di antara yang termuda untuk spesies ini. *Homo floresiensis* dari Liang Bua diperkirakan hidup sekitar 100–60 ribu tahun lalu, sedangkan fosil hominin yang lebih tua di Mata Menge, Flores, berumur sekitar 700 ribu tahun. Lukisan gua di Sulawesi, termasuk yang ditanggali setidaknya 51 ribu tahun, termasuk seni figuratif tertua yang diketahui. Wallacea menjadi jalur penting penyebaran manusia menuju Australia dan Papua (Sahul).
 
-**Data PBDB** yang ditampilkan BioTaxa berupa kumpulan catatan kemunculan fosil. Analisis keragaman masa lalu perlu mengoreksi bias pengambilan sampel, misalnya perbedaan luas singkapan batuan dan upaya penelitian antarwilayah.`,
+**Data PBDB** yang ditampilkan Biotaloka berupa kumpulan catatan kemunculan fosil. Analisis keragaman masa lalu perlu mengoreksi bias pengambilan sampel, misalnya perbedaan luas singkapan batuan dan upaya penelitian antarwilayah.`,
       `**Taphonomy** studies how remains become fossils. The fossil record is strongly biased: shelled or boned organisms in environments where sediment buries them quickly are far more likely to be preserved. Sites of exceptional preservation (*Lagerstätten*) such as the Burgess Shale and Chengjiang keep soft tissues and open a window onto Cambrian diversity. Because a taxon’s first and last appearances in the record rarely match its true origin and extinction, a sudden extinction can look gradual (the Signor–Lipps effect).
 
 **Dating** uses stratigraphic principles, biostratigraphy and radiometric dating (such as U–Pb on zircon crystals and ⁴⁰Ar/³⁹Ar on volcanic rocks). Fossil-calibrated molecular clocks sometimes give divergence times much older than the oldest fossils, partly because early fossils are hard to find and recognise.
@@ -89,7 +89,7 @@ The Paleobiology Database (PBDB) data shown in BioTaxa are age ranges of fossil 
 
 **Indonesian palaeoanthropology**: *Homo erectus* fossils come from Trinil (Eugène Dubois, 1891), Sangiran and Ngandong; recent dating puts the Ngandong population at about 117–108 thousand years ago, among the youngest for the species. *Homo floresiensis* from Liang Bua is thought to have lived about 100–60 thousand years ago, while older hominin fossils at Mata Menge, Flores, are about 700 thousand years old. Cave paintings in Sulawesi, including one dated to at least 51 thousand years ago, are among the oldest known figurative art. Wallacea was a key route for human dispersal to Australia and New Guinea (Sahul).
 
-**PBDB data** shown in BioTaxa are collections of fossil occurrence records. Analyses of past diversity must correct for sampling bias, such as differences in rock outcrop area and research effort between regions.`,
+**PBDB data** shown in Biotaloka are collections of fossil occurrence records. Analyses of past diversity must correct for sampling bias, such as differences in rock outcrop area and research effort between regions.`,
     ],
   },
   key: {
@@ -138,12 +138,12 @@ The Paleobiology Database (PBDB) data shown in BioTaxa are age ranges of fossil 
       'Make your own “fossil”: press a shell or leaf into plasticine, then pour plaster or clay. When dry, compare the mould with the real object.',
     ],
     smp: [
-      'Buka halaman Kehidupan purba di BioTaxa. Urutkan 8 makhluk purba dari yang tertua ke termuda, lalu buat garis waktu dengan skala sederhana (1 cm = 50 juta tahun).',
-      'Open Prehistoric life in BioTaxa. Order 8 ancient organisms from oldest to youngest and draw a timeline (1 cm = 50 million years).',
+      'Buka halaman Kehidupan purba di Biotaloka. Urutkan 8 makhluk purba dari yang tertua ke termuda, lalu buat garis waktu dengan skala sederhana (1 cm = 50 juta tahun).',
+      'Open Prehistoric life in Biotaloka. Order 8 ancient organisms from oldest to youngest and draw a timeline (1 cm = 50 million years).',
     ],
     sma: [
-      'Bandingkan rentang umur fosil di BioTaxa (data PBDB) untuk Tyrannosaurus, Triceratops, dan Velociraptor. Apakah ketiganya pernah hidup sezaman? Jelaskan ketidakpastian datanya.',
-      'Compare PBDB age ranges in BioTaxa for Tyrannosaurus, Triceratops and Velociraptor. Could they have lived at the same time? Discuss data uncertainty.',
+      'Bandingkan rentang umur fosil di Biotaloka (data PBDB) untuk Tyrannosaurus, Triceratops, dan Velociraptor. Apakah ketiganya pernah hidup sezaman? Jelaskan ketidakpastian datanya.',
+      'Compare PBDB age ranges in Biotaloka for Tyrannosaurus, Triceratops and Velociraptor. Could they have lived at the same time? Discuss data uncertainty.',
     ],
     kuliah: [
       'Unduh catatan fosil satu kelompok (misalnya Proboscidea) dari PBDB melalui halaman Kehidupan purba. Plot jumlah catatan per interval waktu, lalu diskusikan apakah pola itu mencerminkan keragaman sebenarnya atau bias pengambilan sampel.',
@@ -369,8 +369,8 @@ The Paleobiology Database (PBDB) data shown in BioTaxa are age ranges of fossil 
       ['Pemantik: “Bagaimana kita tahu dinosaurus pernah ada?”', 'Hook: “How do we know dinosaurs existed?”'],
       ['Praktik: membuat cetakan fosil.', 'Practice: making fossil moulds.'],
       [
-        'Eksplorasi: garis waktu Kehidupan purba di BioTaxa.',
-        'Explore: the Prehistoric life timeline in BioTaxa.',
+        'Eksplorasi: garis waktu Kehidupan purba di Biotaloka.',
+        'Explore: the Prehistoric life timeline in Biotaloka.',
       ],
       [
         'Diskusi: fosil Indonesia (Sangiran, Flores) dan kepunahan modern.',
@@ -380,7 +380,7 @@ The Paleobiology Database (PBDB) data shown in BioTaxa are age ranges of fossil 
     ],
     assess: [
       ['Garis waktu dengan skala.', 'A scaled timeline.'],
-      ['Kuis BioTaxa.', 'BioTaxa quiz.'],
+      ['Kuis Biotaloka.', 'Biotaloka quiz.'],
     ],
     misconceptions: [
       {

@@ -5,7 +5,7 @@ export default {
       `Ilmuwan biologi mengumpulkan sangat banyak catatan: foto hewan dan tumbuhan, tempat mereka ditemukan, dan “kode kehidupan” di dalam sel. Catatan sebanyak itu disimpan dan diolah dengan **komputer**. Ilmu yang memakai komputer untuk mempelajari data biologi disebut **[[bioinformatika]]**.
 
 Contoh yang bisa kamu lihat langsung:
-- Di **BioTaxa**, foto dan catatan makhluk hidup diambil dari iNaturalist dan GBIF, tempat orang di seluruh dunia berbagi pengamatan.
+- Di **Biotaloka**, foto dan catatan makhluk hidup diambil dari iNaturalist dan GBIF, tempat orang di seluruh dunia berbagi pengamatan.
 - Setiap foto yang diunggah dengan tanggal dan lokasi membantu ilmuwan mengetahui di mana suatu hewan atau tumbuhan hidup.
 
 Di dalam setiap sel ada [[dna|DNA]], petunjuk kehidupan yang ditulis dengan empat huruf: **A, T, G, dan C**. Makhluk yang berkerabat dekat memiliki urutan huruf yang lebih mirip. Komputer membantu membandingkan jutaan huruf itu dengan cepat.
@@ -14,7 +14,7 @@ Kamu juga bisa menjadi ilmuwan warga: foto makhluk hidup di sekitarmu, catat tem
       `Biologists collect huge numbers of records: photos of animals and plants, where they were found, and the “code of life” inside cells. So many records are stored and analysed with **computers**. The science of using computers to study biological data is called **[[bioinformatika|bioinformatics]]**.
 
 Examples you can see yourself:
-- In **BioTaxa**, photos and records of living things come from iNaturalist and GBIF, where people all over the world share observations.
+- In **Biotaloka**, photos and records of living things come from iNaturalist and GBIF, where people all over the world share observations.
 - Every photo uploaded with a date and place helps scientists learn where an animal or plant lives.
 
 Inside every cell is [[dna|DNA]], the instructions for life written with four letters: **A, T, G and C**. Closely related living things have more similar letter sequences. Computers help compare millions of these letters quickly.
@@ -104,16 +104,16 @@ You can be a citizen scientist too: photograph living things around you, note th
   },
   activity: {
     sd: [
-      'Bersama guru, foto lima makhluk hidup di halaman sekolah. Catat nama, tanggal, jam, dan tempatnya di tabel. Bandingkan dengan pengamatan di BioTaxa bagian “Di sekitarku”.',
-      'With your teacher, photograph five living things in the school grounds. Record the name, date, time and place in a table. Compare them with observations in BioTaxa’s “Near me” section.',
+      'Bersama guru, foto lima makhluk hidup di halaman sekolah. Catat nama, tanggal, jam, dan tempatnya di tabel. Bandingkan dengan pengamatan di Biotaloka bagian “Di sekitarku”.',
+      'With your teacher, photograph five living things in the school grounds. Record the name, date, time and place in a table. Compare them with observations in Biotaloka’s “Near me” section.',
     ],
     smp: [
       'Bandingkan dua urutan DNA pendek (misalnya 30 huruf) yang disediakan guru. Hitung huruf yang sama dan berbeda, lalu hitung persentase kesamaannya. Ulangi untuk tiga pasangan dan susun urutan kekerabatannya.',
       'Compare two short DNA sequences (about 30 letters) provided by the teacher. Count matching and differing letters and work out the percent identity. Repeat for three pairs and rank how closely related they are.',
     ],
     sma: [
-      'Ambil urutan gen β-globin dari laboratorium Kode Genetik BioTaxa, lalu jalankan pencarian BLAST di situs NCBI. Catat spesies dengan kecocokan tertinggi, persentase kesamaan, dan nilai E, lalu jelaskan artinya.',
-      'Take the β-globin gene sequence from BioTaxa’s Genetic Code lab and run a BLAST search on the NCBI website. Record the top-matching species, percent identity and E-value, and explain what they mean.',
+      'Ambil urutan gen β-globin dari laboratorium Kode Genetik Biotaloka, lalu jalankan pencarian BLAST di situs NCBI. Catat spesies dengan kecocokan tertinggi, persentase kesamaan, dan nilai E, lalu jelaskan artinya.',
+      'Take the β-globin gene sequence from Biotaloka’s Genetic Code lab and run a BLAST search on the NCBI website. Record the top-matching species, percent identity and E-value, and explain what they mean.',
     ],
     kuliah: [
       'Unduh data kehadiran satu spesies Indonesia dari GBIF dengan DOI unduhan. Bersihkan data (koordinat mencurigakan, duplikat, catatan tanpa tanggal), dokumentasikan setiap langkah, lalu tulis kutipan dataset yang benar.',
@@ -189,7 +189,7 @@ You can be a citizen scientist too: photograph living things around you, note th
         ['Peta jalan', 'A road map'],
       ],
       c: 0,
-      why: ['GBIF (Global Biodiversity Information Facility) adalah salah satu sumber data BioTaxa.', 'GBIF (the Global Biodiversity Information Facility) is one of BioTaxa’s data sources.'],
+      why: ['GBIF (Global Biodiversity Information Facility) adalah salah satu sumber data Biotaloka.', 'GBIF (the Global Biodiversity Information Facility) is one of Biotaloka’s data sources.'],
     },
     {
       lv: ['smp', 'sma'],

@@ -1,4 +1,4 @@
-# Publishes BioTaxa to Cloudflare Pages: static files + API snapshot + the edge cache Function.
+# Publishes Biotaloka to Cloudflare Pages: static files + API snapshot + the edge cache Function.
 # Setup (once): repository variable CLOUDFLARE_PAGES_PROJECT, secrets CLOUDFLARE_API_TOKEN and
 # CLOUDFLARE_ACCOUNT_ID, optional variables SITE_URL and GOOGLE_SITE_VERIFICATION. Until the variable exists this workflow is skipped.
 name: Deploy

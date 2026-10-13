@@ -171,7 +171,7 @@ export async function render(ctx) {
   const { params, main } = ctx;
   const a = /^\d+$/.test(params.get('a') || '') ? Number(params.get('a')) : null;
   const b = /^\d+$/.test(params.get('b') || '') ? Number(params.get('b')) : null;
-  main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTAXA / COMPARE')}<div id="pickers">${pickerMarkup(a, b, {})}</div><div id="compare-result">${a && b ? loading() : ''}</div>${a && b ? '' : ideas()}`;
+  main.innerHTML = `${pageHead(s.heading, s.sub, 'BIOTALOKA / COMPARE')}<div id="pickers">${pickerMarkup(a, b, {})}</div><div id="compare-result">${a && b ? loading() : ''}</div>${a && b ? '' : ideas()}`;
 
   ctx.on('submit', '#compare-form', event => event.preventDefault());
   ctx.on('suggest-pick', '[data-suggest="pick"]', (event, input) => {
@@ -201,6 +201,6 @@ export async function render(ctx) {
     trackVisit('compare');
   } catch (error) {
     if (ctx.isCurrent()) $('#compare-result').innerHTML = errorState();
-    console.warn('BioTaxa compare failed:', error);
+    console.warn('Biotaloka compare failed:', error);
   }
 }

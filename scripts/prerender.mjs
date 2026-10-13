@@ -22,7 +22,7 @@ const { ORGANIZATION, BRANCHES } = await load('js/data/biomap.js');
 const { featured } = await load('js/data/featured.js');
 const { snapshotEntry } = await load('js/services/snapshot.js');
 
-const SITE_NAME = 'BioTaxa';
+const SITE_NAME = 'Biotaloka';
 const DEFAULT_IMAGE = '/assets/brand/og-image.jpg';
 const INDONESIA_PLACE = 6966;
 const KINGDOMS = {
@@ -93,7 +93,7 @@ const SECTIONS = [
   ['/compare', 'Bandingkan', 'Seberapa dekat kekerabatan dua makhluk hidup?'],
   ['/nearby', 'Di sekitarku', 'Makhluk hidup yang pernah diamati di dekat lokasimu.'],
   ['/guru', 'Ruang guru', 'Bahan ajar, lembar kerja, dan tugas untuk kelas.'],
-  ['/about', 'Sumber & metode', 'Dari mana data BioTaxa berasal dan bagaimana kami memilihnya.'],
+  ['/about', 'Sumber & metode', 'Dari mana data Biotaloka berasal dan bagaimana kami memilihnya.'],
 ];
 
 /* ---------- Helpers ---------- */
@@ -174,7 +174,7 @@ const crumbs = items =>
     .map(([href, label], i) => `${i ? '<span aria-hidden="true">›</span>' : ''}${link(href, label)}`)
     .join('')}</nav>`;
 const explore = () =>
-  `<nav class="section" aria-label="Bagian BioTaxa"><h2>Jelajahi BioTaxa</h2>${list(
+  `<nav class="section" aria-label="Bagian Biotaloka"><h2>Jelajahi Biotaloka</h2>${list(
     SECTIONS.map(([href, label]) => link(href, label))
   )}</nav>`;
 const speciesURL = s => `/species/${s.id}`;
@@ -244,7 +244,7 @@ function homePage(topics) {
   const groups = Object.entries(GROUPS)
     .map(([key, g]) => ({ key, g, members: byGroup(key) }))
     .filter(x => x.members.length);
-  const body = `${head('BIOTAXA · ASADIN EDU', 'Atlas kehidupan untuk SD sampai kuliah', 'BioTaxa adalah ensiklopedia biologi terbuka dan gratis dalam bahasa Indonesia dan Inggris. Jelajahi spesies, pohon kehidupan, materi pelajaran per jenjang, kuis, laboratorium virtual, dan alat bantu untuk guru. Datanya berasal dari GBIF, iNaturalist, Wikipedia, dan Paleobiology Database.')}
+  const body = `${head('BIOTALOKA · ASADIN EDU', 'Atlas kehidupan untuk SD sampai kuliah', 'Biotaloka adalah ensiklopedia biologi terbuka dan gratis dalam bahasa Indonesia dan Inggris. Jelajahi spesies, pohon kehidupan, materi pelajaran per jenjang, kuis, laboratorium virtual, dan alat bantu untuk guru. Datanya berasal dari GBIF, iNaturalist, Wikipedia, dan Paleobiology Database.')}
     ${section('Mulai dari sini', list(SECTIONS.map(([href, label, text]) => `${link(href, label)} — ${esc(text)}`)))}
     ${section(
       'Spesies pilihan',
@@ -274,9 +274,9 @@ function homePage(topics) {
   return {
     route: '/',
     page: 'home',
-    title: 'BioTaxa · Atlas Kehidupan untuk SD sampai Kuliah',
+    title: 'Biotaloka · Atlas Kehidupan untuk SD sampai Kuliah',
     description:
-      'BioTaxa: atlas kehidupan terbuka dan gratis dalam bahasa Indonesia dan Inggris. Jelajahi spesies, pohon kehidupan, materi biologi per jenjang, kuis, laboratorium virtual, dan alat untuk guru.',
+      'Biotaloka: atlas kehidupan terbuka dan gratis dalam bahasa Indonesia dan Inggris. Jelajahi spesies, pohon kehidupan, materi biologi per jenjang, kuis, laboratorium virtual, dan alat untuk guru.',
     body,
     files: ['js/data/species.js', 'js/data/topics/index.js', 'js/data/featured.js', 'index.html'],
     jsonLd: [
@@ -354,7 +354,7 @@ async function speciesPage(sp, topics, treeKeys) {
     ${wiki ? section('Ringkasan Wikipedia', `<p>${esc(wiki)}</p><p class="muted small">Sumber: ${inat?.wikipedia_url ? `<a href="${esc(inat.wikipedia_url)}" rel="noopener noreferrer">Wikipedia</a>` : 'Wikipedia'} (CC BY-SA 4.0).</p>`) : ''}
     ${related.length ? section('Materi terkait', list(related.map(topicLink))) : ''}
     ${siblings.length ? section(`Spesies lain: ${id(group.name)}`, list(siblings.map(speciesLink))) : ''}
-    ${section('Sumber data', `<p>Teks kartu ditulis tim BioTaxa (CC BY-SA 4.0). Taksonomi dari GBIF Backbone Taxonomy${sp.gbif ? ` (<a href="https://www.gbif.org/species/${esc(sp.gbif)}" rel="noopener noreferrer">GBIF ${esc(sp.gbif)}</a>)` : ''}; foto, nama umum, dan status konservasi dari iNaturalist${sp.inat ? ` (<a href="https://www.inaturalist.org/taxa/${esc(sp.inat)}" rel="noopener noreferrer">taksa ${esc(sp.inat)}</a>)` : ''}.</p>`)}
+    ${section('Sumber data', `<p>Teks kartu ditulis tim Biotaloka (CC BY-SA 4.0). Taksonomi dari GBIF Backbone Taxonomy${sp.gbif ? ` (<a href="https://www.gbif.org/species/${esc(sp.gbif)}" rel="noopener noreferrer">GBIF ${esc(sp.gbif)}</a>)` : ''}; foto, nama umum, dan status konservasi dari iNaturalist${sp.inat ? ` (<a href="https://www.inaturalist.org/taxa/${esc(sp.inat)}" rel="noopener noreferrer">taksa ${esc(sp.inat)}</a>)` : ''}.</p>`)}
     ${explore()}`;
   const taxon = {
     '@type': 'Taxon',
@@ -380,7 +380,7 @@ async function speciesPage(sp, topics, treeKeys) {
 
 function learnIndex(topics) {
   const body = `${crumbs([['/learn', 'Belajar']])}
-    ${head('BIOTAXA / LEARN', 'Belajar dengan caramu.', `${esc(String(TOPICS.length))} materi biologi, masing-masing ditulis dalam empat lapisan kedalaman: SD, SMP, SMA, dan kuliah. Setiap materi punya poin kunci, aktivitas, kuis, spesies contoh, dan catatan untuk guru.`)}
+    ${head('BIOTALOKA / LEARN', 'Belajar dengan caramu.', `${esc(String(TOPICS.length))} materi biologi, masing-masing ditulis dalam empat lapisan kedalaman: SD, SMP, SMA, dan kuliah. Setiap materi punya poin kunci, aktivitas, kuis, spesies contoh, dan catatan untuk guru.`)}
     ${FIELDS.map(f => {
       const inField = topics.filter(t => t.field === f.id);
       return inField.length
@@ -455,7 +455,7 @@ function topicPage(t, topics) {
         headline: id(t.title),
         description: id(t.summary),
         inLanguage: 'id',
-        author: { '@type': 'Organization', name: 'BioTaxa · Asadin Edu' },
+        author: { '@type': 'Organization', name: 'Biotaloka · Asadin Edu' },
         license: 'https://creativecommons.org/licenses/by-sa/4.0/',
         educationalLevel: (t.levels || []).join(', '),
       },
@@ -467,7 +467,7 @@ function glossaryPage() {
   const sorted = [...glossary].sort((a, b) => id(a.term).localeCompare(id(b.term), 'id'));
   const letters = [...new Set(sorted.map(g => id(g.term)[0].toUpperCase()))];
   const body = `${crumbs([['/kamus', 'Kamus istilah']])}
-    ${head('BIOTAXA / KAMUS', 'Kamus istilah biologi', `${esc(String(glossary.length))} istilah dengan definisi sederhana untuk semua jenjang dan penjelasan lanjutan untuk SMA dan kuliah.`)}
+    ${head('BIOTALOKA / KAMUS', 'Kamus istilah biologi', `${esc(String(glossary.length))} istilah dengan definisi sederhana untuk semua jenjang dan penjelasan lanjutan untuk SMA dan kuliah.`)}
     ${letters
       .map(
         l =>
@@ -498,7 +498,7 @@ function prehistoricPage() {
     return to === 0 ? `${from} juta tahun lalu sampai sekarang` : `${from}–${to} juta tahun lalu`;
   };
   const body = `${crumbs([['/purba', 'Kehidupan purba']])}
-    ${head('BIOTAXA / PURBA', 'Menjelajah 3,5 miliar tahun kehidupan.', `${esc(String(PREHISTORIC.length))} makhluk purba pada garis waktu geologi, dari bangunan sianobakteri pertama sampai mamalia zaman es. Rentang fosil dibandingkan dengan catatan Paleobiology Database.`)}
+    ${head('BIOTALOKA / PURBA', 'Menjelajah 3,5 miliar tahun kehidupan.', `${esc(String(PREHISTORIC.length))} makhluk purba pada garis waktu geologi, dari bangunan sianobakteri pertama sampai mamalia zaman es. Rentang fosil dibandingkan dengan catatan Paleobiology Database.`)}
     ${section('Periode geologi', list(PERIODS.map(p => `<strong>${esc(id(p.name))}</strong>: ${esc(age([p.from, p.to]))}`)))}
     ${PERIODS.map(p => {
       const items = PREHISTORIC.filter(x => x.period === p.id);
@@ -530,7 +530,7 @@ function prehistoricPage() {
 function biomapPage(topics) {
   const topicById = Object.fromEntries(topics.map(t => [t.id, t]));
   const body = `${crumbs([['/peta', 'Peta Biologi']])}
-    ${head('BIOTAXA / PETA', 'Peta Biologi', 'Dua cara melihat ilmu hayat: tingkat organisasi kehidupan dari molekul sampai biosfer, dan cabang-cabang biologi beserta materi BioTaxa yang membahasnya.')}
+    ${head('BIOTALOKA / PETA', 'Peta Biologi', 'Dua cara melihat ilmu hayat: tingkat organisasi kehidupan dari molekul sampai biosfer, dan cabang-cabang biologi beserta materi Biotaloka yang membahasnya.')}
     ${section(
       'Tingkat organisasi kehidupan',
       `<ol class="organization">${ORGANIZATION.map(o => {
@@ -554,7 +554,7 @@ function biomapPage(topics) {
     route: '/peta',
     page: 'peta',
     title: 'Peta Biologi: tingkat organisasi dan cabang ilmu',
-    description: `${ORGANIZATION.length} tingkat organisasi kehidupan dari molekul sampai biosfer dan ${BRANCHES.length} cabang biologi, ditautkan ke materi BioTaxa.`,
+    description: `${ORGANIZATION.length} tingkat organisasi kehidupan dari molekul sampai biosfer dan ${BRANCHES.length} cabang biologi, ditautkan ke materi Biotaloka.`,
     body,
     files: ['js/data/biomap.js'],
   };
@@ -566,7 +566,7 @@ const kingdomLink = key =>
 
 function treeIndex() {
   const body = `${crumbs([['/tree', 'Pohon kehidupan']])}
-    ${head('BIOTAXA / ATLAS', 'Setiap cabang punya cerita.', 'Pohon kehidupan menyusun semua makhluk hidup menurut kekerabatannya: tiga domain, lalu kerajaan, filum, kelas, ordo, famili, genus, dan spesies. Data taksonomi berasal dari GBIF Backbone Taxonomy.')}
+    ${head('BIOTALOKA / ATLAS', 'Setiap cabang punya cerita.', 'Pohon kehidupan menyusun semua makhluk hidup menurut kekerabatannya: tiga domain, lalu kerajaan, filum, kelas, ordo, famili, genus, dan spesies. Data taksonomi berasal dari GBIF Backbone Taxonomy.')}
     ${Object.entries(DOMAINS)
       .map(([domain, keys]) =>
         section(
@@ -648,7 +648,7 @@ async function taxonPage(node, children, treeKeys) {
       )
     )}
     ${members.length ? section('Kartu spesies dalam kelompok ini', list(members.map(speciesLink))) : ''}
-    ${section('Sumber', `<p>Taksonomi dari <a href="https://www.gbif.org/species/${esc(node.key)}" rel="noopener noreferrer">GBIF Backbone Taxonomy</a>. Nama dan penjelasan Indonesia ditulis tim BioTaxa (CC BY-SA 4.0).</p>`)}
+    ${section('Sumber', `<p>Taksonomi dari <a href="https://www.gbif.org/species/${esc(node.key)}" rel="noopener noreferrer">GBIF Backbone Taxonomy</a>. Nama dan penjelasan Indonesia ditulis tim Biotaloka (CC BY-SA 4.0).</p>`)}
     ${explore()}`;
   return {
     route: `/tree/${node.key}`,
@@ -666,7 +666,7 @@ async function taxonPage(node, children, treeKeys) {
 }
 function quizIndex(topics) {
   const body = `${crumbs([['/quiz', 'Kuis']])}
-    ${head('BIOTAXA / QUIZ', 'Uji dirimu, kumpulkan lencana!', 'Setiap materi punya kuis dengan pertanyaan yang disesuaikan dengan jenjangmu. Ada juga kuis foto: tebak spesies dari gambarnya.')}
+    ${head('BIOTALOKA / QUIZ', 'Uji dirimu, kumpulkan lencana!', 'Setiap materi punya kuis dengan pertanyaan yang disesuaikan dengan jenjangmu. Ada juga kuis foto: tebak spesies dari gambarnya.')}
     ${section('Kuis foto', `<p>${link('/quiz/foto', 'Tebak spesies dari fotonya')}</p>`)}
     ${FIELDS.map(f => {
       const inField = topics.filter(t => t.field === f.id);
@@ -705,7 +705,7 @@ function quizPage(t) {
 
 function labIndex() {
   const body = `${crumbs([['/lab', 'Laboratorium']])}
-    ${head('BIOTAXA / LAB', 'Rasa ingin tahu, bertemu eksperimen.', 'Laboratorium virtual untuk membuat hipotesis, mengubah variabel, dan membaca bukti. Semua simulasi adalah model pembelajaran yang disederhanakan.')}
+    ${head('BIOTALOKA / LAB', 'Rasa ingin tahu, bertemu eksperimen.', 'Laboratorium virtual untuk membuat hipotesis, mengubah variabel, dan membaca bukti. Semua simulasi adalah model pembelajaran yang disederhanakan.')}
     ${section('Simulasi', list(LABS.map(([labId, name, text]) => `${link(`/lab/${labId}`, name)} — ${esc(text)}`)))}
     ${explore()}`;
   return {
@@ -745,7 +745,7 @@ function shellPage(route, page, { eyebrow, title, heading, description, html = '
 function shells() {
   return [
     shellPage('/search', 'search', {
-      eyebrow: 'BIOTAXA / JELAJAHI',
+      eyebrow: 'BIOTALOKA / JELAJAHI',
       title: 'Jelajahi kehidupan',
       heading: 'Ada dunia baru di setiap penemuan.',
       description:
@@ -764,7 +764,7 @@ function shells() {
       files: ['js/pages/explore.js'],
     }),
     shellPage('/compare', 'compare', {
-      eyebrow: 'BIOTAXA / COMPARE',
+      eyebrow: 'BIOTALOKA / COMPARE',
       title: 'Bandingkan dua makhluk hidup',
       heading: 'Seberapa dekat kekerabatan mereka?',
       description:
@@ -778,34 +778,34 @@ function shells() {
       ),
     }),
     shellPage('/nearby', 'nearby', {
-      eyebrow: 'BIOTAXA / NEARBY',
+      eyebrow: 'BIOTALOKA / NEARBY',
       title: 'Makhluk hidup di sekitarku',
       heading: 'Siapa saja tetanggamu di alam?',
       description:
         'Temukan spesies yang pernah diamati di dekat lokasimu berdasarkan data pengamatan iNaturalist. Lokasi hanya dipakai di perangkatmu.',
     }),
     shellPage('/about', 'about', {
-      eyebrow: 'BIOTAXA / SUMBER',
+      eyebrow: 'BIOTALOKA / SUMBER',
       title: 'Sumber & metode',
       heading: 'Rasa ingin tahu membutuhkan sumber yang baik.',
       description:
-        'BioTaxa menggabungkan data terbuka dari GBIF, iNaturalist, Wikipedia, dan Paleobiology Database dengan teks kurasi tim BioTaxa (CC BY-SA 4.0).',
+        'Biotaloka menggabungkan data terbuka dari GBIF, iNaturalist, Wikipedia, dan Paleobiology Database dengan teks kurasi tim Biotaloka (CC BY-SA 4.0).',
       html: `${section('Sumber data', list(['<strong>GBIF Backbone Taxonomy</strong> — taksonomi, nama ilmiah, dan sinonim.', '<strong>iNaturalist</strong> — foto berlisensi terbuka, nama umum, dan status konservasi IUCN.', '<strong>Wikipedia</strong> — ringkasan ensiklopedis (CC BY-SA).', '<strong>Paleobiology Database</strong> — rentang fosil makhluk purba.']))}
-        ${section('Konten kurasi', `<p>Kartu spesies, materi pelajaran, kamus, dan garis waktu purba ditulis tim BioTaxa dan dilisensikan CC BY-SA 4.0. Kode sumber berlisensi MIT.</p>`)}
-        ${section('Privasi', '<p>BioTaxa tidak memakai akun, iklan, atau pelacak. Pilihan jenjang, catatan, koleksi, dan lencana disimpan hanya di perangkatmu. Lokasi untuk fitur “Di sekitarku” diminta saat dipakai dan tidak dikirim ke BioTaxa.</p>', ' id="privasi"')}`,
+        ${section('Konten kurasi', `<p>Kartu spesies, materi pelajaran, kamus, dan garis waktu purba ditulis tim Biotaloka dan dilisensikan CC BY-SA 4.0. Kode sumber berlisensi MIT.</p>`)}
+        ${section('Privasi', '<p>Biotaloka tidak memakai akun, iklan, atau pelacak. Pilihan jenjang, catatan, koleksi, dan lencana disimpan hanya di perangkatmu. Lokasi untuk fitur “Di sekitarku” diminta saat dipakai dan tidak dikirim ke Biotaloka.</p>', ' id="privasi"')}`,
     }),
     shellPage('/dukung', 'dukung', {
-      eyebrow: 'BIOTAXA / SUPPORT',
-      title: 'Dukung BioTaxa',
+      eyebrow: 'BIOTALOKA / SUPPORT',
+      title: 'Dukung Biotaloka',
       heading: 'Bantu rasa ingin tahu terus tumbuh.',
       description:
-        'BioTaxa gratis dan terbuka. Dukung dengan membagikannya ke kelas, melaporkan kesalahan, menyumbang konten, atau donasi sukarela.',
+        'Biotaloka gratis dan terbuka. Dukung dengan membagikannya ke kelas, melaporkan kesalahan, menyumbang konten, atau donasi sukarela.',
       files: ['js/pages/support.js'],
     }),
     shellPage('/guru', 'guru', {
-      eyebrow: 'BIOTAXA / GURU',
+      eyebrow: 'BIOTALOKA / GURU',
       title: 'Ruang guru',
-      heading: 'Ruang guru BioTaxa',
+      heading: 'Ruang guru Biotaloka',
       description:
         'Bahan ajar per materi, lembar kerja yang bisa dicetak, dan pembuat tautan tugas untuk murid, dipetakan ke fase Kurikulum Merdeka.',
       html: section(
@@ -815,7 +815,7 @@ function shells() {
       files: ['js/pages/teacher.js'],
     }),
     shellPage('/tugas', 'tugas', {
-      eyebrow: 'BIOTAXA / TUGAS',
+      eyebrow: 'BIOTALOKA / TUGAS',
       title: 'Tugas',
       heading: 'Tugas dari gurumu',
       description:
@@ -824,7 +824,7 @@ function shells() {
       files: ['js/pages/assignment.js'],
     }),
     shellPage('/saved', 'saved', {
-      eyebrow: 'BIOTAXA / KOLEKSI',
+      eyebrow: 'BIOTALOKA / KOLEKSI',
       title: 'Koleksi',
       heading: 'Penemuan kecil, koleksi pribadi.',
       description: 'Spesies yang kamu simpan, catatan, dan lencana, tersimpan hanya di perangkat ini.',
@@ -985,9 +985,9 @@ export async function prerender({ dist, siteURL = '' }) {
       route: '/404',
       page: 'home',
       title: 'Halaman tidak ditemukan',
-      description: 'Alamat ini tidak ada di BioTaxa.',
+      description: 'Alamat ini tidak ada di Biotaloka.',
       noindex: true,
-      body: `${head('BIOTAXA', 'Halaman tidak ditemukan', 'Alamat ini tidak ada di BioTaxa, atau halamannya sedang dimuat.')}<p><a class="btn" href="/">Kembali ke beranda BioTaxa</a></p>${explore()}`,
+      body: `${head('BIOTALOKA', 'Halaman tidak ditemukan', 'Alamat ini tidak ada di Biotaloka, atau halamannya sedang dimuat.')}<p><a class="btn" href="/">Kembali ke beranda Biotaloka</a></p>${explore()}`,
     },
     ''
   )

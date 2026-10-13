@@ -1,16 +1,16 @@
 # Skala: dari satu kelas sampai puluhan ribu pengguna
 
-Dokumen ini menjelaskan bagaimana BioTaxa tetap berjalan ketika banyak orang membukanya bersamaan, apa batasnya, dan kapan perlu bertindak.
+Dokumen ini menjelaskan bagaimana Biotaloka tetap berjalan ketika banyak orang membukanya bersamaan, apa batasnya, dan kapan perlu bertindak.
 
 ## Di mana batasnya
 
-Aplikasi BioTaxa sendiri (HTML, JavaScript, materi, kuis, kamus, lab, dan teks kartu spesies) adalah file statis. Di Cloudflare Pages, permintaan ke file statis gratis dan tidak dibatasi (*"Requests to static assets are free and unlimited"*), jadi bagian ini tidak menjadi masalah pada skala berapa pun.
+Aplikasi Biotaloka sendiri (HTML, JavaScript, materi, kuis, kamus, lab, dan teks kartu spesies) adalah file statis. Di Cloudflare Pages, permintaan ke file statis gratis dan tidak dibatasi (*"Requests to static assets are free and unlimited"*), jadi bagian ini tidak menjadi masalah pada skala berapa pun.
 
 Batasnya ada pada layanan data yang dipanggil aplikasi, terutama iNaturalist. Kebijakan resmi mereka, dari spesifikasi API-nya:
 
 > "we throttle API usage to a max of 100 requests per minute, though we ask that you try to keep it to 60 requests per minute or lower, and to keep under 10,000 requests per day. If we notice usage that has serious impact on our performance we may institute blocks without notification."
 
-Batas ini dihitung per alamat IP. Satu halaman BioTaxa memicu sekitar 1–3 permintaan ke iNaturalist. Bagi satu orang di rumah, jatah itu jauh dari habis. Masalahnya muncul bila banyak orang berbagi satu IP (lab sekolah, Wi-Fi sekolah, dan sebagian pengguna seluler yang berada di balik CGNAT), atau bila total lalu lintas dari BioTaxa cukup besar sehingga membebani iNaturalist.
+Batas ini dihitung per alamat IP. Satu halaman Biotaloka memicu sekitar 1–3 permintaan ke iNaturalist. Bagi satu orang di rumah, jatah itu jauh dari habis. Masalahnya muncul bila banyak orang berbagi satu IP (lab sekolah, Wi-Fi sekolah, dan sebagian pengguna seluler yang berada di balik CGNAT), atau bila total lalu lintas dari Biotaloka cukup besar sehingga membebani iNaturalist.
 
 GBIF lebih longgar, tetapi tetap perlu dipakai secara wajar.
 
@@ -61,16 +61,16 @@ Pada uji dengan runtime Cloudflare lokal, galeri, halaman spesies kurasi, pohon 
 iNaturalist dan GBIF adalah lembaga nirlaba. Keduanya terbuka untuk proyek pendidikan, tetapi perlu tahu lebih dulu bila lalu lintasnya besar. Hubungi mereka ketika:
 
 - Metrics Cloudflare menunjukkan edge cache rutin melewati 100.000 permintaan per hari, atau
-- BioTaxa mulai dipakai secara resmi oleh banyak sekolah atau dinas pendidikan.
+- Biotaloka mulai dipakai secara resmi oleh banyak sekolah atau dinas pendidikan.
 
 Kontak: iNaturalist di help@inaturalist.org, GBIF di helpdesk@gbif.org. Contoh email:
 
 ```text
-Subject: BioTaxa – open-source biodiversity education app for Indonesian schools
+Subject: Biotaloka – open-source biodiversity education app for Indonesian schools
 
 Hello,
 
-I maintain BioTaxa (https://github.com/asaddin02/asadin-edu-biotaxa), a free, open-source,
+I maintain Biotaloka (https://github.com/asaddin02/asadin-edu-biotaloka), a free, open-source,
 bilingual (Indonesian/English) biodiversity learning app for primary school to university
 students and their teachers. It uses the <iNaturalist / GBIF> API for species search,
 galleries and taxon pages, always with photo attribution and licences shown.
@@ -79,7 +79,7 @@ To keep our load low we:
 - serve the most requested responses from a nightly static snapshot (about <N> requests
   per night, paced at under one request per second),
 - cache all other responses at the edge (Cloudflare) for 15–60 minutes,
-- identify ourselves with the User-Agent "BioTaxa/3 (+https://github.com/asaddin02/asadin-edu-biotaxa)".
+- identify ourselves with the User-Agent "Biotaloka/3 (+https://github.com/asaddin02/asadin-edu-biotaloka)".
 
 We currently see about <number> visitors per day and expect <number> as more schools
 join. Could you let us know whether this usage is acceptable, and whether you would
@@ -94,4 +94,4 @@ Thank you for making this data available to learners.
 ## Langkah berikutnya bila masih kurang
 
 - **Tambah cakupan snapshot.** Tambahkan halaman yang sering dibuka ke daftar di `scripts/build-snapshot.mjs` (misalnya galeri halaman 3, atau kata pencarian yang sering muncul). Ukur dulu dari metrics.
-- **Basis data sendiri.** GBIF menyediakan unduhan data ber-DOI, dan iNaturalist menyediakan ekspor data terbuka. Keduanya bisa dimuat ke basis data milik BioTaxa. Ini butuh server dan biaya bulanan, jadi cocok ditutup dengan sponsor atau program sekolah berbayar (lihat [LICENSING.md](LICENSING.md)).
+- **Basis data sendiri.** GBIF menyediakan unduhan data ber-DOI, dan iNaturalist menyediakan ekspor data terbuka. Keduanya bisa dimuat ke basis data milik Biotaloka. Ini butuh server dan biaya bulanan, jadi cocok ditutup dengan sponsor atau program sekolah berbayar (lihat [LICENSING.md](LICENSING.md)).

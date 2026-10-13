@@ -1,4 +1,4 @@
-// BioTaxa entry point: global behaviour shared by every page.
+// Biotaloka entry point: global behaviour shared by every page.
 import { $, $$, toast } from './core/dom.js';
 import { applyDocument, onPrefs, update, level, lang } from './core/prefs.js';
 import { configureRouter, currentURL, render, startRouter } from './core/router.js';
@@ -61,7 +61,7 @@ export function enhance(root = document) {
     }
   });
 }
-window.addEventListener('biotaxa:enhance', event =>
+window.addEventListener('biotaloka:enhance', event =>
   enhance(event.target instanceof Element ? event.target : document)
 );
 
@@ -241,7 +241,7 @@ function registerServiceWorker() {
   // Automated tests intercept network requests, which a service worker would bypass.
   let forced = false;
   try {
-    forced = localStorage.getItem('biotaxa-force-sw') === '1';
+    forced = localStorage.getItem('biotaloka-force-sw') === '1';
   } catch {
     /* storage unavailable: not forced */
   }
@@ -266,7 +266,7 @@ function registerServiceWorker() {
       /* offline support is optional */
     });
   navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (window.__biotaxaUpdating) location.reload();
+    if (window.__biotalokaUpdating) location.reload();
   });
 }
 function showUpdate(worker) {
@@ -275,7 +275,7 @@ function showUpdate(worker) {
   bar.innerHTML = `<span>${ui.updateReady}</span> <button type="button" class="btn small">${ui.reload}</button>`;
   bar.hidden = false;
   bar.querySelector('button').addEventListener('click', () => {
-    window.__biotaxaUpdating = true;
+    window.__biotalokaUpdating = true;
     worker.postMessage({ type: 'SKIP_WAITING' });
   });
 }
