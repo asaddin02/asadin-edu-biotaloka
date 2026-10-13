@@ -71,7 +71,7 @@ Penyiapan (sekali saja):
 3. Salin **Account ID** dari **Workers & Pages** (panel kanan) di dashboard Cloudflare.
 4. Di GitHub, buka **Settings → Secrets and variables → Actions**, lalu isi:
    - _Secrets_: `CLOUDFLARE_API_TOKEN` dan `CLOUDFLARE_ACCOUNT_ID`.
-   - _Variables_: `CLOUDFLARE_PAGES_PROJECT`, misalnya `biotaloka`. Nama ini menjadi alamat `https://biotaloka.pages.dev` bila masih tersedia.
+   - _Variables_: `CLOUDFLARE_PAGES_PROJECT`, misalnya `biotaloka`. Situs terbit di https://biotaloka.asadinedu.com (custom domain di project Pages `biotaloka`; alamat `biotaloka.pages.dev` dialihkan ke sana).
 5. Buka **Actions → Deploy → Run workflow**, centang _Record a fresh API snapshot_, lalu jalankan. Deploy pertama memakan waktu sekitar 30 menit.
 6. Jika alamat situs berbeda (misalnya memakai domain sendiri), isi variable `SITE_URL`, misalnya `https://biotaloka.id`, agar pratinjau tautan di WhatsApp dan media sosial benar.
 

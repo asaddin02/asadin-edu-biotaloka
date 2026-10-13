@@ -34,7 +34,7 @@ test.afterEach(() => {
 });
 
 async function call(path, { method = 'GET', env = {} } = {}) {
-  const url = new URL(`https://biotaloka.pages.dev/api/${path}`);
+  const url = new URL(`https://biotaloka.asadinedu.com/api/${path}`);
   const pending = [];
   const response = await onRequest({
     request: new Request(url, { method }),

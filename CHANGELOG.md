@@ -2,7 +2,7 @@
 
 ## Nama baru: Biotaloka — 13 Oktober 2026
 
-- Berganti nama menjadi **Biotaloka** dan pindah ke https://biotaloka.pages.dev. Data yang tersimpan di browser pada alamat lama tidak ikut pindah: ekspor cadangan di situs lama, lalu impor di alamat baru.
+- Berganti nama menjadi **Biotaloka** dan pindah ke https://biotaloka.asadinedu.com. Data yang tersimpan di browser pada alamat lama tidak ikut pindah: ekspor cadangan di situs lama, lalu impor di alamat baru.
 
 ## Penyesuaian UI/UX setelah perluasan materi — 28 September 2026
 
