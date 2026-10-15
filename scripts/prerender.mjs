@@ -284,6 +284,12 @@ function homePage(topics) {
         '@type': 'WebSite',
         name: SITE_NAME,
         inLanguage: 'id',
+        publisher: {
+          '@type': 'Organization',
+          '@id': 'https://asadinedu.com/#organization',
+          name: 'Asadin Edu',
+          url: 'https://asadinedu.com/',
+        },
         potentialAction: {
           '@type': 'SearchAction',
           target: { '@type': 'EntryPoint', urlTemplate: '{site}/search?q={search_term_string}' },

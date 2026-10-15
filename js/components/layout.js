@@ -82,6 +82,7 @@ export function renderFooter() {
       <li><a href="/about#privasi">${s.privacy}</a></li>${extra}
     </ul></nav>
     <div class="footer-discover"><span class="eyebrow">${ui.footerCurious}</span><p>${ui.footerTagline}</p></div>
+    <p class="footer-family">${lang === 'id' ? 'Bagian dari' : 'Part of'} <a href="https://asadinedu.com/">Asadin Edu</a> · <a href="https://kimialoka.asadinedu.com/">Kimialoka</a> · <a href="https://fisikaloka.asadinedu.com/">Fisikaloka</a> · <a href="https://mitoloka.asadinedu.com/">Mitoloka</a> · <a href="https://kodeloka.asadinedu.com/">Kodeloka</a></p>
     <div class="footer-bottom"><span>© Biotaloka · Asadin Edu · ${s.version} ${esc(config.version)}</span><span>${ui.licenseLine}</span></div>`;
 }
 
