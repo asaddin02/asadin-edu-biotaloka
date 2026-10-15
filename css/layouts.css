@@ -1536,3 +1536,18 @@ main[data-page='guru'] > .page-head {
   cursor: pointer;
   font-weight: 700;
 }
+
+/* Layout stability (CLS). The app swaps the page content while it loads a route, so <main> keeps at
+   least a screen of height and the footer never jumps into view; the empty header placeholder holds
+   the height the rendered header will take. */
+#main {
+  min-height: 100vh;
+}
+#header:empty {
+  min-height: 67px;
+}
+@media (min-width: 900px) {
+  #header:empty {
+    min-height: 75px;
+  }
+}
